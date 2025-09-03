@@ -64,7 +64,7 @@ org_settings:
     enable_sso_idp_login: true
     entity_id: fleet.kitzy.net
     idp_image_url:
-    idp_name: Google
+    idp_name: Google SSO
     metadata: ${FLEET_SSO_METADATA}
     metadata_url:
     sso_server_url:
