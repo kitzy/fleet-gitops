@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadContent</key>
+			<dict>
+				<key>com.apple.SoftwareUpdate</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+								<key>AllowPreReleaseInstallation</key>
+								<false/>
+								<key>AutomaticCheckEnabled</key>
+								<true/>
+								<key>AutomaticDownload</key>
+								<true/>
+								<key>AutomaticallyInstallAppUpdates</key>
+								<true/>
+								<key>AutomaticallyInstallMacOSUpdates</key>
+								<true/>
+								<key>ConfigDataInstall</key>
+								<true/>
+								<key>CriticalUpdateInstall</key>
+								<true/>
+								<key>SUDisableEVCheck</key>
+								<false/>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.ManagedClient.preferences.DF92165D-839F-48F0-B075-723CE50C1906</string>
+			<key>PayloadType</key>
+			<string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadUUID</key>
+			<string>DF92165D-839F-48F0-B075-723CE50C1906</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>Software Updates</string>
+	<key>PayloadIdentifier</key>
+	<string>net.kitzy.fleet.69671EC9-FDED-4219-86FE-F27EFEF6BD4C</string>
+	<key>PayloadOrganization</key>
+	<string>fleet.kitzy.net</string>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>69671EC9-FDED-4219-86FE-F27EFEF6BD4C</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
