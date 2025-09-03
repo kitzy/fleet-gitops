@@ -65,7 +65,7 @@ org_settings:
     entity_id: fleet.kitzy.net
     idp_image_url:
     idp_name: Google
-    metadata: ${GOOGLE_SSO_METADATA}
+    metadata: ${FLEET_SSO_METADATA}
     metadata_url:
     sso_server_url:
   webhook_settings:
