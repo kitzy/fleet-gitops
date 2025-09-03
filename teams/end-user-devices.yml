@@ -39,6 +39,39 @@ name: End User Devices
 policies:
 queries:
 software:
+  packages:
+  - hash_sha256: 7dc293e2d8201f25489c2b2abf88852588a41a7382a98e6e65bb32a4fbd2ac8a
+      # Google Chrome (GoogleChrome.pkg) version 140.0.7339.81
+    install_script:
+      path: ../lib/end-user-devices/scripts/google-chrome-darwin-install
+    self_service: true
+    uninstall_script:
+      path: ../lib/end-user-devices/scripts/google-chrome-darwin-uninstall
+    url: https://dl.google.com/dl/chrome/mac/universal/stable/gcem/GoogleChrome.pkg
+  - hash_sha256: 8bd6fa2324defb1ab3302d186192d738c8e68bdca5def2558058dfb12b56239e
+      # Notion (Notion-4.18.1-arm64.dmg) version 4.18.1
+    install_script:
+      path: ../lib/end-user-devices/scripts/notion-darwin-install
+    self_service: true
+    uninstall_script:
+      path: ../lib/end-user-devices/scripts/notion-darwin-uninstall
+    url: https://desktop-release.notion-static.com/Notion-4.18.1-arm64.dmg
+  - hash_sha256: 31a3f08f49e27a1c0d6224a5f0677329217599eccab481620266730566f0abd0
+      # Slack (Slack-4.45.69-macOS.dmg) version 4.45.69
+    install_script:
+      path: ../lib/end-user-devices/scripts/slack-darwin-install
+    self_service: true
+    uninstall_script:
+      path: ../lib/end-user-devices/scripts/slack-darwin-uninstall
+    url: https://downloads.slack-edge.com/desktop-releases/mac/arm64/4.45.69/Slack-4.45.69-macOS.dmg
+  - hash_sha256: b1029ed96599c793694e2a3cd39ffcf4747aa6f55f0d2cee9d1e3945cf7965d0
+      # zoom.us (ZoomInstallerIT.pkg) version 6.5.12.63499
+    install_script:
+      path: ../lib/end-user-devices/scripts/zoomus-darwin-install
+    self_service: true
+    uninstall_script:
+      path: ../lib/end-user-devices/scripts/zoomus-darwin-uninstall
+    url: https://cdn.zoom.us/prod/6.5.12.63499/ZoomInstallerIT.pkg
 team_settings:
   features:
     enable_host_users: true
