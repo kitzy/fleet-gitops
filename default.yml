@@ -67,7 +67,7 @@ org_settings:
     idp_name: Authentik SSO
     metadata: 
     metadata_url: https://auth.kitzy.net/application/saml/fleet/metadata/
-    sso_server_url: https://auth.kitzy.net
+    sso_server_url: https://fleet.kitzy.net
   webhook_settings:
     activities_webhook:
       destination_url:
