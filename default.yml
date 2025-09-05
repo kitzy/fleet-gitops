@@ -64,10 +64,10 @@ org_settings:
     enable_sso_idp_login: true
     entity_id: fleet.kitzy.net
     idp_image_url:
-    idp_name: Google SSO
-    metadata: ${FLEET_SSO_METADATA}
-    metadata_url:
-    sso_server_url:
+    idp_name: Authentik SSO
+    metadata: 
+    metadata_url: https://auth.kitzy.net/application/saml/fleet/metadata/
+    sso_server_url: https://auth.kitzy.net
   webhook_settings:
     activities_webhook:
       destination_url:
