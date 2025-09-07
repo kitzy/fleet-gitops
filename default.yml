@@ -16,19 +16,11 @@ agent_options:
 labels:
   - name: macOS hosts
     description: All macOS hosts
-    query: SELECT 1 FROM system_info WHERE platform = 'darwin';
-    label_membership_type: dynamic
-  - name: iOS hosts
-    description: All iOS hosts
-    query: SELECT 1 FROM system_info WHERE platform = 'ios';
-    label_membership_type: dynamic
-  - name: Linux hosts
-    description: All Linux hosts
-    query: SELECT 1 FROM system_info WHERE platform = 'linux';
+    query: SELECT 1 FROM os_version WHERE platform = 'darwin';
     label_membership_type: dynamic
   - name: Ubuntu Linux hosts
     description: All Ubuntu Linux hosts
-    query: SELECT 1 FROM os_version WHERE platform = 'linux' AND name LIKE '%Ubuntu%';
+    query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';
     label_membership_type: dynamic
 org_settings:
   features:
