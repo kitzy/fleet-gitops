@@ -5,7 +5,7 @@
     <key>PayloadDescription</key>
     <string>Enable the macOS Application Firewall</string>
     <key>PayloadDisplayName</key>
-    <string>Firewall - Enable + Stealth</string>
+    <string>Firewall - Enable</string>
     <key>PayloadIdentifier</key>
     <string>com.apple.mobiledevice.firewall.599D71B2-14F3-49FC-857D-D6BAB3CDF8C9</string>
     <key>PayloadOrganization</key>
