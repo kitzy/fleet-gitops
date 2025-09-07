@@ -32,6 +32,7 @@ controls:
   macos_settings:
     custom_settings:
       - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
+      - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
   scripts:
     - path: ../lib/macos/scripts/remove-zoom-artifacts.script.sh
     - path: ../lib/macos/scripts/set-timezone.script.sh
