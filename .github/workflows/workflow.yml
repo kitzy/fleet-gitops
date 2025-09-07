@@ -11,8 +11,10 @@ on:
 
 # Prevent concurrent runs of this workflow.
 concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: false
+  # unique per event + ref so runs from other branches/PRs don’t block each other
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  # cancel older runs on the same PR/branch so only the latest commit’s check remains
+  cancel-in-progress: true
 
 defaults:
   run:
@@ -40,6 +42,7 @@ jobs:
           FLEET_URL: ${{ secrets.FLEET_URL }}
           FLEET_API_TOKEN: ${{ secrets.FLEET_API_TOKEN }}
           GLOBAL_ENROLL_SECRET: ${{ secrets.GLOBAL_ENROLL_SECRET }}
-          SERVERS_ENROLL_SECRET: ${{ secrets.SERVERS_ENROLL_SECRET }}
-          END_USER_DEVICES_ENROLL_SECRET: ${{ secrets.END_USER_DEVICES_ENROLL_SECRET }}
           GOOGLE_SSO_METADATA: ${{ secrets.GOOGLE_SSO_METADATA }}
+          FLEET_SERVERS_ENROLL_SECRET: ${{ secrets.FLEET_SERVERS_ENROLL_SECRET }}
+          FLEET_WORKSTATIONS_CANARY_ENROLL_SECRET: ${{ secrets.FLEET_WORKSTATIONS_CANARY_ENROLL_SECRET }}
+          FLEET_WORKSTATIONS_ENROLL_SECRET: ${{ secrets.FLEET_WORKSTATIONS_ENROLL_SECRET }}
