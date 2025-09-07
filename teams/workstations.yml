@@ -27,4 +27,7 @@ team_settings:
   features:
     enable_host_users: true
     enable_software_inventory: true
+  mdm:
+    macos_settings:
+      enable_disk_encryption: true
 software:
