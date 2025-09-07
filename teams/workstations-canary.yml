@@ -31,18 +31,18 @@ controls:
     minimum_version: "18.6.2"
   macos_settings:
     custom_settings:
-      - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
-        labels_include_any:
-          - macOS
-      - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
-        labels_include_any:
-          - macOS
-      - path: ../lib/macos/configuration-profiles/macos-disableGuest.mobileconfig
-        labels_include_any:
-          - macOS
-      - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
-        labels_include_any:
-          - macOS
+        - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
+          labels_include_any:
+            - macOS hosts
+        - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
+          labels_include_any:
+            - macOS hosts
+        - path: ../lib/macos/configuration-profiles/macos-disableGuest.mobileconfig
+          labels_include_any:
+            - macOS hosts
+        - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
+          labels_include_any:
+            - macOS hosts
   scripts:
     - path: ../lib/macos/scripts/remove-zoom-artifacts.script.sh
     - path: ../lib/macos/scripts/set-timezone.script.sh
