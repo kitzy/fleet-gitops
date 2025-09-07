@@ -89,3 +89,4 @@ org_settings:
       host_batch_size: 0
   yara_rules:
 policies:
+queries:
