@@ -31,3 +31,29 @@
             name='minLength' AND 
             CAST(value AS INT) <= 8
         );
+- name: macOS - Software Update baseline
+  platform: darwin
+  description: This policy checks if automatic updates are enabled.
+  query: |
+    WITH vals AS (
+      SELECT
+        lower(MAX(CASE WHEN key='AllowPreReleaseInstallation'       THEN value END)) AS prerelease,
+        lower(MAX(CASE WHEN key='AutomaticCheckEnabled'             THEN value END)) AS check_enabled,
+        lower(MAX(CASE WHEN key='AutomaticDownload'                 THEN value END)) AS auto_download,
+        lower(MAX(CASE WHEN key='AutomaticallyInstallAppUpdates'    THEN value END)) AS auto_app_updates,
+        lower(MAX(CASE WHEN key='AutomaticallyInstallMacOSUpdates'  THEN value END)) AS auto_macos_updates,
+        lower(MAX(CASE WHEN key='ConfigDataInstall'                 THEN value END)) AS config_data,
+        lower(MAX(CASE WHEN key='CriticalUpdateInstall'             THEN value END)) AS critical_updates
+      FROM preferences
+      WHERE domain = 'com.apple.SoftwareUpdate'
+    )
+    SELECT 1
+    FROM vals
+    WHERE prerelease         IN ('false','0')
+      AND check_enabled      IN ('true','1')
+      AND auto_download      IN ('true','1')
+      AND auto_app_updates   IN ('false','0')
+      AND auto_macos_updates IN ('false','0')
+      AND config_data        IN ('true','1')
+      AND critical_updates   IN ('true','1');
+  resolution: An an IT admin, deploy a macOS, SoftwareUpdate profile.
