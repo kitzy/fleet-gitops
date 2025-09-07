@@ -7,8 +7,18 @@
 		<dict>
 			<key>AllowPreReleaseInstallation</key>
 			<false/>
+			<key>AutomaticCheckEnabled</key>
+			<true/>
+			<key>AutomaticDownload</key>
+			<true/>
+			<key>AutomaticallyInstallAppUpdates</key>
+			<false/>
 			<key>AutomaticallyInstallMacOSUpdates</key>
 			<false/>
+			<key>ConfigDataInstall</key>
+			<true/>
+			<key>CriticalUpdateInstall</key>
+			<true/>
 			<key>PayloadDisplayName</key>
 			<string>Software Update</string>
 			<key>PayloadIdentifier</key>
