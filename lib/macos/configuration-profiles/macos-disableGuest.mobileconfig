@@ -7,7 +7,7 @@
     <key>PayloadVersion</key>
     <integer>1</integer>
     <key>PayloadIdentifier</key>
-    <string>com.apple.mobiledevice.mcx.19359FA0-8B85-47F0-900D-0A5711CE5277</string>
+    <string>com.apple.mobiledevice.loginwindow.19359FA0-8B85-47F0-900D-0A5711CE5277</string>
     <key>PayloadUUID</key>
     <string>19359FA0-8B85-47F0-900D-0A5711CE5277</string>
     <key>PayloadDisplayName</key>
@@ -23,22 +23,16 @@
     <array>
       <dict>
         <key>PayloadType</key>
-        <string>com.apple.MCX</string>
+        <string>com.apple.loginwindow</string>
         <key>PayloadVersion</key>
         <integer>1</integer>
         <key>PayloadIdentifier</key>
-        <string>com.apple.mobiledevice.mcx.8822152B-09A6-4C98-85A8-B6C1F91523D1</string>
+        <string>com.apple.mobiledevice.loginwindow.8822152B-09A6-4C98-85A8-B6C1F91523D1</string>
         <key>PayloadUUID</key>
         <string>8822152B-09A6-4C98-85A8-B6C1F91523D1</string>
         <key>PayloadDisplayName</key>
-        <string>MCX Other</string>
-
-        <!-- Turn off Guest user -->
+        <string>Login Window</string>
         <key>DisableGuestAccount</key>
-        <true/>
-
-        <!-- Optional: also block Guest access to shared folders -->
-        <key>DisableGuestSharedFolders</key>
         <true/>
       </dict>
     </array>
