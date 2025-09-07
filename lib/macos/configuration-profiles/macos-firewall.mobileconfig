@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>PayloadDescription</key>
+    <string>Enable the macOS Application Firewall</string>
+    <key>PayloadDisplayName</key>
+    <string>Firewall - Enable + Stealth</string>
+    <key>PayloadIdentifier</key>
+    <string>com.apple.mobiledevice.firewall.599D71B2-14F3-49FC-857D-D6BAB3CDF8C9</string>
+    <key>PayloadOrganization</key>
+    <string>Kitzy.net</string>
+    <key>PayloadRemovalDisallowed</key>
+    <true/>
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>599D71B2-14F3-49FC-857D-D6BAB3CDF8C9</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+
+    <key>PayloadContent</key>
+    <array>
+      <dict>
+        <key>PayloadType</key>
+        <string>com.apple.security.firewall</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadIdentifier</key>
+        <string>net.kitzy.mdm.firewall.payload</string>
+        <key>PayloadUUID</key>
+        <string>ADF23558-C687-44BC-979F-4AD8C9A610FB</string>
+        <key>PayloadDisplayName</key>
+        <string>Firewall</string>
+        <key>EnableFirewall</key>
+        <true/>
+        <key>EnableStealthMode</key>
+        <false/>
+        <key>BlockAllIncoming</key>
+        <false/>
+      </dict>
+    </array>
+  </dict>
+</plist>
