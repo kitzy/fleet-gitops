@@ -1,69 +1,10 @@
-controls:
-  enable_disk_encryption: false
-  ios_updates:
-    deadline:
-    minimum_version:
-  ipados_updates:
-    deadline:
-    minimum_version:
-  macos_migration:
-    enable: false
-    mode:
-    webhook_url:
-  macos_updates:
-    deadline:
-    minimum_version:
-  scripts:
-  windows_migration_enabled: false
-  windows_require_bitlocker_pin: false
-  windows_updates:
-    deadline_days:
-    grace_period_days:
+# Teams are available in Fleet Premium.
+
+# This file updates policies, controls, and software for hosts assigned to "No team."
+
+# To update queries and agent options for hosts assigned to "No team," use the default.yml file.
+
 name: No team
 policies:
-- calendar_events_enabled: false
-  conditional_access_enabled: false
-  critical: false
-  description: Policy triggers automatic install of Google Chrome on each host that's
-    missing this software.
-  install_software:
-    hash_sha256: 7dc293e2d8201f25489c2b2abf88852588a41a7382a98e6e65bb32a4fbd2ac8a
-      # Google Chrome (GoogleChrome.pkg) version 140.0.7339.81
-  name: '[Install software] Google Chrome'
-  platform: darwin
-  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.google.Chrome';
-  resolution:
+controls: # This cannot be set here and in default.yml
 software:
-  packages:
-  - hash_sha256: 7dc293e2d8201f25489c2b2abf88852588a41a7382a98e6e65bb32a4fbd2ac8a
-      # Google Chrome (GoogleChrome.pkg) version 140.0.7339.81
-    install_script:
-      path: ../lib/no-team/scripts/google-chrome-darwin-install
-    self_service: true
-    uninstall_script:
-      path: ../lib/no-team/scripts/google-chrome-darwin-uninstall
-    url: https://dl.google.com/dl/chrome/mac/universal/stable/gcem/GoogleChrome.pkg
-  - hash_sha256: 8bd6fa2324defb1ab3302d186192d738c8e68bdca5def2558058dfb12b56239e
-      # Notion (Notion-4.18.1-arm64.dmg) version 4.18.1
-    install_script:
-      path: ../lib/no-team/scripts/notion-darwin-install
-    self_service: true
-    uninstall_script:
-      path: ../lib/no-team/scripts/notion-darwin-uninstall
-    url: https://desktop-release.notion-static.com/Notion-4.18.1-arm64.dmg
-  - hash_sha256: 31a3f08f49e27a1c0d6224a5f0677329217599eccab481620266730566f0abd0
-      # Slack (Slack-4.45.69-macOS.dmg) version 4.45.69
-    install_script:
-      path: ../lib/no-team/scripts/slack-darwin-install
-    self_service: true
-    uninstall_script:
-      path: ../lib/no-team/scripts/slack-darwin-uninstall
-    url: https://downloads.slack-edge.com/desktop-releases/mac/arm64/4.45.69/Slack-4.45.69-macOS.dmg
-  - hash_sha256: b1029ed96599c793694e2a3cd39ffcf4747aa6f55f0d2cee9d1e3945cf7965d0
-      # zoom.us (ZoomInstallerIT.pkg) version 6.5.12.63499
-    install_script:
-      path: ../lib/no-team/scripts/zoomus-darwin-install
-    self_service: true
-    uninstall_script:
-      path: ../lib/no-team/scripts/zoomus-darwin-uninstall
-    url: https://cdn.zoom.us/prod/6.5.12.63499/ZoomInstallerIT.pkg
