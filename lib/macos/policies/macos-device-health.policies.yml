@@ -31,22 +31,3 @@
             name='minLength' AND 
             CAST(value AS INT) <= 8
         );
-- name: macOS - Enable screen saver after 20 minutes
-  platform: darwin
-  description: This policy checks if maximum amount of time (in minutes) the device is allowed to sit idle before the screen is locked. End users can select any value less than the specified maximum.
-  resolution: An an IT admin, deploy a macOS, screen saver profile with the maxInactivity option set to 20 minutes.
-  query: |
-    SELECT 1 WHERE 
-      EXISTS (
-        SELECT 1 FROM managed_policies WHERE 
-            domain='com.apple.screensaver' AND 
-            name='idleTime' AND 
-            CAST(value AS INT) <= 1200 AND 
-            username = ''
-        )
-      AND NOT EXISTS (
-        SELECT 1 FROM managed_policies WHERE 
-            domain='com.apple.screensaver' AND 
-            name='idleTime' AND 
-            CAST(value AS INT) > 1200
-        );
