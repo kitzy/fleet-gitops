@@ -3,5 +3,5 @@
   query: SELECT model, vendor FROM usb_devices;
   interval: 360 # 6 minutes
   observer_can_run: true
-  automations_enabled: false
+  automations_enabled: true
   platform: darwin,linux
