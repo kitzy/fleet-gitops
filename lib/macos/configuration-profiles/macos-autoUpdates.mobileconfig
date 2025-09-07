@@ -12,7 +12,7 @@
 			<key>AutomaticDownload</key>
 			<true/>
 			<key>AutomaticallyInstallAppUpdates</key>
-			<false/>
+			<true/>
 			<key>AutomaticallyInstallMacOSUpdates</key>
 			<false/>
 			<key>ConfigDataInstall</key>
