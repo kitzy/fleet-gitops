@@ -11,8 +11,10 @@ on:
 
 # Prevent concurrent runs of this workflow.
 concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: false
+  # unique per event + ref so runs from other branches/PRs don’t block each other
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  # cancel older runs on the same PR/branch so only the latest commit’s check remains
+  cancel-in-progress: true
 
 defaults:
   run:
