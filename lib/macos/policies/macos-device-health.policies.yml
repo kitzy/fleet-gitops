@@ -52,7 +52,7 @@
     WHERE prerelease         IN ('false','0')
       AND check_enabled      IN ('true','1')
       AND auto_download      IN ('true','1')
-      AND auto_app_updates   IN ('false','0')
+      AND auto_app_updates   IN ('true','1')
       AND auto_macos_updates IN ('false','0')
       AND config_data        IN ('true','1')
       AND critical_updates   IN ('true','1');
