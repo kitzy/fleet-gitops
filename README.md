@@ -1,7 +1,8 @@
 # fleet-gitops
 
-**This is the actual repository I use in production to manage my devices via [Fleet](https://fleetdm.com).**  
-The repo contains all Fleet configuration—policies, queries, scripts, and GitHub Actions—needed to keep my macOS, Windows, and Linux hosts in compliance using a GitOps workflow.
+**This is the actual repository I use in production to manage my personal devices via [Fleet](https://fleetdm.com).**  
+
+The repo contains all Fleet configuration (policies, queries, scripts, and GitHub Actions) needed to keep my macOS, Windows, and Linux hosts in compliance using a GitOps workflow.
 
 ---
 
@@ -95,7 +96,7 @@ Because raw SAML metadata often breaks YAML formatting, `gitops.sh` re-indents m
 
 ## Contributing / Notes to Self
 
-- All changes are applied automatically—be cautious when committing to `main`.
+- All changes are applied automatically, be cautious when merging to `main`.
 - Use pull requests and review dry-run output before merging.
 - Remember that this repo is **live** for my device fleet; test changes carefully.
 
