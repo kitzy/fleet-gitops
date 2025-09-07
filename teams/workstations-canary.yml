@@ -19,6 +19,7 @@ queries:
 agent_options:
   path: ../lib/agent-options.yml
 controls:
+  enable_disk_encryption: true
   scripts:
     - path: ../lib/macos/scripts/remove-zoom-artifacts.script.sh
     - path: ../lib/macos/scripts/set-timezone.script.sh
@@ -28,8 +29,5 @@ team_settings:
   features:
     enable_host_users: true
     enable_software_inventory: true
-  mdm:
-    macos_settings:
-      enable_disk_encryption: true
 software:
 
