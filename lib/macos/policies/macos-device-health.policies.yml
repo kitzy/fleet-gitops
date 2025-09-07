@@ -31,29 +31,44 @@
             name='minLength' AND 
             CAST(value AS INT) <= 8
         );
-- name: macOS - Software Update baseline
+- name: macOS - Software Update - Disallow pre-release installation
   platform: darwin
-  description: This policy checks if automatic updates are enabled.
-  query: |
-    WITH vals AS (
-      SELECT
-        lower(MAX(CASE WHEN key='AllowPreReleaseInstallation'       THEN value END)) AS prerelease,
-        lower(MAX(CASE WHEN key='AutomaticCheckEnabled'             THEN value END)) AS check_enabled,
-        lower(MAX(CASE WHEN key='AutomaticDownload'                 THEN value END)) AS auto_download,
-        lower(MAX(CASE WHEN key='AutomaticallyInstallAppUpdates'    THEN value END)) AS auto_app_updates,
-        lower(MAX(CASE WHEN key='AutomaticallyInstallMacOSUpdates'  THEN value END)) AS auto_macos_updates,
-        lower(MAX(CASE WHEN key='ConfigDataInstall'                 THEN value END)) AS config_data,
-        lower(MAX(CASE WHEN key='CriticalUpdateInstall'             THEN value END)) AS critical_updates
-      FROM preferences
-      WHERE domain = 'com.apple.SoftwareUpdate'
-    )
-    SELECT 1
-    FROM vals
-    WHERE prerelease         IN ('false','0')
-      AND check_enabled      IN ('true','1')
-      AND auto_download      IN ('true','1')
-      AND auto_app_updates   IN ('true','1')
-      AND auto_macos_updates IN ('false','0')
-      AND config_data        IN ('true','1')
-      AND critical_updates   IN ('true','1');
-  resolution: An an IT admin, deploy a macOS, SoftwareUpdate profile.
+  description: This policy checks that pre-release macOS updates are not offered to users.
+  resolution: As an IT admin, deploy or update a macOS Software Update profile (domain com.apple.SoftwareUpdate) with AllowPreReleaseInstallation set to false at the system scope.
+  query: SELECT 1 FROM managed_policies WHERE domain='com.apple.SoftwareUpdate' AND username='' AND name='AllowPreReleaseInstallation' AND CAST(value AS INT)=0;
+
+- name: macOS - Software Update - Automatic check enabled
+  platform: darwin
+  description: This policy checks that the system automatically checks for software updates.
+  resolution: As an IT admin, deploy or update a macOS Software Update profile (domain com.apple.SoftwareUpdate) with AutomaticCheckEnabled set to true at the system scope.
+  query: SELECT 1 FROM managed_policies WHERE domain='com.apple.SoftwareUpdate' AND username='' AND name='AutomaticCheckEnabled' AND CAST(value AS INT)=1;
+
+- name: macOS - Software Update - Automatic download enabled
+  platform: darwin
+  description: This policy checks that available updates are downloaded automatically.
+  resolution: As an IT admin, deploy or update a macOS Software Update profile (domain com.apple.SoftwareUpdate) with AutomaticDownload set to true at the system scope.
+  query: SELECT 1 FROM managed_policies WHERE domain='com.apple.SoftwareUpdate' AND username='' AND name='AutomaticDownload' AND CAST(value AS INT)=1;
+
+- name: macOS - Software Update - Auto-install App Store updates
+  platform: darwin
+  description: This policy checks that App Store updates are auto-installed.
+  resolution: As an IT admin, deploy or update a macOS Software Update profile (domain com.apple.SoftwareUpdate) with AutomaticallyInstallAppUpdates set to true at the system scope.
+  query: SELECT 1 FROM managed_policies WHERE domain='com.apple.SoftwareUpdate' AND username='' AND name='AutomaticallyInstallAppUpdates' AND CAST(value AS INT)=1;
+
+- name: macOS - Software Update - Do not auto-install macOS updates
+  platform: darwin
+  description: This policy checks that macOS updates are not auto-installed (installation remains admin-driven).
+  resolution: As an IT admin, deploy or update a macOS Software Update profile (domain com.apple.SoftwareUpdate) with AutomaticallyInstallMacOSUpdates set to false at the system scope.
+  query: SELECT 1 FROM managed_policies WHERE domain='com.apple.SoftwareUpdate' AND username='' AND name='AutomaticallyInstallMacOSUpdates' AND CAST(value AS INT)=0;
+
+- name: macOS - Software Update - Install configuration data
+  platform: darwin
+  description: This policy checks that system data files and security configuration updates are enabled.
+  resolution: As an IT admin, deploy or update a macOS Software Update profile (domain com.apple.SoftwareUpdate) with ConfigDataInstall set to true at the system scope.
+  query: SELECT 1 FROM managed_policies WHERE domain='com.apple.SoftwareUpdate' AND username='' AND name='ConfigDataInstall' AND CAST(value AS INT)=1;
+
+- name: macOS - Software Update - Install critical updates
+  platform: darwin
+  description: This policy checks that critical updates are installed automatically.
+  resolution: As an IT admin, deploy or update a macOS Software Update profile (domain com.apple.SoftwareUpdate) with CriticalUpdateInstall set to true at the system scope.
+  query: SELECT 1 FROM managed_policies WHERE domain='com.apple.SoftwareUpdate' AND username='' AND name='CriticalUpdateInstall' AND CAST(value AS INT)=1;
