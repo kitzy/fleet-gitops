@@ -70,11 +70,11 @@ org_settings:
     enable_jit_provisioning: false
     enable_sso: true
     enable_sso_idp_login: true
-    entity_id: fleet.kitzy.net
+    entity_id: authentik
     idp_image_url:
     idp_name: Authentik SSO
     metadata: 
-    metadata_url: https://auth.kitzy.net/application/saml/fleet/metadata/
+    metadata_url: https://auth.kitzy.net/application/saml/fleet-admin/metadata/
     sso_server_url: https://fleet.kitzy.net
   webhook_settings:
     activities_webhook:
