@@ -70,7 +70,7 @@ org_settings:
     enable_jit_provisioning: false
     enable_sso: true
     enable_sso_idp_login: true
-    entity_id: fleet.kitzy.net
+    entity_id: authentik
     idp_image_url:
     idp_name: Authentik SSO
     metadata: 
