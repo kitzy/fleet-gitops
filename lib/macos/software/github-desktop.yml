@@ -1,6 +1,5 @@
-package:
-  name: Github Desktop
-  version: 3.5.2
-  platform: darwin
-  hash_sha256: 4d9bee7806d5d3c87dbef20d2f2b3beaa41e67e26aba11df1c07c1b83f90b31f
-  self_service: true
+name: Github Desktop
+version: 3.5.2
+platform: darwin
+hash_sha256: 4d9bee7806d5d3c87dbef20d2f2b3beaa41e67e26aba11df1c07c1b83f90b31f
+self_service: true
