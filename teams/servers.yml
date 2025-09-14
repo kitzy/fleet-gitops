@@ -20,8 +20,6 @@ agent_options:
   path: ../lib/agent-options.yml
 controls:
   scripts:
-    - path: ../lib/macos/scripts/remove-zoom-artifacts.script.sh
-    - path: ../lib/macos/scripts/set-timezone.script.sh
 team_settings:
   secrets:
     - secret: "$FLEET_SERVERS_ENROLL_SECRET"
