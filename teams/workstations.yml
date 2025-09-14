@@ -53,6 +53,7 @@ team_settings:
     enable_host_users: true
     enable_software_inventory: true
 software:
-  - package_path: ../lib/macos/software/google-chrome.yml # Google Chrome for macOS
-  - package_path: ../lib/macos/software/zoom.yml # Zoom for macOS
-  - package_path: ../lib/macos/software/1password.yml # 1Password for macOS
+  packages:
+    - path: ../lib/macos/software/google-chrome.yml # Google Chrome for macOS
+    - path: ../lib/macos/software/zoom.yml # Zoom for macOS
+    - path: ../lib/macos/software/1password.yml # 1Password for macOS
