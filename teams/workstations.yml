@@ -1,57 +1,49 @@
-# Teams are available in Fleet Premium.
-
-# This file updates policies, queries, agent options, controls, and software for hosts assigned to the "Workstations" team.
-
-# To add another team, create a new file in the teams/ directory and copy and paste the contents from this file.
-# Update the secret in the new file, then create the corresponding secret in GitHub Actions secrets.
-# Then add that secret to .github/workflows/workflow.yml as an env variable.
-# The secret name in the YAML file must match the secret name in GitHub Actions secrets.
-
 name: Workstations
 policies:
-  - path: ../lib/macos/policies/macos-device-health.policies.yml
-  - path: ../lib/windows/policies/windows-device-health.policies.yml
-  - path: ../lib/linux/policies/linux-device-health.policies.yml
+- path: ../lib/macos/policies/macos-device-health.policies.yml
+- path: ../lib/windows/policies/windows-device-health.policies.yml
+- path: ../lib/linux/policies/linux-device-health.policies.yml
 queries:
-  - path: ../lib/all/queries/collect-usb-devices.queries.yml
-  - path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
-  - path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
+- path: ../lib/all/queries/collect-usb-devices.queries.yml
+- path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
+- path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
 agent_options:
   path: ../lib/agent-options.yml
 controls:
   enable_disk_encryption: true
   macos_updates:
-    deadline: "2025-09-10"
-    minimum_version: "15.6.1"
+    deadline: '2025-09-10'
+    minimum_version: 15.6.1
   ios_updates:
-    deadline: "2025-09-10"
-    minimum_version: "18.6.2"
+    deadline: '2025-09-10'
+    minimum_version: 18.6.2
   ipados_updates:
-    deadline: "2025-09-10"
-    minimum_version: "18.6.2"
+    deadline: '2025-09-10'
+    minimum_version: 18.6.2
   macos_settings:
     custom_settings:
-        - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
-          labels_include_any:
-            - macOS hosts
-        - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
-          labels_include_any:
-            - macOS hosts
-        - path: ../lib/macos/configuration-profiles/macos-disableGuest.mobileconfig
-          labels_include_any:
-            - macOS hosts
-        - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
-          labels_include_any:
-            - macOS hosts
-  scripts:
+    - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../lib/macos/configuration-profiles/macos-disableGuest.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
+      labels_include_any:
+      - macOS hosts
+  scripts: null
 team_settings:
   secrets:
-    - secret: "$FLEET_WORKSTATIONS_ENROLL_SECRET"
+  - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET
   features:
     enable_host_users: true
     enable_software_inventory: true
 software:
   packages:
-    - path: ../lib/macos/software/google-chrome.yml # Google Chrome for macOS
-    - path: ../lib/macos/software/zoom.yml # Zoom for macOS
-    - path: ../lib/macos/software/1password.yml # 1Password for macOS
+  - path: ../lib/macos/software/google-chrome.yml
+  - path: ../lib/macos/software/zoom.yml
+  - path: ../lib/macos/software/1password.yml
+  - path: ../lib/macos/software/github-desktop.yml
