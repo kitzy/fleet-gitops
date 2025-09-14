@@ -44,8 +44,6 @@ controls:
           labels_include_any:
             - macOS hosts
   scripts:
-    - path: ../lib/macos/scripts/remove-zoom-artifacts.script.sh
-    - path: ../lib/macos/scripts/set-timezone.script.sh
 team_settings:
   secrets:
     - secret: "$FLEET_WORKSTATIONS_ENROLL_SECRET"
@@ -53,3 +51,7 @@ team_settings:
     enable_host_users: true
     enable_software_inventory: true
 software:
+  packages:
+    - path: ../lib/macos/software/google-chrome.yml # Google Chrome for macOS
+    - path: ../lib/macos/software/zoom.yml # Zoom for macOS
+    - path: ../lib/macos/software/1password.yml # 1Password for macOS
