@@ -41,3 +41,4 @@ software:
   - path: ../lib/macos/software/zoom.yml
   - path: ../lib/macos/software/1password.yml
   - path: ../lib/macos/software/github-desktop.yml
+  - path: ../lib/macos/software/caffeine.yml
