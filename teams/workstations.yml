@@ -28,6 +28,9 @@ controls:
     - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
       labels_include_any:
       - macOS hosts
+    - path: ../lib/macos/configuration-profiles/macos-deferUpdate.mobileconfig
+      labels_include_any:
+      - macOS hosts
   scripts: null
 team_settings:
   secrets:
