@@ -37,11 +37,7 @@ team_settings:
     enable_software_inventory: true
 software:
   packages:
-  - path: ../lib/macos/software/google-chrome.yml
-  - path: ../lib/macos/software/zoom.yml
-  - path: ../lib/macos/software/1password.yml
   - path: ../lib/macos/software/github-desktop.yml
   - path: ../lib/macos/software/caffeine.yml
   - path: ../lib/macos/software/gpg-suite.yml
-    self_service: true
   - path: ../lib/macos/software/signal.yml
