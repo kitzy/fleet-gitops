@@ -41,4 +41,3 @@ software:
   - path: ../lib/macos/software/caffeine.yml
   - path: ../lib/macos/software/gpg-suite.yml
   - path: ../lib/macos/software/signal.yml
-  - path: ../lib/macos/software/zoom.yml
