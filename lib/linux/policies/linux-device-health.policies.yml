@@ -3,9 +3,9 @@
   description: PermitRootLogin is disabled
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PermitRootLogin' AND value='no';
-- name: Check if PasswordAuthentication is disabled
+- name: PasswordAuthentication is disabled
   platform: linux
-  description: PasswordAuthentication is disabled
+  description: Check if PasswordAuthentication is disabled
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PasswordAuthentication' AND value='no';
 - name: ChallengeResponseAuthentication is disabled
