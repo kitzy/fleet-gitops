@@ -1,0 +1,5 @@
+name: Google Chrome
+version: 141.0.7390.55
+platform: darwin
+hash_sha256: 3e553a152fc088c990992b6218c690c331d5950318276baefcdbe7ef8ac1d470
+self_service: true
