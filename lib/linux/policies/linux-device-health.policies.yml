@@ -3,3 +3,23 @@
   description: This policy checks if disk encryption is enabled.
   resolution: As an IT admin, deploy an image that includes disk encryption.
   query: SELECT 1 FROM disk_encryption WHERE encrypted=1 AND name LIKE '/dev/dm-1';
+- name: Check if PermitRootLogin is disabled
+  platform: linux
+  description: Check if PermitRootLogin is disabled
+  resolution: TODO
+  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND key='PermitRootLogin' AND value='no';
+- name: Check if PasswordAuthentication is disabled
+  platform: linux
+  description: Check if PasswordAuthentication is disabled
+  resolution: TODO
+  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND key='PasswordAuthentication' AND value='no';
+- name: Check if ChallengeResponseAuthentication is disabled
+  platform: linux
+  description: Check if ChallengeResponseAuthentication is disabled
+  resolution: TODO
+  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND key='ChallengeResponseAuthentication' AND value='no';
+- name: Check if PubkeyAuthentication is enabled
+  platform: linux
+  description: Check if PubkeyAuthentication is enabled
+  resolution: TODO
+  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND key='PubkeyAuthentication' AND value='yes';
