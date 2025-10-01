@@ -2,19 +2,19 @@
   platform: linux
   description: Check if PermitRootLogin is disabled
   resolution: TODO
-  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND key='PermitRootLogin' AND value='no';
+  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PermitRootLogin' AND value='no';
 - name: Check if PasswordAuthentication is disabled
   platform: linux
   description: Check if PasswordAuthentication is disabled
   resolution: TODO
-  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND key='PasswordAuthentication' AND value='no';
+  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PasswordAuthentication' AND value='no';
 - name: Check if ChallengeResponseAuthentication is disabled
   platform: linux
   description: Check if ChallengeResponseAuthentication is disabled
   resolution: TODO
-  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND key='ChallengeResponseAuthentication' AND value='no';
+  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='ChallengeResponseAuthentication' AND value='no';
 - name: Check if PubkeyAuthentication is enabled
   platform: linux
   description: Check if PubkeyAuthentication is enabled
   resolution: TODO
-  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND key='PubkeyAuthentication' AND value='yes';
+  query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PubkeyAuthentication' AND value='yes';
