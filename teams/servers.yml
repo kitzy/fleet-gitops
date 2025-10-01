@@ -9,8 +9,6 @@
 
 name: Servers
 policies:
-  - path: ../lib/macos/policies/macos-device-health.policies.yml
-  - path: ../lib/windows/policies/windows-device-health.policies.yml
   - path: ../lib/linux/policies/linux-device-health.policies.yml
 queries:
   - path: ../lib/all/queries/collect-usb-devices.queries.yml
