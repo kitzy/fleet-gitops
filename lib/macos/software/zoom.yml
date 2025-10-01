@@ -1,0 +1,5 @@
+name: Zoom
+version: 6.6.2.65462
+platform: darwin
+hash_sha256: 2e105b19a986710ea9097a1fac649e99444060ea12d3b8c673e7824b0de5bafb
+self_service: true
