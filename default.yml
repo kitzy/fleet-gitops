@@ -66,8 +66,7 @@ org_settings:
     query_reports_disabled: false
     scripts_disabled: false
     server_url: ${FLEET_URL}
-    session:
-      duration: 1h
+    session_duration: 1h
   sso_settings:
     enable_jit_provisioning: false
     enable_sso: true
