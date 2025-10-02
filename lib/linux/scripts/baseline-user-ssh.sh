@@ -5,8 +5,8 @@ set -euo pipefail
 # Configures non-root user with sudo access and hardens SSH daemon
 
 # Configuration variables
-FLEET_SECRET_SSH_USER="${FLEET_SECRET_SSH_USER}"
-FLEET_SECRET_SSH_PUBLIC_KEY="${FLEET_SECRET_SSH_PUBLIC_KEY}"
+SSH_USER="${FLEET_SECRET_SSH_USER}"
+SSH_PUBLIC_KEY="${FLEET_SECRET_SSH_PUBLIC_KEY}"
 
 # Color output
 RED='\033[0;31m'
@@ -45,34 +45,34 @@ validate_inputs() {
     fi
 }
 
-create_admin_user() {
-    if id "$ADMIN_USER" &>/dev/null; then
-        log_warn "User $ADMIN_USER already exists, skipping creation"
+create_SSH_USER() {
+    if id "$SSH_USER" &>/dev/null; then
+        log_warn "User $SSH_USER already exists, skipping creation"
     else
-        log_info "Creating user $ADMIN_USER"
-        useradd -m -s /bin/bash "$ADMIN_USER"
+        log_info "Creating user $SSH_USER"
+        useradd -m -s /bin/bash "$SSH_USER"
     fi
 
-    if groups "$ADMIN_USER" | grep -q '\bsudo\b'; then
-        log_warn "User $ADMIN_USER already in sudo group, skipping"
+    if groups "$SSH_USER" | grep -q '\bsudo\b'; then
+        log_warn "User $SSH_USER already in sudo group, skipping"
     else
-        log_info "Adding $ADMIN_USER to sudo group"
-        usermod -aG sudo "$ADMIN_USER"
+        log_info "Adding $SSH_USER to sudo group"
+        usermod -aG sudo "$SSH_USER"
     fi
 }
 
 configure_passwordless_sudo() {
-    local sudoers_file="/etc/sudoers.d/$ADMIN_USER"
-    local sudoers_content="$ADMIN_USER ALL=(ALL) NOPASSWD:ALL"
+    local sudoers_file="/etc/sudoers.d/$SSH_USER"
+    local sudoers_content="$SSH_USER ALL=(ALL) NOPASSWD:ALL"
 
     if [[ -f "$sudoers_file" ]]; then
         if grep -q "^$sudoers_content$" "$sudoers_file"; then
-            log_warn "Passwordless sudo already configured for $ADMIN_USER, skipping"
+            log_warn "Passwordless sudo already configured for $SSH_USER, skipping"
             return
         fi
     fi
 
-    log_info "Configuring passwordless sudo for $ADMIN_USER"
+    log_info "Configuring passwordless sudo for $SSH_USER"
     echo "$sudoers_content" > "$sudoers_file"
     chmod 0440 "$sudoers_file"
     
@@ -84,7 +84,7 @@ configure_passwordless_sudo() {
 }
 
 deploy_ssh_key() {
-    local ssh_dir="/home/$ADMIN_USER/.ssh"
+    local ssh_dir="/home/$SSH_USER/.ssh"
     local authorized_keys="$ssh_dir/authorized_keys"
 
     if [[ ! -d "$ssh_dir" ]]; then
@@ -102,7 +102,7 @@ deploy_ssh_key() {
     log_info "Setting correct permissions on $ssh_dir"
     chmod 700 "$ssh_dir"
     chmod 600 "$authorized_keys"
-    chown -R "$ADMIN_USER:$ADMIN_USER" "$ssh_dir"
+    chown -R "$SSH_USER:$SSH_USER" "$ssh_dir"
 }
 
 harden_sshd_config() {
@@ -161,13 +161,13 @@ main() {
     
     check_root
     validate_inputs
-    create_admin_user
+    create_SSH_USER
     configure_passwordless_sudo
     deploy_ssh_key
     harden_sshd_config
     
     log_info "Configuration complete"
-    log_info "Verify SSH access with: ssh $ADMIN_USER@<hostname>"
+    log_info "Verify SSH access with: ssh $SSH_USER@<hostname>"
 }
 
 main "$@"
