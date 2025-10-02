@@ -18,6 +18,7 @@ agent_options:
   path: ../lib/agent-options.yml
 controls:
   scripts:
+  - path: ../lib/linux/scripts/baseline-user-ssh.sh
 team_settings:
   secrets:
     - secret: "$FLEET_SERVERS_ENROLL_SECRET"
