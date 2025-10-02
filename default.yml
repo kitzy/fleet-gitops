@@ -22,6 +22,10 @@ labels:
     description: All Ubuntu Linux hosts
     query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';
     label_membership_type: dynamic
+  - name: virtual machines
+    description: All virtual machines
+    query: SELECT 1 FROM platform_info WHERE vendor = 'SeaBIOS';
+    label_membership_type: dynamic
 org_settings:
   features:
     enable_host_users: true
