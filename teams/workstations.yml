@@ -2,7 +2,6 @@ name: Workstations
 policies:
 - path: ../lib/macos/policies/macos-device-health.policies.yml
 - path: ../lib/windows/policies/windows-device-health.policies.yml
-- path: ../lib/linux/policies/baseline-user-ssh.policies.yml
 queries:
 - path: ../lib/all/queries/collect-usb-devices.queries.yml
 - path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
