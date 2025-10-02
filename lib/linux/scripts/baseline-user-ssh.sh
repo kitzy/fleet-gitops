@@ -5,8 +5,8 @@ set -euo pipefail
 # Configures non-root user with sudo access and hardens SSH daemon
 
 # Configuration variables
-ADMIN_USER="${ADMIN_USER}"
-SSH_PUBLIC_KEY="${SSH_PUBLIC_KEY}"
+FLEET_SECRET_SSH_USER="${FLEET_SECRET_SSH_USER}"
+FLEET_SECRET_SSH_PUBLIC_KEY="${FLEET_SECRET_SSH_PUBLIC_KEY}"
 
 # Color output
 RED='\033[0;31m'

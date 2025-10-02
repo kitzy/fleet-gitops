@@ -9,7 +9,9 @@
 
 name: Servers
 policies:
-  - path: ../lib/linux/policies/linux-device-health.policies.yml
+  - path: ../lib/linux/policies/baseline-user-ssh.policies.yml
+    run_script:
+      path: ../lib/linux/scripts/baseline-user-ssh.sh
 queries:
   - path: ../lib/all/queries/collect-usb-devices.queries.yml
   - path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml

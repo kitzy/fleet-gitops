@@ -18,3 +18,8 @@
   description: Check if PubkeyAuthentication is enabled
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PubkeyAuthentication' AND value='yes';
+- name: SSH user exists
+  platform: linux
+  description: Check if the specified SSH user exists
+  resolution: TODO
+  query: SELECT * FROM users WHERE username = 'kitzy';
