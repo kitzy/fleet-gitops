@@ -18,7 +18,7 @@
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='ChallengeResponseAuthentication' AND value='no';
   run_script:
-      path: ../lib/linux/scripts/baseline-user-ssh.sh 
+      path: ../lib/linux/scripts/baseline-user-ssh.sh
 - name: PubkeyAuthentication is enabled
   platform: linux
   description: Check if PubkeyAuthentication is enabled
