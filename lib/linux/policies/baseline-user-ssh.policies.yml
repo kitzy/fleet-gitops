@@ -22,4 +22,4 @@
   platform: linux
   description: Check if the specified SSH user exists
   resolution: TODO
-  query: SELECT * FROM users WHERE username = '$FLEET_SECRET_SSH_USER';
+  query: SELECT * FROM users WHERE username = 'kitzy';
