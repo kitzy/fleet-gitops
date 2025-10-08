@@ -37,11 +37,9 @@ org_settings:
     host_expiry_window: 0
   integrations:
     conditional_access_enabled:
-    custom_scep_proxy:
     digicert:
     google_calendar:
     jira:
-    ndes_scep_proxy:
     zendesk:
   mdm:
     apple_business_manager:
