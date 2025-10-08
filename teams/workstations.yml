@@ -1,11 +1,11 @@
 name: Workstations
 policies:
-- path: ../lib/macos/policies/macos-device-health.policies.yml
-- path: ../lib/windows/policies/windows-device-health.policies.yml
+  - path: ../lib/macos/policies/macos-device-health.policies.yml
+  - path: ../lib/windows/policies/windows-device-health.policies.yml
 queries:
-- path: ../lib/all/queries/collect-usb-devices.queries.yml
-- path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
-- path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
+  - path: ../lib/all/queries/collect-usb-devices.queries.yml
+  - path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
+  - path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
 agent_options:
   path: ../lib/agent-options.yml
 controls:
@@ -15,28 +15,32 @@ controls:
     minimum_version: '15.7'
   macos_settings:
     custom_settings:
-    - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../lib/macos/configuration-profiles/macos-disableGuest.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
-      labels_include_any:
-      - macOS hosts
+      - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
+        labels_include_any:
+          - macOS hosts
+      - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
+        labels_include_any:
+          - macOS hosts
+      - path: ../lib/macos/configuration-profiles/macos-disableGuest.mobileconfig
+        labels_include_any:
+          - macOS hosts
+      - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
+        labels_include_any:
+          - macOS hosts
   scripts: null
 team_settings:
   secrets:
-  - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET
+    - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET
   features:
     enable_host_users: true
     enable_software_inventory: true
 software:
   packages:
-  - path: ../lib/macos/software/github-desktop.yml
-  - path: ../lib/macos/software/caffeine.yml
-  - path: ../lib/macos/software/gpg-suite.yml
-  - path: ../lib/macos/software/signal.yml
+    - path: ../lib/macos/software/github-desktop.yml
+      self_service: true
+    - path: ../lib/macos/software/caffeine.yml
+      self_service: true
+    - path: ../lib/macos/software/gpg-suite.yml
+      self_service: true
+    - path: ../lib/macos/software/signal.yml
+      self_service: true

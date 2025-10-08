@@ -2,4 +2,3 @@ name: Caffeine
 version: 1.5.3
 platform: darwin
 hash_sha256: 4d794086e064c7b256022d9b488b95018e991f348856248a3adb07d07d7e1b04
-self_service: true
