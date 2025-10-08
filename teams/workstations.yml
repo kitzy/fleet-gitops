@@ -38,3 +38,5 @@ software:
   packages:
   - path: ../lib/macos/software/caffeine.yml
     self_service: true
+  - path: ../lib/macos/software/github-desktop.yml
+    self_service: true
