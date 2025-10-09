@@ -38,3 +38,7 @@ software:
   packages:
   - path: ../lib/macos/software/gpg-suite.yml
     self_service: true
+  - path: ../lib/macos/software/caffeine.yml
+    self_service: true
+  - path: ../lib/macos/software/signal.yml
+    self_service: true
