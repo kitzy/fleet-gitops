@@ -40,3 +40,5 @@ software:
     self_service: true
   - path: ../lib/macos/software/signal.yml
     self_service: true
+  - path: ../lib/macos/software/google-chrome.yml
+    self_service: true
