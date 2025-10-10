@@ -46,3 +46,5 @@ software:
     self_service: true
   - path: ../lib/macos/software/gpg-suite.yml
     self_service: true
+  - path: ../lib/macos/software/github-desktop.yml
+    self_service: true
