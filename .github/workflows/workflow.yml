@@ -56,7 +56,7 @@ jobs:
         env:
           FLEET_URL: ${{ steps.op-secrets.outputs.FLEET_URL }}
           FLEET_API_TOKEN: ${{ steps.op-secrets.outputs.FLEET_API_TOKEN }}
-          GLOBAL_ENROLL_SECRET: ${{ ssteps.op-secrets.outputs.GLOBAL_ENROLL_SECRET }}
+          GLOBAL_ENROLL_SECRET: ${{ steps.op-secrets.outputs.GLOBAL_ENROLL_SECRET }}
           SSO_METADATA_URL: ${{ steps.op-secrets.outputs.SSO_METADATA_URL }}
           FLEET_SERVERS_ENROLL_SECRET: ${{ steps.op-secrets.outputs.FLEET_SERVERS_ENROLL_SECRET }}
           FLEET_WORKSTATIONS_ENROLL_SECRET: ${{ steps.op-secrets.outputs.FLEET_WORKSTATIONS_ENROLL_SECRET }}
