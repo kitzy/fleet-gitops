@@ -19,10 +19,10 @@ grep -Exq "^org_settings:.*" "$FLEET_GLOBAL_FILE"
 # Adds spaces to all but the first line of metadata keeps the  multiline string in bounds.
 # See README for more information 
 
-FLEET_SSO_METADATA=$( sed '2,$s/^/      /' <<<  "${GOOGLE_SSO_METADATA}")
-FLEET_MDM_SSO_METADATA=$( sed '2,$s/^/        /' <<<  "${GOOGLE_SSO_METADATA}")
+# FLEET_SSO_METADATA=$( sed '2,$s/^/      /' <<<  "${GOOGLE_SSO_METADATA}")
+# FLEET_MDM_SSO_METADATA=$( sed '2,$s/^/        /' <<<  "${GOOGLE_SSO_METADATA}")
 # Export so fleetctl can expand these vars inside YAML (shell vars alone aren't visible to subprocesses)
-export FLEET_SSO_METADATA FLEET_MDM_SSO_METADATA
+# export FLEET_SSO_METADATA FLEET_MDM_SSO_METADATA
 
 if compgen -G "$FLEET_GITOPS_DIR"/teams/*.yml > /dev/null; then
   # Validate that every team has a unique name.
