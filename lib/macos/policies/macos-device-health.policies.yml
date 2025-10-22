@@ -19,7 +19,11 @@
 - name: macOS - System Integrity Protection (SIP)
   platform: darwin
   description: This policy checks if System Integrity Protection (SIP) is enabled.
-  resolution: TODO
+  resolution: |
+  Reboot the Mac into Recovery (hold ⌘ + R during startup).
+  Open Terminal from the Utilities menu.
+  Run `csrutil enable`
+  Reboot normally.
   query: SELECT 1 FROM sip_config WHERE config_flag = 'sip' AND enabled = 1;
 
 - name: macOS - Require 8 character password
