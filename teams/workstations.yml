@@ -80,3 +80,7 @@ software:
     self_service: true
     categories:
     - Developer tools
+  - path: ../lib/macos/software/gpg-suite.yml
+    self_service: true
+    categories:
+    - Developer tools

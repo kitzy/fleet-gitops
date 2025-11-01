@@ -1,0 +1,4 @@
+- url: https://d3kkurj57j8wh4.cloudfront.net/software/GPG Suite/GPG Suite-2023.3.pkg
+  hash_sha256: ab1ea62077b62033c4d73c1940f619f890df68ddc4cebea3032b6e841ddc2fea
+  icon:
+    path: ../../icons/gpg-suite.png
