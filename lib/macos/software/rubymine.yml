@@ -1,0 +1,4 @@
+- url: https://d3kkurj57j8wh4.cloudfront.net/software/RubyMine/RubyMine-2025.2.4.pkg
+  hash_sha256: a83d6fba63a6a99e679ad60d57d70c74764e6d52be34453b097e44637a89051f
+  icon:
+    path: ../../icons/rubymine.png
