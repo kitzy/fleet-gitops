@@ -35,14 +35,37 @@ team_settings:
     enable_host_users: true
     enable_software_inventory: true
 software:
-  packages:
-  - path: ../lib/macos/software/caffeine.yml
-    self_service: true
-  - path: ../lib/macos/software/signal.yml
-    self_service: true
-  - path: ../lib/macos/software/google-chrome.yml
-    self_service: true
-  - path: ../lib/macos/software/zoom.yml
-    self_service: true
-  - path: ../lib/macos/software/github-desktop.yml
-    self_service: true
+  fleet_maintained_apps:
+    - slug: 1password/darwin
+      setup_experience: false
+      self_service: true
+    - slug: docker/darwin
+      setup_experience: false
+      self_service: true
+    - slug: google-chrome/darwin
+      setup_experience: false
+      self_service: true
+    - slug: iterm2/darwin
+      setup_experience: false
+      self_service: true
+    - slug: microsoft-teams/darwin
+      setup_experience: false
+      self_service: true
+    - slug: visual-studio-code/darwin
+      setup_experience: false
+      self_service: true
+    - slug: notion/darwin
+      setup_experience: false
+      self_service: true
+    - slug: postman/darwin
+      setup_experience: false
+      self_service: true
+    - slug: slack/darwin
+      setup_experience: false
+      self_service: true
+    - slug: whatsapp/darwin
+      setup_experience: false
+      self_service: true
+    - slug: zoom/darwin
+      setup_experience: false
+      self_service: true
