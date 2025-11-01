@@ -92,3 +92,7 @@ software:
     self_service: true
     categories:
     - Developer tools
+  - path: ../lib/macos/software/signal.yml
+    self_service: true
+    categories:
+    - Communication
