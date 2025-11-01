@@ -1,0 +1,4 @@
+- url: https://d3kkurj57j8wh4.cloudfront.net/software/Claude/Claude-0.14.10.pkg
+  hash_sha256: 71ddd2eb926b590391541367fd3cd8289bf06deb66c90790ee8e2295de325288
+  icon_path:
+    path: ../../icons/claude.png
