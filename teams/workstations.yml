@@ -12,7 +12,7 @@ controls:
   enable_disk_encryption: true
   macos_updates:
     deadline: '2025-10-31'
-    minimum_version: '15.7.1'
+    minimum_version: 15.7.1
   macos_settings:
     custom_settings:
     - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
@@ -36,36 +36,39 @@ team_settings:
     enable_software_inventory: true
 software:
   fleet_maintained_apps:
-    - slug: 1password/darwin
-      setup_experience: false
-      self_service: true
-    - slug: docker/darwin
-      setup_experience: false
-      self_service: true
-    - slug: google-chrome/darwin
-      setup_experience: false
-      self_service: true
-    - slug: iterm2/darwin
-      setup_experience: false
-      self_service: true
-    - slug: microsoft-teams/darwin
-      setup_experience: false
-      self_service: true
-    - slug: visual-studio-code/darwin
-      setup_experience: false
-      self_service: true
-    - slug: notion/darwin
-      setup_experience: false
-      self_service: true
-    - slug: postman/darwin
-      setup_experience: false
-      self_service: true
-    - slug: slack/darwin
-      setup_experience: false
-      self_service: true
-    - slug: whatsapp/darwin
-      setup_experience: false
-      self_service: true
-    - slug: zoom/darwin
-      setup_experience: false
-      self_service: true
+  - slug: 1password/darwin
+    setup_experience: false
+    self_service: true
+  - slug: docker/darwin
+    setup_experience: false
+    self_service: true
+  - slug: google-chrome/darwin
+    setup_experience: false
+    self_service: true
+  - slug: iterm2/darwin
+    setup_experience: false
+    self_service: true
+  - slug: microsoft-teams/darwin
+    setup_experience: false
+    self_service: true
+  - slug: visual-studio-code/darwin
+    setup_experience: false
+    self_service: true
+  - slug: notion/darwin
+    setup_experience: false
+    self_service: true
+  - slug: postman/darwin
+    setup_experience: false
+    self_service: true
+  - slug: slack/darwin
+    setup_experience: false
+    self_service: true
+  - slug: whatsapp/darwin
+    setup_experience: false
+    self_service: true
+  - slug: zoom/darwin
+    setup_experience: false
+    self_service: true
+  packages:
+  - path: ../lib/macos/software/claude.yml
+    self_service: true
