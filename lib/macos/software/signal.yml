@@ -1,0 +1,4 @@
+- url: https://d3kkurj57j8wh4.cloudfront.net/software/Signal/Signal-7.77.1.pkg
+  hash_sha256: 7d902fa7b8df481d864000544d477b7d0e7017bea3736a8acb1de564a42aa3a3
+  icon:
+    path: ../../icons/signal.png
