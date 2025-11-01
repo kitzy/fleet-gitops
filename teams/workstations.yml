@@ -88,7 +88,3 @@ software:
     self_service: true
     categories:
     - Productivity
-  - path: ../lib/macos/software/rubymine.yml
-    self_service: true
-    categories:
-    - Developer tools
