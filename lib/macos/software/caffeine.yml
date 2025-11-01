@@ -1,0 +1,4 @@
+- url: https://d3kkurj57j8wh4.cloudfront.net/software/Caffeine/Caffeine-1.5.3.pkg
+  hash_sha256: aaf77a2733dff43ee54fbf6e106b48c7e32ea60f6f277908038b2cadf938759a
+  icon:
+    path: ../../icons/caffeine.png

@@ -72,3 +72,7 @@ software:
   packages:
   - path: ../lib/macos/software/claude.yml
     self_service: true
+  - path: ../lib/macos/software/caffeine.yml
+    self_service: true
+    categories:
+    - Productivity
