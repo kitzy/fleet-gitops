@@ -76,3 +76,7 @@ software:
     self_service: true
     categories:
     - Productivity
+  - path: ../lib/macos/software/github-desktop.yml
+    self_service: true
+    categories:
+    - Developer tools
