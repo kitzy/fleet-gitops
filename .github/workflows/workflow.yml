@@ -42,6 +42,7 @@ jobs:
           FLEET_MOBILE_DEVICES_ENROLL_SECRET: op://GitHub/FleetSecrets/FLEET_MOBILE_DEVICES_ENROLL_SECRET
           FLEET_SECRET_SSH_USER: op://GitHub/FleetSecrets/FLEET_SECRET_SSH_USER
           FLEET_SECRET_SSH_PUBLIC_KEY: op://GitHub/FleetSecrets/FLEET_SECRET_SSH_PUBLIC_KEY
+          FLEET_VULNERABILITY_WEBHOOK_URL: op://GitHub/FleetSecrets/FLEET_VULNERABILITY_WEBHOOK_URL
           
       - name: Checkout GitOps repository
         uses: actions/checkout@v4
@@ -63,3 +64,4 @@ jobs:
           FLEET_MOBILE_DEVICES_ENROLL_SECRET: ${{ steps.op-secrets.outputs.FLEET_MOBILE_DEVICES_ENROLL_SECRET }}
           FLEET_SECRET_SSH_USER: ${{ steps.op-secrets.outputs.FLEET_SECRET_SSH_USER }}
           FLEET_SECRET_SSH_PUBLIC_KEY: ${{ steps.op-secrets.outputs.FLEET_SECRET_SSH_PUBLIC_KEY }}
+          FLEET_VULNERABILITY_WEBHOOK_URL: ${{ steps.op-secrets.outputs.FLEET_VULNERABILITY_WEBHOOK_URL }}

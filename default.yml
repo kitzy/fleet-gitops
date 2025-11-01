@@ -93,9 +93,9 @@ org_settings:
       host_percentage: 0
     interval: 24h0m0s
     vulnerabilities_webhook:
-      destination_url:
-      enable_vulnerabilities_webhook: false
-      host_batch_size: 0
+      destination_url: ${FLEET_VULNERABILITY_WEBHOOK_URL}
+      enable_vulnerabilities_webhook: true
+      host_batch_size: 1
   yara_rules:
 policies:
 queries:
