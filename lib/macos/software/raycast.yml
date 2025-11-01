@@ -1,0 +1,4 @@
+- url: https://d3kkurj57j8wh4.cloudfront.net/software/Raycast/Raycast-1.103.5.pkg
+  hash_sha256: 235575921376e043fb4fee7272ef73f0693b5966c499ae885f93996ab254070f
+  icon:
+    path: ../../icons/raycast.png
