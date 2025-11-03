@@ -11,8 +11,8 @@ agent_options:
 controls:
   enable_disk_encryption: true
   macos_updates:
-    deadline: '2025-10-31'
-    minimum_version: 15.7.1
+    deadline: '2025-11-07'
+    minimum_version: 15.7.2
   macos_settings:
     custom_settings:
     - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
