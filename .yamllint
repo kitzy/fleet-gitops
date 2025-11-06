@@ -1,0 +1,29 @@
+---
+extends: default
+
+rules:
+  # Allow longer lines for configuration files
+  line-length:
+    max: 120
+    level: warning
+  
+  # Don't require document start markers (---) in every file
+  document-start: disable
+  
+  # Allow empty values (common in config files)
+  empty-values:
+    forbid-in-block-mappings: false
+    forbid-in-flow-mappings: false
+  
+  # Be flexible with indentation for nested structures
+  indentation:
+    spaces: 2
+    indent-sequences: true
+  
+  # Don't enforce truthy values (allow yes/no, on/off, etc.)
+  truthy:
+    allowed-values: ['true', 'false', 'yes', 'no', 'on', 'off']
+  
+  # Allow comments to start without space after #
+  comments:
+    min-spaces-from-content: 1

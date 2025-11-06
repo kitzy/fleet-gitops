@@ -33,6 +33,31 @@ runs:
       working-directory: ${{ inputs.working-directory }}
       run: fleetctl config set --address ${{ env.FLEET_URL }} --token ${{ env.FLEET_API_TOKEN }}
 
+    - name: Lint YAML files
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: |
+        # Install yamllint if not available
+        if ! command -v yamllint &> /dev/null; then
+          pip3 install yamllint
+        fi
+        
+        # Lint all YAML files
+        echo "Running YAML linting..."
+        yamllint -f parsable \
+          default.yml \
+          teams/*.yml \
+          lib/**/*.yml \
+          lib/**/*.queries.yml \
+          lib/**/*.policies.yml \
+          lib/macos/software/*.yml \
+          lib/windows/software/*.yml \
+          2>&1 || {
+            echo "❌ YAML linting failed. Please fix the errors above before proceeding."
+            exit 1
+          }
+        echo "✅ All YAML files are valid"
+
     - name: Run fleetctl gitops commands
       shell: bash
       working-directory: ${{ inputs.working-directory }}
