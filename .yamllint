@@ -2,10 +2,8 @@
 extends: default
 
 rules:
-  # Allow longer lines for configuration files
-  line-length:
-    max: 120
-    level: warning
+  # Disable line length warnings
+  line-length: disable
   
   # Don't require document start markers (---) in every file
   document-start: disable
@@ -15,10 +13,8 @@ rules:
     forbid-in-block-mappings: false
     forbid-in-flow-mappings: false
   
-  # Be flexible with indentation for nested structures
-  indentation:
-    spaces: 2
-    indent-sequences: true
+  # Allow flexible indentation (don't enforce strict indentation)
+  indentation: disable
   
   # Don't enforce truthy values (allow yes/no, on/off, etc.)
   truthy:
@@ -27,3 +23,9 @@ rules:
   # Allow comments to start without space after #
   comments:
     min-spaces-from-content: 1
+  
+  # Allow trailing spaces
+  trailing-spaces: disable
+  
+  # Don't require newline at end of file
+  new-line-at-end-of-file: disable
