@@ -42,20 +42,12 @@ runs:
           pip3 install yamllint
         fi
         
-        # Lint all YAML files
+        # Lint all YAML files using find to avoid shell glob issues
         echo "Running YAML linting..."
-        yamllint -f parsable \
-          default.yml \
-          teams/*.yml \
-          lib/**/*.yml \
-          lib/**/*.queries.yml \
-          lib/**/*.policies.yml \
-          lib/macos/software/*.yml \
-          lib/windows/software/*.yml \
-          2>&1 || {
-            echo "❌ YAML linting failed. Please fix the errors above before proceeding."
-            exit 1
-          }
+        if ! find . -type f \( -name "*.yml" -o -name "*.yaml" \) -not -path "./.git/*" -exec yamllint -f parsable {} + 2>&1; then
+          echo "❌ YAML linting failed. Please fix the errors above before proceeding."
+          exit 1
+        fi
         echo "✅ All YAML files are valid"
 
     - name: Run fleetctl gitops commands
