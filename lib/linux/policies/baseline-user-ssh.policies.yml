@@ -3,6 +3,8 @@
   description: PermitRootLogin is disabled
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PermitRootLogin' AND value='no';
+  labels_exclude_any:
+      - "Proxmox hosts"
   run_script:
       path: ../scripts/baseline-user-ssh.sh
 - name: PasswordAuthentication is disabled

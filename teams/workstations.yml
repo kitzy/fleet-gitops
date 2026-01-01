@@ -69,26 +69,3 @@ software:
   - slug: zoom/darwin
     setup_experience: false
     self_service: true
-  packages:
-  - path: ../lib/macos/software/claude.yml
-    self_service: true
-  - path: ../lib/macos/software/caffeine.yml
-    self_service: true
-    categories:
-    - Productivity
-  - path: ../lib/macos/software/github-desktop.yml
-    self_service: true
-    categories:
-    - Developer tools
-  - path: ../lib/macos/software/gpg-suite.yml
-    self_service: true
-    categories:
-    - Developer tools
-  - path: ../lib/macos/software/raycast.yml
-    self_service: true
-    categories:
-    - Productivity
-  - path: ../lib/macos/software/signal.yml
-    self_service: true
-    categories:
-    - Communication
