@@ -39,7 +39,7 @@ software:
   - slug: 1password/darwin
     setup_experience: false
     self_service: true
-  - slug: docker/darwin
+  - slug: docker-desktop/darwin
     setup_experience: false
     self_service: true
   - slug: google-chrome/darwin

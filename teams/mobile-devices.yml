@@ -15,11 +15,11 @@ agent_options:
 controls:
   enable_disk_encryption: true
   ios_updates:
-    deadline: "2025-12-19"
-    minimum_version: "26.2.0"
+    deadline: "2026-01-16"
+    minimum_version: "26.2"
   ipados_updates:
-    deadline: "2025-12-19"
-    minimum_version: "26.2.0"
+    deadline: "2026-01-16"
+    minimum_version: "26.2"
   macos_settings:
     custom_settings:
   scripts:
