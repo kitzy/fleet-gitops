@@ -27,6 +27,9 @@ controls:
     - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
       labels_include_any:
       - macOS hosts
+    - path: ../lib/macos/configuration-profiles/chrome-disable-password-manager.mobileconfig
+      labels_include_any:
+      - macOS hosts
   scripts: null
 team_settings:
   secrets:
