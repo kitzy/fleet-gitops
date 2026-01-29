@@ -73,8 +73,3 @@ software:
     setup_experience: false
     self_service: true
 labels:
-- name: No encryption
-  description: Hosts that bypass encryption
-  label_membership_type: manual
-  hosts:
-    - "PHXDGWYWQ1"
