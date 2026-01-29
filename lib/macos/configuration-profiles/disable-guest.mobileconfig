@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadDescription</key>
+            <string>Disables the Guest Account on macOS Tahoe</string>
+            <key>PayloadDisplayName</key>
+            <string>Accounts: Disable Guest</string>
+            <key>PayloadIdentifier</key>
+            <string>com.kitzy.disableguest.8A6B1C2D</string>
+            <key>PayloadOrganization</key>
+            <string>Testing</string>
+            <key>PayloadType</key>
+            <string>com.apple.MCX</string>
+            <key>PayloadUUID</key>
+            <string>5F4E3D2C-1B0A-4987-9654-3210FEDCBA98</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>DisableGuestAccount</key>
+            <true/>
+            <key>EnableGuestAccount</key>
+            <false/>
+        </dict>
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.loginwindow</string>
+            <key>PayloadIdentifier</key>
+            <string>com.kitzy.loginwindow.lock</string>
+            <key>PayloadUUID</key>
+            <string>UNIQUE-UUID-HERE-12345</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>IncludeGuestUser</key>
+            <false/>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Configures account settings to prevent guest access.</string>
+    <key>PayloadDisplayName</key>
+    <string>Disable Guest Account Profile</string>
+    <key>PayloadIdentifier</key>
+    <string>com.kitzy.profile.disableguest</string>
+    <key>PayloadOrganization</key>
+    <string>Testing</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>12345678-ABCD-EFGH-IJKL-1234567890AB</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
