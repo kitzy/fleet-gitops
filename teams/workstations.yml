@@ -21,7 +21,7 @@ controls:
     - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
       labels_include_any:
       - macOS hosts
-    - path: ../lib/macos/configuration-profiles/macos-disableGuest.mobileconfig
+    - path: ../lib/macos/configuration-profiles/disable-guest.mobileconfig
       labels_include_any:
       - macOS hosts
     - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
