@@ -35,6 +35,20 @@
         <key>DisableGuestAccount</key>
         <true/>
       </dict>
+      <dict>
+        <key>PayloadType</key>
+        <string>com.apple.systempreferences</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadIdentifier</key>
+        <string>com.example.restrictions</string>
+        <key>PayloadUUID</key>
+        <string>A1B2C3D4-E5F6-47A8-9B0C-1D2E3F4A5B6C</string>
+        <key>PayloadDisplayName</key>
+        <string>System Preferences</string>
+        <key>DisableGuestAccount</key>
+        <true/>
+      </dict>
     </array>
   </dict>
 </plist>
