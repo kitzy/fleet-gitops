@@ -15,8 +15,8 @@ agent_options:
 controls:
   enable_disk_encryption: true
   ios_updates:
-    deadline: "2026-01-31"
-    minimum_version: "26.2.1"
+    deadline: "2026-02-18"
+    minimum_version: "26.3"
   ipados_updates:
     deadline: "2026-01-31"
     minimum_version: "26.2.1"
