@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadDescription</key>
+            <string>Locks Fleet Device Management (fleetd) background activity so users cannot disable it.</string>
+            <key>PayloadDisplayName</key>
+            <string>Fleet Background Activity</string>
+            <key>PayloadIdentifier</key>
+            <string>com.fleetdm.servicemanagement</string>
+            <key>PayloadType</key>
+            <string>com.apple.servicemanagement</string>
+            <key>PayloadUUID</key>
+            <string>230B138A-2691-4059-B360-C8D2B7F6FC43</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>Rules</key>
+            <array>
+                <!-- Lock by Team ID — covers orbit, Fleet Desktop, and any future fleetd components -->
+                <dict>
+                    <key>RuleType</key>
+                    <string>TeamIdentifier</string>
+                    <key>RuleValue</key>
+                    <string>8VBZ3948LU</string>
+                    <key>Comment</key>
+                    <string>Fleet Device Management Inc — approves all fleetd components by Team ID</string>
+                </dict>
+                <!-- Lock by Bundle ID prefix — belt-and-suspenders for com.fleetdm.* binaries -->
+                <dict>
+                    <key>RuleType</key>
+                    <string>BundleIdentifierPrefix</string>
+                    <key>RuleValue</key>
+                    <string>com.fleetdm</string>
+                    <key>Comment</key>
+                    <string>Approves all com.fleetdm.* bundle IDs (orbit, Fleet Desktop, etc.)</string>
+                </dict>
+            </array>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Prevents users from disabling Fleet Device Management background activity in System Settings.</string>
+    <key>PayloadDisplayName</key>
+    <string>Fleet Background Activity Lockdown</string>
+    <key>PayloadIdentifier</key>
+    <string>com.fleetdm.servicemanagement.profile</string>
+    <key>PayloadOrganization</key>
+    <string>Your Organization Name</string>
+    <key>PayloadRemovalDisallowed</key>
+    <true/>
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>923C8171-6259-45C0-B62B-21C988946319</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
