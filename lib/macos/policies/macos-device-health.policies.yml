@@ -4,12 +4,6 @@
   resolution: As an IT admin, turn on disk encryption in Fleet.
   query: SELECT 1 FROM filevault_status WHERE status = 'FileVault is On.';
 
-- name: macOS - Disable guest account
-  platform: darwin
-  description: This policy checks if the guest account is disabled.
-  resolution: An an IT admin, deploy a macOS, login window profile with the DisableGuestAccount option set to true.
-  query: SELECT 1 FROM managed_policies WHERE domain='com.apple.loginwindow' AND username = '' AND name='DisableGuestAccount' AND CAST(value AS INT) = 1;
-
 - name: macOS - Enable Firewall
   platform: darwin
   description: This policy checks if Firewall is enabled.
