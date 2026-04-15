@@ -1,33 +1,44 @@
 - name: 1Password up to date
   type: patch
   fleet_maintained_app_slug: 1password/darwin
+  install_software: true
 - name: Claude up to date
   type: patch
   fleet_maintained_app_slug: claude/darwin
+  install_software: true
 - name: Docker Desktop up to date
   type: patch
   fleet_maintained_app_slug: docker-desktop/darwin
+  install_software: true
 - name: Google Chrome up to date
   type: patch
   fleet_maintained_app_slug: google-chrome/darwin
+  install_software: true
 - name: iTerm2 up to date
   type: patch
   fleet_maintained_app_slug: iterm2/darwin
+  install_software: true
 - name: Visual Studio Code up to date
   type: patch
   fleet_maintained_app_slug: visual-studio-code/darwin
+  install_software: true
 - name: Notion up to date
   type: patch
   fleet_maintained_app_slug: notion/darwin
+  install_software: true
 - name: Postman up to date
   type: patch
   fleet_maintained_app_slug: postman/darwin
+  install_software: true
 - name: Slack up to date
   type: patch
   fleet_maintained_app_slug: slack/darwin
+  install_software: true
 - name: WhatsApp up to date
   type: patch
   fleet_maintained_app_slug: whatsapp/darwin
+  install_software: true
 - name: Zoom up to date
   type: patch
   fleet_maintained_app_slug: zoom/darwin
+  install_software: true
