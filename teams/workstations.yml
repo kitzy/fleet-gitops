@@ -57,9 +57,6 @@ software:
   - slug: iterm2/darwin
     setup_experience: false
     self_service: true
-  - slug: microsoft-teams/darwin
-    setup_experience: false
-    self_service: true
   - slug: visual-studio-code/darwin
     setup_experience: false
     self_service: true
