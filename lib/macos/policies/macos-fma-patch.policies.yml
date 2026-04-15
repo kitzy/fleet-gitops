@@ -1,0 +1,3 @@
+- name: Zoom up to date
+  type: patch
+  fleet_maintained_app_slug: zoom/darwin
