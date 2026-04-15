@@ -45,6 +45,9 @@ software:
   - slug: 1password/darwin
     setup_experience: false
     self_service: true
+  - slug: claude/darwin
+    setup_experience: false
+    self_service: true
   - slug: docker-desktop/darwin
     setup_experience: false
     self_service: true
