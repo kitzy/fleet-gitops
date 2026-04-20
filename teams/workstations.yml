@@ -46,16 +46,40 @@ software:
   - slug: 1password/darwin
     setup_experience: false
     self_service: true
+  - slug: canva/darwin
+    setup_experience: false
+    self_service: true
   - slug: claude/darwin
+    setup_experience: false
+    self_service: true
+  - slug: discord/darwin
     setup_experience: false
     self_service: true
   - slug: docker-desktop/darwin
     setup_experience: false
     self_service: true
+  - slug: elgato-control-center/darwin
+    setup_experience: false
+    self_service: true
+  - slug: elgato-stream-deck/darwin
+    setup_experience: false
+    self_service: true
+  - slug: github/darwin
+    setup_experience: false
+    self_service: true
   - slug: google-chrome/darwin
     setup_experience: false
     self_service: true
+  - slug: google-drive/darwin
+    setup_experience: false
+    self_service: true
+  - slug: imazing-profile-editor/darwin
+    setup_experience: false
+    self_service: true
   - slug: iterm2/darwin
+    setup_experience: false
+    self_service: true
+  - slug: logi-options+/darwin
     setup_experience: false
     self_service: true
   - slug: visual-studio-code/darwin
@@ -67,7 +91,25 @@ software:
   - slug: postman/darwin
     setup_experience: false
     self_service: true
+  - slug: raycast/darwin
+    setup_experience: false
+    self_service: true
+  - slug: signal/darwin
+    setup_experience: false
+    self_service: true
   - slug: slack/darwin
+    setup_experience: false
+    self_service: true
+  - slug: suspicious-package/darwin
+    setup_experience: false
+    self_service: true
+  - slug: tailscale-app/darwin
+    setup_experience: false
+    self_service: true
+  - slug: utm/darwin
+    setup_experience: false
+    self_service: true
+  - slug: vlc/darwin
     setup_experience: false
     self_service: true
   - slug: whatsapp/darwin
