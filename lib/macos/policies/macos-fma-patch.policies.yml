@@ -2,21 +2,53 @@
   type: patch
   fleet_maintained_app_slug: 1password/darwin
   install_software: true
+- name: Canva up to date
+  type: patch
+  fleet_maintained_app_slug: canva/darwin
+  install_software: true
 - name: Claude up to date
   type: patch
   fleet_maintained_app_slug: claude/darwin
+  install_software: true
+- name: Discord up to date
+  type: patch
+  fleet_maintained_app_slug: discord/darwin
   install_software: true
 - name: Docker Desktop up to date
   type: patch
   fleet_maintained_app_slug: docker-desktop/darwin
   install_software: true
+- name: Elgato Control Center up to date
+  type: patch
+  fleet_maintained_app_slug: elgato-control-center/darwin
+  install_software: true
+- name: Elgato Stream Deck up to date
+  type: patch
+  fleet_maintained_app_slug: elgato-stream-deck/darwin
+  install_software: true
+- name: GitHub Desktop up to date
+  type: patch
+  fleet_maintained_app_slug: github/darwin
+  install_software: true
 - name: Google Chrome up to date
   type: patch
   fleet_maintained_app_slug: google-chrome/darwin
   install_software: true
+- name: Google Drive up to date
+  type: patch
+  fleet_maintained_app_slug: google-drive/darwin
+  install_software: true
+- name: iMazing Profile Editor up to date
+  type: patch
+  fleet_maintained_app_slug: imazing-profile-editor/darwin
+  install_software: true
 - name: iTerm2 up to date
   type: patch
   fleet_maintained_app_slug: iterm2/darwin
+  install_software: true
+- name: Logi Options+ up to date
+  type: patch
+  fleet_maintained_app_slug: logi-options+/darwin
   install_software: true
 - name: Visual Studio Code up to date
   type: patch
@@ -30,9 +62,33 @@
   type: patch
   fleet_maintained_app_slug: postman/darwin
   install_software: true
+- name: Raycast up to date
+  type: patch
+  fleet_maintained_app_slug: raycast/darwin
+  install_software: true
+- name: Signal up to date
+  type: patch
+  fleet_maintained_app_slug: signal/darwin
+  install_software: true
 - name: Slack up to date
   type: patch
   fleet_maintained_app_slug: slack/darwin
+  install_software: true
+- name: Suspicious Package up to date
+  type: patch
+  fleet_maintained_app_slug: suspicious-package/darwin
+  install_software: true
+- name: Tailscale up to date
+  type: patch
+  fleet_maintained_app_slug: tailscale-app/darwin
+  install_software: true
+- name: UTM up to date
+  type: patch
+  fleet_maintained_app_slug: utm/darwin
+  install_software: true
+- name: VLC up to date
+  type: patch
+  fleet_maintained_app_slug: vlc/darwin
   install_software: true
 - name: WhatsApp up to date
   type: patch
