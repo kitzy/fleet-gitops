@@ -34,6 +34,9 @@ controls:
     - path: ../lib/macos/configuration-profiles/fleet-background-activity.mobileconfig
       labels_include_any:
       - macOS hosts
+    - path: ../lib/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
+      labels_include_any:
+      - macOS hosts
   scripts: null
 team_settings:
   secrets:
