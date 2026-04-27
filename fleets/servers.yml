@@ -1,8 +1,8 @@
-# Teams are available in Fleet Premium.
+# Fleets are available in Fleet Premium.
 
-# This file updates policies, queries, agent options, controls, and software for hosts assigned to the "Workstations" team.
+# This file updates policies, reports, agent options, controls, and software for hosts assigned to the "Servers" fleet.
 
-# To add another team, create a new file in the teams/ directory and copy and paste the contents from this file.
+# To add another fleet, create a new file in the fleets/ directory and copy and paste the contents from this file.
 # Update the secret in the new file, then create the corresponding secret in GitHub Actions secrets.
 # Then add that secret to .github/workflows/workflow.yml as an env variable.
 # The secret name in the YAML file must match the secret name in GitHub Actions secrets.
@@ -12,7 +12,7 @@ policies:
   - path: ../lib/linux/policies/baseline-user-ssh.policies.yml
     labels_include_any:
       - Ubuntu Linux hosts
-queries:
+reports:
   - path: ../lib/all/queries/collect-usb-devices.queries.yml
   - path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
   - path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
@@ -21,12 +21,12 @@ agent_options:
 controls:
   scripts:
   - path: ../lib/linux/scripts/baseline-user-ssh.sh
-  macos_settings:
-    custom_settings:
+  apple_settings:
+    configuration_profiles:
     - path: ../lib/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
       labels_include_any:
       - macOS hosts
-team_settings:
+settings:
   secrets:
     - secret: "$FLEET_SERVERS_ENROLL_SECRET"
   features:

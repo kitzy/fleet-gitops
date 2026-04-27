@@ -10,7 +10,7 @@ FLEET_GITOPS_DIR="${FLEET_GITOPS_DIR:-.}"
 FLEET_GLOBAL_FILE="${FLEET_GLOBAL_FILE:-$FLEET_GITOPS_DIR/default.yml}"
 FLEETCTL="${FLEETCTL:-fleetctl}"
 FLEET_DRY_RUN_ONLY="${FLEET_DRY_RUN_ONLY:-false}"
-FLEET_DELETE_OTHER_TEAMS="${FLEET_DELETE_OTHER_TEAMS:-true}"
+FLEET_DELETE_OTHER_FLEETS="${FLEET_DELETE_OTHER_FLEETS:-true}"
 
 # Validate that global file contains org_settings
 grep -Exq "^org_settings:.*" "$FLEET_GLOBAL_FILE"
@@ -24,20 +24,20 @@ grep -Exq "^org_settings:.*" "$FLEET_GLOBAL_FILE"
 # Export so fleetctl can expand these vars inside YAML (shell vars alone aren't visible to subprocesses)
 # export FLEET_SSO_METADATA FLEET_MDM_SSO_METADATA
 
-if compgen -G "$FLEET_GITOPS_DIR"/teams/*.yml > /dev/null; then
-  # Validate that every team has a unique name.
-  # This is a limited check that assumes all team files contain the phrase: `name: <team_name>`
-  ! perl -nle 'print $1 if /^name:\s*(.+)$/' "$FLEET_GITOPS_DIR"/teams/*.yml | sort | uniq -d | grep . -cq
+if compgen -G "$FLEET_GITOPS_DIR"/fleets/*.yml > /dev/null; then
+  # Validate that every fleet has a unique name.
+  # This is a limited check that assumes all fleet files contain the phrase: `name: <fleet_name>`
+  ! perl -nle 'print $1 if /^name:\s*(.+)$/' "$FLEET_GITOPS_DIR"/fleets/*.yml | sort | uniq -d | grep . -cq
 fi
 
 args=(-f "$FLEET_GLOBAL_FILE")
-for team_file in "$FLEET_GITOPS_DIR"/teams/*.yml; do
-  if [ -f "$team_file" ]; then
-    args+=(-f "$team_file")
+for fleet_file in "$FLEET_GITOPS_DIR"/fleets/*.yml; do
+  if [ -f "$fleet_file" ]; then
+    args+=(-f "$fleet_file")
   fi
 done
-if [ "$FLEET_DELETE_OTHER_TEAMS" = true ]; then
-  args+=(--delete-other-teams)
+if [ "$FLEET_DELETE_OTHER_FLEETS" = true ]; then
+  args+=(--delete-other-fleets)
 fi
 
 # Dry run

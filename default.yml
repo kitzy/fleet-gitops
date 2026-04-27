@@ -66,9 +66,9 @@ org_settings:
     ai_features_disabled: false
     deferred_save_host: false
     enable_analytics: true
-    live_query_disabled: false
-    query_report_cap: 0
-    query_reports_disabled: false
+    live_reporting_disabled: false
+    report_cap: 0
+    discard_reports_data: false
     scripts_disabled: false
     server_url: ${FLEET_URL}
   sso_settings:
@@ -102,4 +102,4 @@ org_settings:
       host_batch_size: 1
   yara_rules:
 policies:
-queries:
+reports:
