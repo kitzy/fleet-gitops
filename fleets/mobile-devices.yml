@@ -1,15 +1,15 @@
-# Teams are available in Fleet Premium.
+# Fleets are available in Fleet Premium.
 
-# This file updates policies, queries, agent options, controls, and software for hosts assigned to the "Workstations" team.
+# This file updates policies, reports, agent options, controls, and software for hosts assigned to the "Mobile Devices" fleet.
 
-# To add another team, create a new file in the teams/ directory and copy and paste the contents from this file.
+# To add another fleet, create a new file in the fleets/ directory and copy and paste the contents from this file.
 # Update the secret in the new file, then create the corresponding secret in GitHub Actions secrets.
 # Then add that secret to .github/workflows/workflow.yml as an env variable.
 # The secret name in the YAML file must match the secret name in GitHub Actions secrets.
 
 name: Mobile Devices
 policies:
-queries:
+reports:
 agent_options:
   path: ../lib/agent-options.yml
 controls:
@@ -20,10 +20,10 @@ controls:
   ipados_updates:
     deadline: "2026-04-16"
     minimum_version: "26.4.1"
-  macos_settings:
-    custom_settings:
+  apple_settings:
+    configuration_profiles:
   scripts:
-team_settings:
+settings:
   secrets:
     - secret: "$FLEET_MOBILE_DEVICES_ENROLL_SECRET"
   features:

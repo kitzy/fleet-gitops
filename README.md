@@ -10,7 +10,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 - **Fleet GitOps** leverages version-controlled YAML to define desired host state.
 - **GitHub Actions** (in `.github/workflows`) run `fleetctl gitops` automatically on every push, pull request, nightly schedule, or manual trigger.
-- **`gitops.sh`** orchestrates dry-run and real runs of `fleetctl` using configuration files in `default.yml` and `teams/*.yml`.
+- **`gitops.sh`** orchestrates dry-run and real runs of `fleetctl` using configuration files in `default.yml` and `fleets/*.yml`.
 
 ---
 
@@ -26,18 +26,18 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 │   ├── linux/
 │   ├── macos/
 │   └── windows/
-├── teams/               # Team-specific configuration
-│   ├── no-team.yml
+├── fleets/              # Fleet-specific configuration
+│   ├── mobile-devices.yml
 │   ├── servers.yml
-│   ├── workstations.yml
-│   └── workstations-canary.yml
+│   ├── unassigned.yml
+│   └── workstations.yml
 └── .github/
     ├── gitops-action/   # Composite action wrapper for fleetctl
     └── workflows/       # CI pipeline applying config to Fleet
 ```
 
-- **`lib/`** holds reusable content referenced via `path` to avoid duplication. For example, `lib/all/queries/collect-usb-devices.queries.yml` is included in multiple teams.
-- **`teams/`** defines per-team policies, queries, scripts, and secrets. Each YAML file represents a Fleet team.
+- **`lib/`** holds reusable content referenced via `path` to avoid duplication. For example, `lib/all/queries/collect-usb-devices.queries.yml` is included in multiple fleets.
+- **`fleets/`** defines per-fleet policies, reports, scripts, and secrets. Each YAML file represents a Fleet.
 
 ---
 
@@ -53,7 +53,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
    export FLEET_URL="https://fleet.example.com"
    export FLEET_API_TOKEN="..."
    export GLOBAL_ENROLL_SECRET="..."
-   # plus any team secrets referenced in teams/*.yml
+   # plus any fleet secrets referenced in fleets/*.yml
 
    ./gitops.sh
    ```
@@ -70,10 +70,10 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 ## Customizing Configuration
 
-### Adding or Modifying Teams
+### Adding or Modifying Fleets
 
-1. Copy an existing file under `teams/` (e.g., `workstations.yml`).
-2. Adjust `name`, `policies`, `queries`, `controls`, `scripts`, and `team_settings`.
+1. Copy an existing file under `fleets/` (e.g., `workstations.yml`).
+2. Adjust `name`, `policies`, `reports`, `controls`, `scripts`, and `settings`.
 3. Create a corresponding enroll secret in Fleet and add it to your GitHub repository secrets.
 4. Reference the secret in `.github/workflows/workflow.yml` if needed.
 
@@ -84,7 +84,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 - **Scripts**: `lib/{os}/scripts/*.sh` or `*.ps1`
 - **Configuration Profiles**: `lib/{os}/configuration-profiles/*`
 
-Files in `lib/` can be reused across multiple teams by referencing them with `path:` in the YAML.
+Files in `lib/` can be reused across multiple fleets by referencing them with `path:` in the YAML.
 
 ---
 

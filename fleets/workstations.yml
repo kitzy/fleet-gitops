@@ -3,7 +3,7 @@ policies:
 - path: ../lib/macos/policies/macos-device-health.policies.yml
 - path: ../lib/windows/policies/windows-device-health.policies.yml
 - path: ../lib/macos/policies/macos-fma-patch.policies.yml
-queries:
+reports:
 - path: ../lib/all/queries/collect-usb-devices.queries.yml
 - path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
 - path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
@@ -14,8 +14,8 @@ controls:
   macos_updates:
     deadline: '2026-04-16'
     minimum_version: '26.4.1'
-  macos_settings:
-    custom_settings:
+  apple_settings:
+    configuration_profiles:
     - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
       labels_include_any:
       - macOS hosts
@@ -38,7 +38,7 @@ controls:
       labels_include_any:
       - macOS hosts
   scripts: null
-team_settings:
+settings:
   secrets:
   - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET
   features:
@@ -121,4 +121,3 @@ software:
   - slug: zoom/darwin
     setup_experience: false
     self_service: true
-labels:
