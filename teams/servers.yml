@@ -21,6 +21,11 @@ agent_options:
 controls:
   scripts:
   - path: ../lib/linux/scripts/baseline-user-ssh.sh
+  macos_settings:
+    custom_settings:
+    - path: ../lib/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
+      labels_include_any:
+      - macOS hosts
 team_settings:
   secrets:
     - secret: "$FLEET_SERVERS_ENROLL_SECRET"
