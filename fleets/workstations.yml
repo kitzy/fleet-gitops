@@ -12,7 +12,7 @@ agent_options:
 controls:
   enable_disk_encryption: true
   macos_updates:
-    deadline: '2026-04-16'
+    deadline: '2026-05-04'
     minimum_version: '26.4.1'
   apple_settings:
     configuration_profiles:
