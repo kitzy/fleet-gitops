@@ -49,10 +49,16 @@ software:
   - slug: 1password/darwin
     setup_experience: false
     self_service: true
+  - slug: balenaetcher/darwin
+    setup_experience: false
+    self_service: true
   - slug: canva/darwin
     setup_experience: false
     self_service: true
   - slug: claude/darwin
+    setup_experience: false
+    self_service: true
+  - slug: cleanshot/darwin
     setup_experience: false
     self_service: true
   - slug: discord/darwin
@@ -67,6 +73,9 @@ software:
   - slug: elgato-stream-deck/darwin
     setup_experience: false
     self_service: true
+  - slug: ghostty/darwin
+    setup_experience: false
+    self_service: true
   - slug: github/darwin
     setup_experience: false
     self_service: true
@@ -74,6 +83,9 @@ software:
     setup_experience: false
     self_service: true
   - slug: google-drive/darwin
+    setup_experience: false
+    self_service: true
+  - slug: gpg-suite/darwin
     setup_experience: false
     self_service: true
   - slug: imazing-profile-editor/darwin
@@ -91,6 +103,9 @@ software:
   - slug: notion/darwin
     setup_experience: false
     self_service: true
+  - slug: ollama/darwin
+    setup_experience: false
+    self_service: true
   - slug: postman/darwin
     setup_experience: false
     self_service: true
@@ -103,10 +118,19 @@ software:
   - slug: slack/darwin
     setup_experience: false
     self_service: true
+  - slug: sublime-text/darwin
+    setup_experience: false
+    self_service: true
   - slug: suspicious-package/darwin
     setup_experience: false
     self_service: true
   - slug: tailscale-app/darwin
+    setup_experience: false
+    self_service: true
+  - slug: textexpander/darwin
+    setup_experience: false
+    self_service: true
+  - slug: transmit/darwin
     setup_experience: false
     self_service: true
   - slug: utm/darwin
@@ -116,6 +140,9 @@ software:
     setup_experience: false
     self_service: true
   - slug: whatsapp/darwin
+    setup_experience: false
+    self_service: true
+  - slug: yubico-authenticator/darwin
     setup_experience: false
     self_service: true
   - slug: zoom/darwin

@@ -2,6 +2,10 @@
   type: patch
   fleet_maintained_app_slug: 1password/darwin
   install_software: true
+- name: balenaEtcher up to date
+  type: patch
+  fleet_maintained_app_slug: balenaetcher/darwin
+  install_software: true
 - name: Canva up to date
   type: patch
   fleet_maintained_app_slug: canva/darwin
@@ -9,6 +13,10 @@
 - name: Claude up to date
   type: patch
   fleet_maintained_app_slug: claude/darwin
+  install_software: true
+- name: CleanShot X up to date
+  type: patch
+  fleet_maintained_app_slug: cleanshot/darwin
   install_software: true
 - name: Discord up to date
   type: patch
@@ -26,6 +34,10 @@
   type: patch
   fleet_maintained_app_slug: elgato-stream-deck/darwin
   install_software: true
+- name: Ghostty up to date
+  type: patch
+  fleet_maintained_app_slug: ghostty/darwin
+  install_software: true
 - name: GitHub Desktop up to date
   type: patch
   fleet_maintained_app_slug: github/darwin
@@ -37,6 +49,10 @@
 - name: Google Drive up to date
   type: patch
   fleet_maintained_app_slug: google-drive/darwin
+  install_software: true
+- name: GPG Suite up to date
+  type: patch
+  fleet_maintained_app_slug: gpg-suite/darwin
   install_software: true
 - name: iMazing Profile Editor up to date
   type: patch
@@ -58,6 +74,10 @@
   type: patch
   fleet_maintained_app_slug: notion/darwin
   install_software: true
+- name: Ollama up to date
+  type: patch
+  fleet_maintained_app_slug: ollama/darwin
+  install_software: true
 - name: Postman up to date
   type: patch
   fleet_maintained_app_slug: postman/darwin
@@ -74,6 +94,10 @@
   type: patch
   fleet_maintained_app_slug: slack/darwin
   install_software: true
+- name: Sublime Text up to date
+  type: patch
+  fleet_maintained_app_slug: sublime-text/darwin
+  install_software: true
 - name: Suspicious Package up to date
   type: patch
   fleet_maintained_app_slug: suspicious-package/darwin
@@ -81,6 +105,14 @@
 - name: Tailscale up to date
   type: patch
   fleet_maintained_app_slug: tailscale-app/darwin
+  install_software: true
+- name: TextExpander up to date
+  type: patch
+  fleet_maintained_app_slug: textexpander/darwin
+  install_software: true
+- name: Transmit up to date
+  type: patch
+  fleet_maintained_app_slug: transmit/darwin
   install_software: true
 - name: UTM up to date
   type: patch
@@ -93,6 +125,10 @@
 - name: WhatsApp up to date
   type: patch
   fleet_maintained_app_slug: whatsapp/darwin
+  install_software: true
+- name: Yubico Authenticator up to date
+  type: patch
+  fleet_maintained_app_slug: yubico-authenticator/darwin
   install_software: true
 - name: Zoom up to date
   type: patch
