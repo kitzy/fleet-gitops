@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadDescription</key>
+            <string>Disables Content Caching on macOS</string>
+            <key>PayloadDisplayName</key>
+            <string>Restrictions: Disable Content Caching</string>
+            <key>PayloadIdentifier</key>
+            <string>com.kitzy.disablecontentcaching.9D151E93</string>
+            <key>PayloadOrganization</key>
+            <string>Testing</string>
+            <key>PayloadType</key>
+            <string>com.apple.applicationaccess</string>
+            <key>PayloadUUID</key>
+            <string>9D151E93-E856-47DB-8F03-80E3128F5675</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>allowContentCaching</key>
+            <false/>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Disables the macOS Content Caching service.</string>
+    <key>PayloadDisplayName</key>
+    <string>Disable Content Caching</string>
+    <key>PayloadIdentifier</key>
+    <string>com.kitzy.profile.disablecontentcaching</string>
+    <key>PayloadOrganization</key>
+    <string>Testing</string>
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>DBCEE8F5-65A3-4B9D-93BE-AD8F88F171AB</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
