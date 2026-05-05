@@ -76,6 +76,9 @@ software:
   - slug: elgato-stream-deck/darwin
     setup_experience: false
     self_service: true
+  - slug: firefox/darwin
+    setup_experience: false
+    self_service: true
   - slug: ghostty/darwin
     setup_experience: false
     self_service: true
