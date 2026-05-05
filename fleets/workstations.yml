@@ -50,6 +50,7 @@ settings:
 software:
   fleet_maintained_apps:
   - slug: 1password/darwin
+    display_name: 1Password
     setup_experience: false
     self_service: true
   - slug: balenaetcher/darwin
