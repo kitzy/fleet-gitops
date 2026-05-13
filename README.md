@@ -10,7 +10,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 - **Fleet GitOps** leverages version-controlled YAML to define desired host state.
 - **GitHub Actions** (in `.github/workflows`) run `fleetctl gitops` automatically on every push, pull request, nightly schedule, or manual trigger.
-- **`gitops.sh`** orchestrates dry-run and real runs of `fleetctl` using configuration files in `default.yml` and `fleets/*.yml`.
+- **`.github/fleet-gitops/gitops.sh`** orchestrates dry-run and real runs of `fleetctl` using configuration files in `default.yml` and `fleets/*.yml`.
 
 ---
 
@@ -18,25 +18,31 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 ```
 .
-├── default.yml          # Global org settings & agent options
-├── gitops.sh            # Script invoked by GitHub Action
-├── lib/                 # Shared policies, queries, scripts, profiles
+├── default.yml              # Global org settings, agent options, label glob
+├── platforms/               # Shared policies, reports, scripts, profiles
 │   ├── agent-options.yml
-│   ├── all/             # Queries shared across platforms
+│   ├── all/                 # Content shared across platforms
+│   ├── android/
+│   ├── ios/
+│   ├── ipados/
 │   ├── linux/
 │   ├── macos/
 │   └── windows/
-├── fleets/              # Fleet-specific configuration
+├── labels/                  # Label definitions grouped by purpose
+│   ├── operating-systems.yml
+│   └── virtualization.yml
+├── fleets/                  # Fleet-specific configuration
 │   ├── mobile-devices.yml
 │   ├── servers.yml
 │   ├── unassigned.yml
 │   └── workstations.yml
 └── .github/
-    ├── gitops-action/   # Composite action wrapper for fleetctl
-    └── workflows/       # CI pipeline applying config to Fleet
+    ├── fleet-gitops/        # Composite action + gitops.sh wrapper for fleetctl
+    └── workflows/           # CI pipeline applying config to Fleet
 ```
 
-- **`lib/`** holds reusable content referenced via `path` to avoid duplication. For example, `lib/all/queries/collect-usb-devices.queries.yml` is included in multiple fleets.
+- **`platforms/`** holds reusable content referenced via `path` to avoid duplication. For example, `platforms/all/reports/collect-usb-devices.reports.yml` is included in multiple fleets.
+- **`labels/`** holds global label definitions grouped into logical files. They're picked up by `default.yml` via `paths: ./labels/*.yml`, so any new file in this directory is automatically included.
 - **`fleets/`** defines per-fleet policies, reports, scripts, and secrets. Each YAML file represents a Fleet.
 
 ---
@@ -55,7 +61,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
    export GLOBAL_ENROLL_SECRET="..."
    # plus any fleet secrets referenced in fleets/*.yml
 
-   ./gitops.sh
+   ./.github/fleet-gitops/gitops.sh
    ```
    - The script performs a dry run first (`fleetctl gitops ... --dry-run`) and then applies the configuration.
 
@@ -74,23 +80,32 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 1. Copy an existing file under `fleets/` (e.g., `workstations.yml`).
 2. Adjust `name`, `policies`, `reports`, `controls`, `scripts`, and `settings`.
-3. Create a corresponding enroll secret in Fleet and add it to your GitHub repository secrets.
-4. Reference the secret in `.github/workflows/workflow.yml` if needed.
+3. Create a corresponding enroll secret in Fleet and add it to your GitHub repository secrets (or 1Password vault, if using the `op-secrets` step).
+4. Wire the secret into both the `Load secrets from 1Password` and `Apply latest configuration to Fleet` env blocks in `.github/workflows/workflow.yml` — missing either wiring causes the variable to expand to empty at runtime.
 
-### Shared Resources in `lib/`
+### Shared Resources in `platforms/`
 
-- **Policies**: `lib/{os}/policies/*.policies.yml`
-- **Queries**: `lib/all/queries/*.queries.yml`
-- **Scripts**: `lib/{os}/scripts/*.sh` or `*.ps1`
-- **Configuration Profiles**: `lib/{os}/configuration-profiles/*`
+- **Policies**: `platforms/{os}/policies/*.policies.yml`
+- **Reports/Queries**: `platforms/all/reports/*.reports.yml`
+- **Scripts**: `platforms/{os}/scripts/*.sh` or `*.ps1`
+- **Configuration Profiles**: `platforms/{os}/configuration-profiles/*`
+- **DDM Declarations**: `platforms/{os}/declaration-profiles/*.json` (preferred over `.mobileconfig` when an equivalent declaration type exists)
 
-Files in `lib/` can be reused across multiple fleets by referencing them with `path:` in the YAML.
+Files in `platforms/` can be reused across multiple fleets by referencing them with `path:` (single file) or `paths:` (glob) in the YAML.
+
+### Adding or Modifying Labels
+
+1. Pick the appropriate file under `labels/` (e.g., `operating-systems.yml` for OS labels) or create a new logical grouping if none fits.
+2. Add the label entry as a top-level list item — no `labels:` wrapper, since each file is itself a YAML list of label definitions.
+3. Reference the label by its `name` in `labels_include_any` / `labels_include_all` / `labels_exclude_any` keys in fleet or default YAML.
+
+The glob `paths: ./labels/*.yml` in `default.yml` picks up every file automatically, so new files don't require additional wiring.
 
 ---
 
 ## SSO Metadata Handling
 
-Because raw SAML metadata often breaks YAML formatting, `gitops.sh` re-indents multiline metadata stored in the `GOOGLE_SSO_METADATA` secret. This ensures values expand correctly when Fleet reads the configuration.
+Because raw SAML metadata often breaks YAML formatting, `.github/fleet-gitops/gitops.sh` re-indents multiline metadata stored in the `GOOGLE_SSO_METADATA` secret. This ensures values expand correctly when Fleet reads the configuration.
 
 ---
 

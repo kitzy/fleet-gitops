@@ -11,7 +11,7 @@ name: Mobile Devices
 policies:
 reports:
 agent_options:
-  path: ../lib/agent-options.yml
+  path: ../platforms/agent-options.yml
 controls:
   enable_disk_encryption: true
   ios_updates:

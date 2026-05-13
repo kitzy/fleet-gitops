@@ -56,4 +56,4 @@ runs:
       env:
         FLEET_DRY_RUN_ONLY: ${{ inputs.dry-run-only }}
         FLEET_DELETE_OTHER_FLEETS: ${{ inputs.delete-other-fleets }}
-      run: ./gitops.sh
+      run: ./.github/fleet-gitops/gitops.sh

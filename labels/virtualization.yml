@@ -1,0 +1,8 @@
+- name: virtual machines
+  description: All virtual machines
+  query: SELECT 1 FROM platform_info WHERE vendor = 'SeaBIOS';
+  label_membership_type: dynamic
+- name: Proxmox hosts
+  description: Hosts running Proxmox VE
+  query: SELECT name FROM processes WHERE name = 'pve-cluster' OR name = 'pvedaemon'
+  label_membership_type: dynamic
