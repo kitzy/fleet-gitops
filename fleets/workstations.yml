@@ -16,16 +16,16 @@ controls:
     minimum_version: '26.5'
   apple_settings:
     configuration_profiles:
-    - path: ../platforms/macos/configuration-profiles/macos-password.mobileconfig
+    - path: ../platforms/macos/declaration-profiles/passcode-settings-ddm.json
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/declaration-profiles/softwareupdate-settings-ddm.json
       labels_include_any:
       - macOS hosts
     - path: ../platforms/macos/configuration-profiles/macos-firewall.mobileconfig
       labels_include_any:
       - macOS hosts
     - path: ../platforms/macos/configuration-profiles/disable-guest.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/macos-autoUpdates.mobileconfig
       labels_include_any:
       - macOS hosts
     - path: ../platforms/macos/configuration-profiles/chrome-disable-password-manager.mobileconfig
