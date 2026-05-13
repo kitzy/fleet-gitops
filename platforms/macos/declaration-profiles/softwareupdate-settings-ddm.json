@@ -1,0 +1,13 @@
+{
+    "Type": "com.apple.configuration.softwareupdate.settings",
+    "Identifier": "fd20f4ac-6435-48b1-8dd7-8cdedd122639",
+    "Payload": {
+        "AllowPreReleaseInstallation": false,
+        "Automatic": {
+            "Download": true,
+            "InstallOSUpdates": false,
+            "InstallSecurityUpdate": true,
+            "InstallAppUpdates": true
+        }
+    }
+}
