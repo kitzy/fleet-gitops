@@ -1,14 +1,14 @@
 name: Workstations
 policies:
-- path: ../lib/macos/policies/macos-device-health.policies.yml
-- path: ../lib/windows/policies/windows-device-health.policies.yml
-- path: ../lib/macos/policies/macos-fma-patch.policies.yml
+- path: ../platforms/macos/policies/macos-device-health.policies.yml
+- path: ../platforms/windows/policies/windows-device-health.policies.yml
+- path: ../platforms/macos/policies/macos-fma-patch.policies.yml
 reports:
-- path: ../lib/all/queries/collect-usb-devices.queries.yml
-- path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
-- path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
+- path: ../platforms/all/reports/collect-usb-devices.reports.yml
+- path: ../platforms/all/reports/collect-fleetd-update-channels.reports.yml
+- path: ../platforms/all/reports/collect-failed-login-attempts.reports.yml
 agent_options:
-  path: ../lib/agent-options.yml
+  path: ../platforms/agent-options.yml
 controls:
   enable_disk_encryption: true
   macos_updates:
@@ -16,28 +16,28 @@ controls:
     minimum_version: '26.4.1'
   apple_settings:
     configuration_profiles:
-    - path: ../lib/macos/configuration-profiles/macos-password.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/macos-password.mobileconfig
       labels_include_any:
       - macOS hosts
-    - path: ../lib/macos/configuration-profiles/macos-firewall.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/macos-firewall.mobileconfig
       labels_include_any:
       - macOS hosts
-    - path: ../lib/macos/configuration-profiles/disable-guest.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/disable-guest.mobileconfig
       labels_include_any:
       - macOS hosts
-    - path: ../lib/macos/configuration-profiles/macos-autoUpdates.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/macos-autoUpdates.mobileconfig
       labels_include_any:
       - macOS hosts
-    - path: ../lib/macos/configuration-profiles/chrome-disable-password-manager.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/chrome-disable-password-manager.mobileconfig
       labels_include_any:
       - macOS hosts
-    - path: ../lib/macos/configuration-profiles/fleet-background-activity.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/fleet-background-activity.mobileconfig
       labels_include_any:
       - macOS hosts
-    - path: ../lib/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
       labels_include_any:
       - macOS hosts
-    - path: ../lib/macos/configuration-profiles/disable-content-caching.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/disable-content-caching.mobileconfig
       labels_include_any:
       - macOS hosts
   scripts: null
@@ -49,7 +49,7 @@ settings:
     enable_software_inventory: true
 software:
   packages:
-  - path: ../lib/macos/scripts/enable-touch-id-sudo.sh
+  - path: ../platforms/macos/scripts/enable-touch-id-sudo.sh
     display_name: Enable Touch ID for sudo
     self_service: true
     categories:

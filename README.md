@@ -10,7 +10,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 - **Fleet GitOps** leverages version-controlled YAML to define desired host state.
 - **GitHub Actions** (in `.github/workflows`) run `fleetctl gitops` automatically on every push, pull request, nightly schedule, or manual trigger.
-- **`gitops.sh`** orchestrates dry-run and real runs of `fleetctl` using configuration files in `default.yml` and `fleets/*.yml`.
+- **`.github/fleet-gitops/gitops.sh`** orchestrates dry-run and real runs of `fleetctl` using configuration files in `default.yml` and `fleets/*.yml`.
 
 ---
 
@@ -18,25 +18,27 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 ```
 .
-├── default.yml          # Global org settings & agent options
-├── gitops.sh            # Script invoked by GitHub Action
-├── lib/                 # Shared policies, queries, scripts, profiles
+├── default.yml              # Global org settings & agent options
+├── platforms/               # Shared policies, reports, scripts, profiles
 │   ├── agent-options.yml
-│   ├── all/             # Queries shared across platforms
+│   ├── all/                 # Content shared across platforms
+│   ├── android/
+│   ├── ios/
+│   ├── ipados/
 │   ├── linux/
 │   ├── macos/
 │   └── windows/
-├── fleets/              # Fleet-specific configuration
+├── fleets/                  # Fleet-specific configuration
 │   ├── mobile-devices.yml
 │   ├── servers.yml
 │   ├── unassigned.yml
 │   └── workstations.yml
 └── .github/
-    ├── gitops-action/   # Composite action wrapper for fleetctl
-    └── workflows/       # CI pipeline applying config to Fleet
+    ├── fleet-gitops/        # Composite action + gitops.sh wrapper for fleetctl
+    └── workflows/           # CI pipeline applying config to Fleet
 ```
 
-- **`lib/`** holds reusable content referenced via `path` to avoid duplication. For example, `lib/all/queries/collect-usb-devices.queries.yml` is included in multiple fleets.
+- **`platforms/`** holds reusable content referenced via `path` to avoid duplication. For example, `platforms/all/reports/collect-usb-devices.reports.yml` is included in multiple fleets.
 - **`fleets/`** defines per-fleet policies, reports, scripts, and secrets. Each YAML file represents a Fleet.
 
 ---
@@ -55,7 +57,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
    export GLOBAL_ENROLL_SECRET="..."
    # plus any fleet secrets referenced in fleets/*.yml
 
-   ./gitops.sh
+   ./.github/fleet-gitops/gitops.sh
    ```
    - The script performs a dry run first (`fleetctl gitops ... --dry-run`) and then applies the configuration.
 
@@ -77,20 +79,20 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 3. Create a corresponding enroll secret in Fleet and add it to your GitHub repository secrets.
 4. Reference the secret in `.github/workflows/workflow.yml` if needed.
 
-### Shared Resources in `lib/`
+### Shared Resources in `platforms/`
 
-- **Policies**: `lib/{os}/policies/*.policies.yml`
-- **Queries**: `lib/all/queries/*.queries.yml`
-- **Scripts**: `lib/{os}/scripts/*.sh` or `*.ps1`
-- **Configuration Profiles**: `lib/{os}/configuration-profiles/*`
+- **Policies**: `platforms/{os}/policies/*.policies.yml`
+- **Reports/Queries**: `platforms/all/reports/*.yml`
+- **Scripts**: `platforms/{os}/scripts/*.sh` or `*.ps1`
+- **Configuration Profiles**: `platforms/{os}/configuration-profiles/*`
 
-Files in `lib/` can be reused across multiple fleets by referencing them with `path:` in the YAML.
+Files in `platforms/` can be reused across multiple fleets by referencing them with `path:` in the YAML.
 
 ---
 
 ## SSO Metadata Handling
 
-Because raw SAML metadata often breaks YAML formatting, `gitops.sh` re-indents multiline metadata stored in the `GOOGLE_SSO_METADATA` secret. This ensures values expand correctly when Fleet reads the configuration.
+Because raw SAML metadata often breaks YAML formatting, `.github/fleet-gitops/gitops.sh` re-indents multiline metadata stored in the `GOOGLE_SSO_METADATA` secret. This ensures values expand correctly when Fleet reads the configuration.
 
 ---
 

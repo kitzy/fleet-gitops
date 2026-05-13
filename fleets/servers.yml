@@ -9,21 +9,21 @@
 
 name: Servers
 policies:
-  - path: ../lib/linux/policies/baseline-user-ssh.policies.yml
+  - path: ../platforms/linux/policies/baseline-user-ssh.policies.yml
     labels_include_any:
       - Ubuntu Linux hosts
 reports:
-  - path: ../lib/all/queries/collect-usb-devices.queries.yml
-  - path: ../lib/all/queries/collect-fleetd-update-channels.queries.yml
-  - path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
+  - path: ../platforms/all/reports/collect-usb-devices.reports.yml
+  - path: ../platforms/all/reports/collect-fleetd-update-channels.reports.yml
+  - path: ../platforms/all/reports/collect-failed-login-attempts.reports.yml
 agent_options:
-  path: ../lib/agent-options.yml
+  path: ../platforms/agent-options.yml
 controls:
   scripts:
-  - path: ../lib/linux/scripts/baseline-user-ssh.sh
+  - path: ../platforms/linux/scripts/baseline-user-ssh.sh
   apple_settings:
     configuration_profiles:
-    - path: ../lib/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
       labels_include_any:
       - macOS hosts
 settings:

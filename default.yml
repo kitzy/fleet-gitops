@@ -14,22 +14,7 @@ agent_options:
       pack_delimiter: /
   overrides:
 labels:
-  - name: macOS hosts
-    description: All macOS hosts
-    query: SELECT 1 FROM os_version WHERE platform = 'darwin';
-    label_membership_type: dynamic
-  - name: Ubuntu Linux hosts
-    description: All Ubuntu Linux hosts
-    query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';
-    label_membership_type: dynamic
-  - name: virtual machines
-    description: All virtual machines
-    query: SELECT 1 FROM platform_info WHERE vendor = 'SeaBIOS';
-    label_membership_type: dynamic
-  - name: Proxmox hosts
-    description: Hosts running Proxmox VE
-    query: SELECT name FROM processes WHERE name = 'pve-cluster' OR name = 'pvedaemon'
-    label_membership_type: dynamic
+  - paths: ./labels/*.yml
 org_settings:
   features:
     enable_host_users: true
