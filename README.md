@@ -18,7 +18,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 ```
 .
-├── default.yml              # Global org settings & agent options
+├── default.yml              # Global org settings, agent options, label glob
 ├── platforms/               # Shared policies, reports, scripts, profiles
 │   ├── agent-options.yml
 │   ├── all/                 # Content shared across platforms
@@ -28,6 +28,9 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 │   ├── linux/
 │   ├── macos/
 │   └── windows/
+├── labels/                  # Label definitions grouped by purpose
+│   ├── operating-systems.yml
+│   └── virtualization.yml
 ├── fleets/                  # Fleet-specific configuration
 │   ├── mobile-devices.yml
 │   ├── servers.yml
@@ -39,6 +42,7 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 ```
 
 - **`platforms/`** holds reusable content referenced via `path` to avoid duplication. For example, `platforms/all/reports/collect-usb-devices.reports.yml` is included in multiple fleets.
+- **`labels/`** holds global label definitions grouped into logical files. They're picked up by `default.yml` via `paths: ./labels/*.yml`, so any new file in this directory is automatically included.
 - **`fleets/`** defines per-fleet policies, reports, scripts, and secrets. Each YAML file represents a Fleet.
 
 ---
@@ -76,17 +80,26 @@ The repo contains all Fleet configuration (policies, queries, scripts, and GitHu
 
 1. Copy an existing file under `fleets/` (e.g., `workstations.yml`).
 2. Adjust `name`, `policies`, `reports`, `controls`, `scripts`, and `settings`.
-3. Create a corresponding enroll secret in Fleet and add it to your GitHub repository secrets.
-4. Reference the secret in `.github/workflows/workflow.yml` if needed.
+3. Create a corresponding enroll secret in Fleet and add it to your GitHub repository secrets (or 1Password vault, if using the `op-secrets` step).
+4. Wire the secret into both the `Load secrets from 1Password` and `Apply latest configuration to Fleet` env blocks in `.github/workflows/workflow.yml` — missing either wiring causes the variable to expand to empty at runtime.
 
 ### Shared Resources in `platforms/`
 
 - **Policies**: `platforms/{os}/policies/*.policies.yml`
-- **Reports/Queries**: `platforms/all/reports/*.yml`
+- **Reports/Queries**: `platforms/all/reports/*.reports.yml`
 - **Scripts**: `platforms/{os}/scripts/*.sh` or `*.ps1`
 - **Configuration Profiles**: `platforms/{os}/configuration-profiles/*`
+- **DDM Declarations**: `platforms/{os}/declaration-profiles/*.json` (preferred over `.mobileconfig` when an equivalent declaration type exists)
 
-Files in `platforms/` can be reused across multiple fleets by referencing them with `path:` in the YAML.
+Files in `platforms/` can be reused across multiple fleets by referencing them with `path:` (single file) or `paths:` (glob) in the YAML.
+
+### Adding or Modifying Labels
+
+1. Pick the appropriate file under `labels/` (e.g., `operating-systems.yml` for OS labels) or create a new logical grouping if none fits.
+2. Add the label entry as a top-level list item — no `labels:` wrapper, since each file is itself a YAML list of label definitions.
+3. Reference the label by its `name` in `labels_include_any` / `labels_include_all` / `labels_exclude_any` keys in fleet or default YAML.
+
+The glob `paths: ./labels/*.yml` in `default.yml` picks up every file automatically, so new files don't require additional wiring.
 
 ---
 
