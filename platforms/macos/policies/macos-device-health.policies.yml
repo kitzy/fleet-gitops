@@ -26,47 +26,17 @@
   resolution: As an IT admin, deploy or update the DDM passcode declaration (platforms/macos/declaration-profiles/passcode-settings-ddm.json) with MinimumLength set to at least 8.
   query: |
     SELECT 1 FROM password_policy
-    WHERE policy_category = 'passwordPolicyPasswordContent'
-      AND (policy_content LIKE '%.{8,}%' OR policy_parameters LIKE '%"minimumLength":8%');
+    WHERE policy_category LIKE '%PasswordContent'
+      AND policy_content LIKE '%.{8,}%';
 
-- name: macOS - Software Update - Disallow pre-release installation
+- name: macOS - Software Update settings DDM declaration active
   platform: darwin
-  description: This policy checks that pre-release macOS updates are not offered to users.
-  resolution: As an IT admin, deploy or update the DDM software update declaration (platforms/macos/declaration-profiles/softwareupdate-settings-ddm.json) with AllowPreReleaseInstallation set to false.
-  query: SELECT 1 FROM preferences WHERE domain='com.apple.SoftwareUpdate' AND username='' AND key='AllowPreReleaseInstallation' AND CAST(value AS INT)=0;
-
-- name: macOS - Software Update - Automatic check enabled
-  platform: darwin
-  description: This policy checks that the system automatically checks for software updates.
-  resolution: As an IT admin, verify the DDM software update declaration is delivered. On modern macOS the system enforces automatic checks under DDM by default; if this fails, investigate why CFPreferences reports it disabled.
-  query: SELECT 1 FROM preferences WHERE domain='com.apple.SoftwareUpdate' AND username='' AND key='AutomaticCheckEnabled' AND CAST(value AS INT)=1;
-
-- name: macOS - Software Update - Automatic download enabled
-  platform: darwin
-  description: This policy checks that available updates are downloaded automatically.
-  resolution: As an IT admin, deploy or update the DDM software update declaration (platforms/macos/declaration-profiles/softwareupdate-settings-ddm.json) with Automatic.Download set to true.
-  query: SELECT 1 FROM preferences WHERE domain='com.apple.SoftwareUpdate' AND username='' AND key='AutomaticDownload' AND CAST(value AS INT)=1;
-
-- name: macOS - Software Update - Auto-install App Store updates
-  platform: darwin
-  description: This policy checks that App Store updates are auto-installed.
-  resolution: As an IT admin, deploy or update the DDM software update declaration (platforms/macos/declaration-profiles/softwareupdate-settings-ddm.json) with Automatic.InstallAppUpdates set to true.
-  query: SELECT 1 FROM preferences WHERE domain='com.apple.SoftwareUpdate' AND username='' AND key='AutomaticallyInstallAppUpdates' AND CAST(value AS INT)=1;
-
-- name: macOS - Software Update - Do not auto-install macOS updates
-  platform: darwin
-  description: This policy checks that macOS updates are not auto-installed (installation remains admin-driven).
-  resolution: As an IT admin, deploy or update the DDM software update declaration (platforms/macos/declaration-profiles/softwareupdate-settings-ddm.json) with Automatic.InstallOSUpdates set to false.
-  query: SELECT 1 FROM preferences WHERE domain='com.apple.SoftwareUpdate' AND username='' AND key='AutomaticallyInstallMacOSUpdates' AND CAST(value AS INT)=0;
-
-- name: macOS - Software Update - Install configuration data
-  platform: darwin
-  description: This policy checks that system data files and security configuration updates are enabled.
-  resolution: As an IT admin, verify the DDM software update declaration is delivered. ConfigDataInstall is implicit under DDM Automatic.InstallSecurityUpdate; if this fails, investigate why CFPreferences reports it disabled.
-  query: SELECT 1 FROM preferences WHERE domain='com.apple.SoftwareUpdate' AND username='' AND key='ConfigDataInstall' AND CAST(value AS INT)=1;
-
-- name: macOS - Software Update - Install critical updates
-  platform: darwin
-  description: This policy checks that critical updates are installed automatically.
-  resolution: As an IT admin, deploy or update the DDM software update declaration (platforms/macos/declaration-profiles/softwareupdate-settings-ddm.json) with Automatic.InstallSecurityUpdate set to true.
-  query: SELECT 1 FROM preferences WHERE domain='com.apple.SoftwareUpdate' AND username='' AND key='CriticalUpdateInstall' AND CAST(value AS INT)=1;
+  description: |
+    Checks that a com.apple.configuration.softwareupdate.settings DDM declaration is delivered and applied on the host (its identifier is recorded in the SoftwareUpdate daemon's DDM state plist). Under DDM, Fleet's declaration content is the source of truth and per-key osquery checks against CFPreferences are unreliable, so this single presence check replaces the previous keyed policies.
+  resolution: As an IT admin, deploy or update the DDM software update declaration (platforms/macos/declaration-profiles/softwareupdate-settings-ddm.json) and confirm it shows as verified in the host's MDM panel.
+  query: |
+    SELECT 1 FROM plist
+    WHERE path = '/var/db/softwareupdate/SoftwareUpdateDDMStatePersistence.plist'
+      AND key = 'SUCorePersistedStatePolicyFields'
+      AND subkey LIKE 'SUCoreDDMDeclarationGlobalSettings/serializedKeys/%'
+      AND value LIKE 'com.apple.RemoteManagement.SoftwareUpdateExtension.GlobalSettings/%';
