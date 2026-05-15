@@ -18,7 +18,19 @@
 
   Reusing identifiers from the source profile/declaration causes the new one to overwrite the original on-device instead of being delivered alongside it.
 
+- **`path:` and `paths:` values in any YAML are resolved relative to the file that contains them, not the repo root.** Files in `fleets/` reference shared content as `../platforms/...` because they sit one level down; `default.yml` at the repo root uses `./labels/*.yml`. When copy-pasting a `path:` between files at different directory depths, adjust the prefix to match the new file's location.
+
+- **Files in `labels/` are top-level YAML lists of label definitions — no `labels:` key wrapper at the top of the file.** Each entry is a label object with `name`, `description`, `query`, and `label_membership_type`. `default.yml` aggregates the directory via `labels: - paths: ./labels/*.yml`, so any new file in `labels/` is picked up automatically — no wiring required, but the file must be a bare list to parse correctly.
+
 - **When authoring or editing an osquery SQL query for a policy, report, or label, verify every table and column name against https://fleetdm.com/tables before committing.** Fleet's table schema differs from upstream osquery (platform availability, deprecated columns, Fleet-specific extensions like `mdm`, `network_interfaces`, etc.). Look up each table referenced in `FROM` / `JOIN` clauses to confirm the platforms it supports and the columns/types you're selecting on — don't rely on memorized osquery schema. This applies to queries in `platforms/*/policies/*.yml`, `platforms/*/reports/*.yml`, `labels/*.yml`, and any inline `query:` field in fleet or default YAML.
+
+- **Do not verify DDM-delivered settings with the `managed_policies` table, and be cautious with the `preferences` table.** `managed_policies` only reflects legacy `.mobileconfig` profiles — DDM declarations are enforced through a separate channel and never populate it. The `preferences` table is also unreliable for DDM-delivered settings: enforced values may be absent from `/Library/Preferences/*.plist` entirely, or diverge from the declaration. For each DDM-managed setting, pick a verification approach in this order:
+  1. A native osquery table that exposes the effective on-device state — e.g. `filevault_status`, `sip_config`, `password_policy` (for passcode policy). These reflect the realized state regardless of delivery channel.
+  2. If no such table exists, verify *declaration presence* by querying the relevant DDM state persistence plist for the declaration's identifier — e.g. for `com.apple.configuration.softwareupdate.settings`, query `/var/db/softwareupdate/SoftwareUpdateDDMStatePersistence.plist`. See [platforms/macos/policies/macos-device-health.policies.yml](platforms/macos/policies/macos-device-health.policies.yml) for a worked example. Fleet's MDM verification UI is the right place to catch per-key declaration drift; osquery only confirms the declaration was accepted and persisted.
+
+## Apply behavior
+
+- **`fleetctl gitops` runs with `--delete-other-fleets` enabled by default** (see [.github/fleet-gitops/gitops.sh](.github/fleet-gitops/gitops.sh)). Removing a fleet file from `fleets/` actively deletes that team in Fleet on the next apply — it does not just orphan the config. When renaming or restructuring fleets, edit the existing file in place rather than delete-and-recreate, to avoid wiping enrollment secrets and host membership.
 
 ## References
 
@@ -36,4 +48,9 @@
   https://developer.apple.com/documentation/devicemanagement/declarations
 
   Consult this whenever authoring or editing a DDM declaration — verify the declaration type, payload schema, and required/optional fields before writing or changing any declaration.
+
+- **Fleet osquery table schema** (tables and columns available to queries in policies, reports, labels, and inline `query:` fields):
+  https://fleetdm.com/tables
+
+  Consult this whenever authoring or editing an osquery SQL query — verify each table referenced in `FROM` / `JOIN` clauses, the platforms it supports, and the columns/types you're selecting on. Fleet's schema differs from upstream osquery (platform availability, deprecated columns, Fleet-specific extensions like `mdm`, `network_interfaces`, etc.).
 
