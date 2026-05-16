@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>PayloadDescription</key>
-    <string>Disables the macOS Guest user via the com.apple.MCX payload, per the NIST macOS Security Compliance Project rule system_settings_guest_account_disable.</string>
+    <string>Disables the macOS Guest user. Layers two payloads: the com.apple.MCX DisableGuestAccount/EnableGuestAccount keys (per the NIST mSCP rule system_settings_guest_account_disable) and a com.apple.ManagedClient.preferences payload that forces com.apple.loginwindow GuestEnabled=false, which is what macOS 26's Users &amp; Groups UI actually reads when greying out the "Allow guests to log in to this computer" toggle.</string>
     <key>PayloadDisplayName</key>
     <string>Accounts: Disable Guest User</string>
     <key>PayloadIdentifier</key>
@@ -33,11 +33,39 @@
         <key>PayloadUUID</key>
         <string>F23CBE09-BBF8-471F-B195-BC4D35FFFEDF</string>
         <key>PayloadDisplayName</key>
-        <string>Disable Guest Account</string>
+        <string>Disable Guest Account (MCX)</string>
         <key>DisableGuestAccount</key>
         <true/>
         <key>EnableGuestAccount</key>
         <false/>
+      </dict>
+      <dict>
+        <key>PayloadType</key>
+        <string>com.apple.ManagedClient.preferences</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadIdentifier</key>
+        <string>net.kitzy.mdm.disableguest.loginwindow</string>
+        <key>PayloadUUID</key>
+        <string>74513F98-C20C-48A7-AE2A-02D92431DCEA</string>
+        <key>PayloadDisplayName</key>
+        <string>Disable Guest Account (loginwindow)</string>
+        <key>PayloadContent</key>
+        <dict>
+          <key>com.apple.loginwindow</key>
+          <dict>
+            <key>Forced</key>
+            <array>
+              <dict>
+                <key>mcx_preference_settings</key>
+                <dict>
+                  <key>GuestEnabled</key>
+                  <false/>
+                </dict>
+              </dict>
+            </array>
+          </dict>
+        </dict>
       </dict>
     </array>
   </dict>
