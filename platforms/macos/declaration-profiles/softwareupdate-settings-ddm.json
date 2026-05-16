@@ -8,6 +8,9 @@
             "InstallOSUpdates": false,
             "InstallSecurityUpdate": true,
             "InstallAppUpdates": true
+        },
+        "Beta": {
+            "ProgramEnrollment": "AlwaysOff"
         }
     }
 }
