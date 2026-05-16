@@ -22,6 +22,7 @@ controls:
     minimum_version: "26.5"
   apple_settings:
     configuration_profiles:
+    - path: ../platforms/all/declaration-profiles/disable-beta-updates-ddm.json
   scripts:
 settings:
   secrets:

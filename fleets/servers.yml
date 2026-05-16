@@ -26,6 +26,9 @@ controls:
     - path: ../platforms/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
       labels_include_any:
       - macOS hosts
+    - path: ../platforms/all/declaration-profiles/disable-beta-updates-ddm.json
+      labels_include_any:
+      - macOS hosts
 settings:
   secrets:
     - secret: "$FLEET_SERVERS_ENROLL_SECRET"

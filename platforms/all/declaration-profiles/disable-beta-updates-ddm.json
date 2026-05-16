@@ -1,0 +1,9 @@
+{
+    "Type": "com.apple.configuration.softwareupdate.settings",
+    "Identifier": "db5303b2-a2f4-409a-bf6e-6e686877330d",
+    "Payload": {
+        "Beta": {
+            "ProgramEnrollment": "AlwaysOff"
+        }
+    }
+}
