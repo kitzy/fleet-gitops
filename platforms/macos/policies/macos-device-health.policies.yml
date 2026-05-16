@@ -32,7 +32,7 @@
 - name: macOS - Disable Guest user
   platform: darwin
   description: |
-    Checks that the Disable Guest User configuration profile is delivered and applied. Per the NIST macOS Security Compliance Project (system_settings_guest_account_disable), the guest account is disabled by enforcing DisableGuestAccount=true and EnableGuestAccount=false in the com.apple.MCX preference domain. Both managed values must be present for compliance.
+    Checks that the Disable Guest User configuration profile is delivered and fully applied. The profile layers two payloads: the NIST mSCP-recommended com.apple.MCX keys (DisableGuestAccount=true, EnableGuestAccount=false), and a com.apple.ManagedClient.preferences payload that forces com.apple.loginwindow GuestEnabled=false. The loginwindow key is what macOS 26's Users & Groups UI actually reads when greying out the "Allow guests to log in to this computer" toggle, so all three managed values must be present for compliance.
   resolution: As an IT admin, deploy the Disable Guest User profile (platforms/macos/configuration-profiles/disable-guest.mobileconfig) and confirm it shows as verified in the host's MDM panel.
   query: |
     SELECT 1
@@ -45,6 +45,11 @@
       SELECT 1 FROM managed_policies
       WHERE domain = 'com.apple.MCX' AND username = ''
         AND name = 'EnableGuestAccount' AND CAST(value AS INT) = 0
+    )
+    AND EXISTS (
+      SELECT 1 FROM managed_policies
+      WHERE domain = 'com.apple.loginwindow' AND username = ''
+        AND name = 'GuestEnabled' AND CAST(value AS INT) = 0
     );
 
 - name: macOS - Software Update settings DDM declaration active
