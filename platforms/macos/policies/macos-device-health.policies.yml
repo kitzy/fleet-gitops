@@ -29,6 +29,24 @@
     WHERE policy_category LIKE '%PasswordContent'
       AND policy_content LIKE '%.{8,}%';
 
+- name: macOS - Disable Guest user
+  platform: darwin
+  description: |
+    Checks that the Disable Guest User configuration profile is delivered and applied. Per the NIST macOS Security Compliance Project (system_settings_guest_account_disable), the guest account is disabled by enforcing DisableGuestAccount=true and EnableGuestAccount=false in the com.apple.MCX preference domain. Both managed values must be present for compliance.
+  resolution: As an IT admin, deploy the Disable Guest User profile (platforms/macos/configuration-profiles/disable-guest.mobileconfig) and confirm it shows as verified in the host's MDM panel.
+  query: |
+    SELECT 1
+    WHERE EXISTS (
+      SELECT 1 FROM managed_policies
+      WHERE domain = 'com.apple.MCX' AND username = ''
+        AND name = 'DisableGuestAccount' AND CAST(value AS INT) = 1
+    )
+    AND EXISTS (
+      SELECT 1 FROM managed_policies
+      WHERE domain = 'com.apple.MCX' AND username = ''
+        AND name = 'EnableGuestAccount' AND CAST(value AS INT) = 0
+    );
+
 - name: macOS - Software Update settings DDM declaration active
   platform: darwin
   description: |

@@ -1,55 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-    <key>PayloadContent</key>
-    <array>
-        <dict>
-            <key>PayloadDescription</key>
-            <string>Disables the Guest Account on macOS Tahoe</string>
-            <key>PayloadDisplayName</key>
-            <string>Accounts: Disable Guest</string>
-            <key>PayloadIdentifier</key>
-            <string>com.kitzy.disableguest.8A6B1C2D</string>
-            <key>PayloadOrganization</key>
-            <string>Testing</string>
-            <key>PayloadType</key>
-            <string>com.apple.MCX</string>
-            <key>PayloadUUID</key>
-            <string>5F4E3D2C-1B0A-4987-9654-3210FEDCBA98</string>
-            <key>PayloadVersion</key>
-            <integer>1</integer>
-            <key>DisableGuestAccount</key>
-            <true/>
-            <key>EnableGuestAccount</key>
-            <false/>
-        </dict>
-        <dict>
-            <key>PayloadType</key>
-            <string>com.apple.loginwindow</string>
-            <key>PayloadIdentifier</key>
-            <string>com.kitzy.loginwindow.lock</string>
-            <key>PayloadUUID</key>
-            <string>UNIQUE-UUID-HERE-12345</string>
-            <key>PayloadVersion</key>
-            <integer>1</integer>
-            <key>IncludeGuestUser</key>
-            <false/>
-        </dict>
-    </array>
+  <dict>
     <key>PayloadDescription</key>
-    <string>Configures account settings to prevent guest access.</string>
+    <string>Disables the macOS Guest user via the com.apple.MCX payload, per the NIST macOS Security Compliance Project rule system_settings_guest_account_disable.</string>
     <key>PayloadDisplayName</key>
-    <string>Disable Guest Account Profile</string>
+    <string>Accounts: Disable Guest User</string>
     <key>PayloadIdentifier</key>
-    <string>com.kitzy.profile.disableguest</string>
+    <string>net.kitzy.mdm.disableguest.2564528F-9FCD-41D7-AECA-2D24E5CC5274</string>
     <key>PayloadOrganization</key>
-    <string>Testing</string>
+    <string>Kitzy.net</string>
+    <key>PayloadRemovalDisallowed</key>
+    <true/>
+    <key>PayloadScope</key>
+    <string>System</string>
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>12345678-ABCD-EFGH-IJKL-1234567890AB</string>
+    <string>2564528F-9FCD-41D7-AECA-2D24E5CC5274</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
-</dict>
+
+    <key>PayloadContent</key>
+    <array>
+      <dict>
+        <key>PayloadType</key>
+        <string>com.apple.MCX</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadIdentifier</key>
+        <string>net.kitzy.mdm.disableguest.payload</string>
+        <key>PayloadUUID</key>
+        <string>F23CBE09-BBF8-471F-B195-BC4D35FFFEDF</string>
+        <key>PayloadDisplayName</key>
+        <string>Disable Guest Account</string>
+        <key>DisableGuestAccount</key>
+        <true/>
+        <key>EnableGuestAccount</key>
+        <false/>
+      </dict>
+    </array>
+  </dict>
 </plist>
