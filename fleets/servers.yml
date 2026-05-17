@@ -11,7 +11,7 @@ name: Servers
 policies:
   - path: ../platforms/linux/policies/baseline-user-ssh.policies.yml
     labels_include_any:
-      - Ubuntu Linux hosts
+      - Ubuntu
 reports:
   - path: ../platforms/all/reports/collect-usb-devices.reports.yml
   - path: ../platforms/all/reports/collect-fleetd-update-channels.reports.yml
@@ -25,10 +25,10 @@ controls:
     configuration_profiles:
     - path: ../platforms/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
       labels_include_any:
-      - macOS hosts
+      - macOS
     - path: ../platforms/all/declaration-profiles/disable-beta-updates-ddm.json
       labels_include_any:
-      - macOS hosts
+      - macOS
 settings:
   secrets:
     - secret: "$FLEET_SERVERS_ENROLL_SECRET"
