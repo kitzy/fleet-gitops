@@ -26,6 +26,18 @@
   description: All Ubuntu Linux hosts
   query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';
   label_membership_type: dynamic
+- name: Ubuntu 24.04
+  description: All Ubuntu 24.04 (Noble Numbat) hosts
+  query: SELECT 1 FROM os_version WHERE platform = 'ubuntu' AND major = 24 AND minor = 4;
+  label_membership_type: dynamic
+- name: Ubuntu 22.04
+  description: All Ubuntu 22.04 (Jammy Jellyfish) hosts
+  query: SELECT 1 FROM os_version WHERE platform = 'ubuntu' AND major = 22 AND minor = 4;
+  label_membership_type: dynamic
+- name: Ubuntu 20.04
+  description: All Ubuntu 20.04 (Focal Fossa) hosts
+  query: SELECT 1 FROM os_version WHERE platform = 'ubuntu' AND major = 20 AND minor = 4;
+  label_membership_type: dynamic
 - name: iOS hosts
   description: All iOS hosts
   query: SELECT 1 FROM os_version WHERE platform = 'ios';
@@ -37,6 +49,18 @@
 - name: Windows hosts
   description: All Windows hosts
   query: SELECT 1 FROM os_version WHERE platform = 'windows';
+  label_membership_type: dynamic
+- name: Windows 11
+  description: All Windows 11 hosts
+  query: SELECT 1 FROM os_version WHERE platform = 'windows' AND name LIKE 'Microsoft Windows 11%';
+  label_membership_type: dynamic
+- name: Windows 10
+  description: All Windows 10 hosts
+  query: SELECT 1 FROM os_version WHERE platform = 'windows' AND name LIKE 'Microsoft Windows 10%';
+  label_membership_type: dynamic
+- name: Windows Server
+  description: All Windows Server hosts
+  query: SELECT 1 FROM os_version WHERE platform = 'windows' AND name LIKE '%Server%';
   label_membership_type: dynamic
 - name: Android hosts
   description: All Android hosts
