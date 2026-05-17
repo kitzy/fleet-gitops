@@ -1,0 +1,7 @@
+- name: Get installed Safari extensions
+  description: Retrieves the list of installed Safari extensions for all users on the system.
+  query: SELECT safari_extensions.* FROM users JOIN safari_extensions USING (uid);
+  interval: 21600 # 6 hours
+  observer_can_run: true
+  automations_enabled: true
+  platform: darwin

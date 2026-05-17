@@ -1,0 +1,7 @@
+- name: Get installed Visual Studio Code extensions
+  description: Lists installed VS Code extensions for each user (requires osquery > 5.11.0).
+  query: SELECT u.username, vs.* FROM users u JOIN vscode_extensions vs ON u.uid = vs.uid;
+  interval: 21600 # 6 hours
+  observer_can_run: true
+  automations_enabled: true
+  platform: darwin,linux,windows

@@ -7,6 +7,18 @@ reports:
 - path: ../platforms/all/reports/collect-usb-devices.reports.yml
 - path: ../platforms/all/reports/collect-fleetd-update-channels.reports.yml
 - path: ../platforms/all/reports/collect-failed-login-attempts.reports.yml
+- path: ../platforms/all/reports/get-authorized-ssh-keys.reports.yml
+- path: ../platforms/all/reports/get-unencrypted-ssh-keys.reports.yml
+- path: ../platforms/all/reports/get-installed-chrome-extensions.reports.yml
+- path: ../platforms/all/reports/get-installed-vscode-extensions.reports.yml
+- path: ../platforms/all/reports/get-all-listening-ports-by-process.reports.yml
+- path: ../platforms/all/reports/get-mcp-client-configurations.reports.yml
+- path: ../platforms/macos/reports/get-laptops-with-failing-batteries.reports.yml
+- path: ../platforms/macos/reports/get-local-administrator-accounts.reports.yml
+- path: ../platforms/macos/reports/get-builtin-antivirus-status.reports.yml
+- path: ../platforms/macos/reports/get-installed-safari-extensions.reports.yml
+- path: ../platforms/windows/reports/get-antivirus-status.reports.yml
+- path: ../platforms/windows/reports/get-teamviewer-status.reports.yml
 agent_options:
   path: ../platforms/agent-options.yml
 controls:
