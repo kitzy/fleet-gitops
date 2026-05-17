@@ -1,0 +1,7 @@
+- name: Get unencrypted SSH keys for local accounts
+  description: Identifies SSH keys created without a passphrase that could enable lateral movement (MITRE TA0008).
+  query: SELECT uid, username, description, path, encrypted FROM users CROSS JOIN user_ssh_keys USING (uid) WHERE encrypted=0;
+  interval: 21600 # 6 hours
+  observer_can_run: false
+  automations_enabled: true
+  platform: darwin,linux,windows

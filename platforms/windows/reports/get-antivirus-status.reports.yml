@@ -1,0 +1,7 @@
+- name: Get antivirus status from the Windows Security Center
+  description: Reports the antivirus product state and signature freshness from the Windows Security Center.
+  query: SELECT antivirus, signatures_up_to_date FROM windows_security_center CROSS JOIN windows_security_products WHERE type = 'Antivirus';
+  interval: 3600 # 1 hour
+  observer_can_run: true
+  automations_enabled: true
+  platform: windows

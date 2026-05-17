@@ -1,6 +1,6 @@
-- name: virtual machines
-  description: All virtual machines
-  query: SELECT 1 FROM platform_info WHERE vendor = 'SeaBIOS';
+- name: Virtual machine
+  description: Hosts running in a virtual machine (VMware, Parallels, QEMU, VirtualBox, Hyper-V, Xen)
+  query: SELECT 1 FROM system_info WHERE hardware_vendor LIKE '%VMware%' OR hardware_vendor LIKE '%Parallels%' OR hardware_vendor LIKE '%QEMU%' OR hardware_vendor LIKE '%innotek%' OR hardware_vendor LIKE 'Xen%' OR hardware_model LIKE 'Virtual Machine%' OR hardware_model LIKE 'VirtualBox%';
   label_membership_type: dynamic
 - name: Proxmox hosts
   description: Hosts running Proxmox VE

@@ -1,0 +1,37 @@
+- name: Get MCP client configurations
+  description: Retrieves Model Context Protocol (MCP) client configurations from supported AI applications, including Cursor, Claude Desktop, Claude Code, VS Code (with RooCode and Augment extensions), Gemini CLI, and LMStudio. Only global configurations are returned.
+  query: |
+    WITH path_suffixes(path) AS (
+    VALUES
+    ('/.cursor/mcp.json'),
+    ('/Library/Application Support/Claude/claude_desktop_config.json'),
+    ('\\AppData\\Roaming\\Claude\\claude_desktop_config.json'),
+    ('/.claude.json'),
+    ('/Library/Application Support/Code/User/mcp.json'),
+    ('/.config/Code/User/mcp.json'),
+    ('\\AppData\\Roaming\\Code\User\\mcp.json'),
+    ('/Library/Application Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json'),
+    ('/.config/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json'),
+    ('\\AppData\\Roaming\\Code\User\\globalStorage\\rooveterinaryinc.roo-cline\\settings\\mcp_settings.json'),
+    ('/Library/Application Support/Code/User/globalStorage/augment.vscode-augment/augment-global-state/mcpServers.json'),
+    ('/.config/Code/User/globalStorage/augment.vscode-augment/augment-global-state/mcpServers.json'),
+    ('\\AppData\\Roaming\\Code\User\\globalStorage\\augment.vscode-augment\\augment-global-state\\mcpServers.json'),
+    ('/.gemini/settings.json'),
+    ('/.lmstudio/mcp.json')
+    ),
+    full_paths AS (
+    SELECT u.directory || p.path AS full_path, p.path AS suffix
+    FROM users u JOIN path_suffixes p ON 1=1
+    ),
+    config_files AS (
+    SELECT f.path, group_concat(f.line, '') AS contents
+    FROM file_lines f JOIN full_paths fp ON f.path = fp.full_path
+    GROUP BY f.path
+    )
+    SELECT cf.path, je.key AS name, je.value AS mcp_config
+    FROM config_files cf
+    JOIN json_each(COALESCE(json_extract(cf.contents, '$.mcpServers'), json_extract(cf.contents, '$.servers'))) AS je;
+  interval: 21600 # 6 hours
+  observer_can_run: true
+  automations_enabled: true
+  platform: darwin,linux,windows
