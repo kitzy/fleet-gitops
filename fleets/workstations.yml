@@ -41,7 +41,8 @@ controls:
     - path: ../platforms/macos/configuration-profiles/disable-content-caching.mobileconfig
       labels_include_any:
       - macOS hosts
-  scripts: null
+  scripts:
+  - path: ../platforms/macos/scripts/disable-guest-enforce.sh
 settings:
   secrets:
   - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET

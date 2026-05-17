@@ -32,8 +32,10 @@
 - name: macOS - Disable Guest user
   platform: darwin
   description: |
-    Checks that the Disable Guest User configuration profile is delivered and fully applied. The profile layers two payloads: the NIST mSCP-recommended com.apple.MCX keys (DisableGuestAccount=true, EnableGuestAccount=false), and a com.apple.ManagedClient.preferences payload that forces com.apple.loginwindow GuestEnabled=false. The loginwindow key is what macOS 26's Users & Groups UI actually reads when greying out the "Allow guests to log in to this computer" toggle, so all three managed values must be present for compliance.
-  resolution: As an IT admin, deploy the Disable Guest User profile (platforms/macos/configuration-profiles/disable-guest.mobileconfig) and confirm it shows as verified in the host's MDM panel.
+    Verifies guest access is effectively disabled. Two layers must hold: (1) the Disable Guest User configuration profile is delivered and projecting com.apple.MCX (DisableGuestAccount=true, EnableGuestAccount=false) plus a com.apple.loginwindow Forced GuestEnabled=false, and (2) the on-disk /Library/Preferences/com.apple.loginwindow.plist does not have GuestEnabled set to true. On macOS 26 the Users & Groups UI writes the unmanaged GuestEnabled key and macOS honors that user-level value despite the managed pref, so the live plist must also be checked. The disable-guest-enforce.sh remediation installs a LaunchDaemon that reverts the unmanaged value whenever it changes.
+  resolution: As an IT admin, deploy the Disable Guest User profile (platforms/macos/configuration-profiles/disable-guest.mobileconfig). Fleet will auto-run platforms/macos/scripts/disable-guest-enforce.sh on failure to install/refresh the enforcement LaunchDaemon.
+  run_script:
+    path: ../scripts/disable-guest-enforce.sh
   query: |
     SELECT 1
     WHERE EXISTS (
@@ -50,6 +52,12 @@
       SELECT 1 FROM managed_policies
       WHERE domain = 'com.apple.loginwindow' AND username = ''
         AND name = 'GuestEnabled' AND CAST(value AS INT) = 0
+    )
+    AND NOT EXISTS (
+      SELECT 1 FROM plist
+      WHERE path = '/Library/Preferences/com.apple.loginwindow.plist'
+        AND key = 'GuestEnabled'
+        AND value IN ('true', '1')
     );
 
 - name: macOS - Software Update settings DDM declaration active
