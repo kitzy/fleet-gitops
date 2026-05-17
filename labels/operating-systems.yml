@@ -1,7 +1,3 @@
-- name: macOS
-  description: All macOS hosts
-  query: SELECT 1 FROM os_version WHERE platform = 'darwin';
-  label_membership_type: dynamic
 - name: macOS 26 Tahoe
   description: All macOS hosts running macOS 26 (Tahoe)
   query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 26;
@@ -26,19 +22,7 @@
   description: AUbuntu Linux hosts
   query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';
   label_membership_type: dynamic
-- name: iOS
-  description: All iOS hosts
-  query: SELECT 1 FROM os_version WHERE platform = 'ios';
-  label_membership_type: dynamic
-- name: iPadOS
-  description: All iPadOS hosts
-  query: SELECT 1 FROM os_version WHERE platform = 'ipados';
-  label_membership_type: dynamic
 - name: Windows
   description: All Windows hosts
   query: SELECT 1 FROM os_version WHERE platform = 'windows';
-  label_membership_type: dynamic
-- name: Android
-  description: All Android hosts
-  query: SELECT 1 FROM os_version WHERE platform = 'android';
   label_membership_type: dynamic
