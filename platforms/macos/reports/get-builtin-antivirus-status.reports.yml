@@ -1,0 +1,7 @@
+- name: Get built-in antivirus status on macOS
+  description: Reads the version numbers from the Malware Removal Tool (MRT) and built-in antivirus (XProtect) plists to confirm signature freshness.
+  query: SELECT path, value AS version FROM plist WHERE (key = 'CFBundleShortVersionString' AND path = '/Library/Apple/System/Library/CoreServices/MRT.app/Contents/Info.plist') OR (key = 'CFBundleShortVersionString' AND path = '/Library/Apple/System/Library/CoreServices/XProtect.bundle/Contents/Info.plist');
+  interval: 21600 # 6 hours
+  observer_can_run: true
+  automations_enabled: true
+  platform: darwin

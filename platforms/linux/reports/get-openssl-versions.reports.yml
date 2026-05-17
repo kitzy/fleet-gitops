@@ -1,0 +1,7 @@
+- name: Get OpenSSL versions
+  description: Retrieves the installed OpenSSL version across deb/apt/rpm package management systems for vulnerability tracking.
+  query: SELECT name AS name, version AS version, 'deb_packages' AS source FROM deb_packages WHERE name LIKE 'openssl%' UNION SELECT name AS name, version AS version, 'apt_sources' AS source FROM apt_sources WHERE name LIKE 'openssl%' UNION SELECT name AS name, version AS version, 'rpm_packages' AS source FROM rpm_packages WHERE name LIKE 'openssl%';
+  interval: 21600 # 6 hours
+  observer_can_run: true
+  automations_enabled: true
+  platform: linux

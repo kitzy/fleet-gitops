@@ -1,0 +1,7 @@
+- name: Get whether TeamViewer is installed and running
+  description: Detects the TeamViewer service on Windows machines, commonly exploited by attackers to gain unauthorized remote access.
+  query: SELECT display_name, status, s.pid, p.path FROM services AS s JOIN processes AS p USING (pid) WHERE s.name LIKE '%teamviewer%';
+  interval: 3600 # 1 hour
+  observer_can_run: false
+  automations_enabled: true
+  platform: windows
