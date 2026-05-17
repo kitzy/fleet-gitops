@@ -23,7 +23,7 @@
   query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 12;
   label_membership_type: dynamic
 - name: Ubuntu
-  description: AUbuntu Linux hosts
+  description: All Ubuntu Linux hosts
   query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';
   label_membership_type: dynamic
 - name: iOS hosts
