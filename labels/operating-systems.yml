@@ -2,6 +2,26 @@
   description: All macOS hosts
   query: SELECT 1 FROM os_version WHERE platform = 'darwin';
   label_membership_type: dynamic
+- name: macOS 26 Tahoe
+  description: All macOS hosts running macOS 26 (Tahoe)
+  query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 26;
+  label_membership_type: dynamic
+- name: macOS 15 Sequoia
+  description: All macOS hosts running macOS 15 (Sequoia)
+  query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 15;
+  label_membership_type: dynamic
+- name: macOS 14 Sonoma
+  description: All macOS hosts running macOS 14 (Sonoma)
+  query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 14;
+  label_membership_type: dynamic
+- name: macOS 13 Ventura
+  description: All macOS hosts running macOS 13 (Ventura)
+  query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 13;
+  label_membership_type: dynamic
+- name: macOS 12 Monterey
+  description: All macOS hosts running macOS 12 (Monterey)
+  query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 12;
+  label_membership_type: dynamic
 - name: Ubuntu Linux hosts
   description: All Ubuntu Linux hosts
   query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';
