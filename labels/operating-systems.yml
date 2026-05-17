@@ -1,4 +1,4 @@
-- name: macOS hosts
+- name: macOS
   description: All macOS hosts
   query: SELECT 1 FROM os_version WHERE platform = 'darwin';
   label_membership_type: dynamic
@@ -22,7 +22,7 @@
   description: All macOS hosts running macOS 12 (Monterey)
   query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 12;
   label_membership_type: dynamic
-- name: Ubuntu Linux hosts
-  description: All Ubuntu Linux hosts
+- name: Ubuntu
+  description: AUbuntu Linux hosts
   query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';
   label_membership_type: dynamic
