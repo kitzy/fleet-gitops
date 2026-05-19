@@ -22,12 +22,12 @@ org_settings:
     historical_data:
       vulnerabilities: true
   fleet_desktop:
-    transparency_url: 
+    transparency_url:
   host_expiry_settings:
     host_expiry_enabled: true
     host_expiry_window: 90
   integrations:
-    conditional_access_enabled:
+    conditional_access_enabled: false
     google_calendar:
     jira:
     zendesk:
@@ -43,7 +43,7 @@ org_settings:
     end_user_license_agreement:
     volume_purchasing_program:
   org_info:
-    contact_url: 
+    contact_url:
     org_logo_url:
     org_logo_url_light_background:
     org_name: Kitzy.net
@@ -65,7 +65,7 @@ org_settings:
     entity_id: authentik
     idp_image_url:
     idp_name: Authentik SSO
-    metadata: 
+    metadata:
     metadata_url: ${SSO_METADATA_URL}
     sso_server_url: ${FLEET_URL}
   webhook_settings:

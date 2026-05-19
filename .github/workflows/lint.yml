@@ -25,4 +25,10 @@ jobs:
         run: curl -fsSL https://raw.githubusercontent.com/headmin/fleet-editor-extensions/main/scripts/install.sh | sh
 
       - name: Run Flint
+        # Non-blocking: Flint's structural-validation rule currently lags Fleet's
+        # GitOps schema (e.g. flags `features.historical_data` and `agent_options.path`
+        # as unknown though both are documented Fleet YAML). The fleet-gitops
+        # dry-run job catches real schema issues server-side, so we surface Flint
+        # findings as PR annotations without blocking merges until upstream catches up.
+        continue-on-error: true
         run: flint check .
