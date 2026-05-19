@@ -19,6 +19,8 @@ org_settings:
   features:
     enable_host_users: true
     enable_software_inventory: true
+    historical_data:
+      vulnerabilities: true
   fleet_desktop:
     transparency_url: 
   host_expiry_settings:
