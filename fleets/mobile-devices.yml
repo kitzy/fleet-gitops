@@ -30,4 +30,6 @@ settings:
   features:
     enable_host_users: true
     enable_software_inventory: true
+    historical_data:
+      vulnerabilities: true
 software:
