@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>CIS Benchmark — enables Secure Keyboard Entry in Terminal.app.</string>
+	<key>PayloadDisplayName</key>
+	<string>Secure keyboard entry in Terminal</string>
+	<key>PayloadIdentifier</key>
+	<string>com.fleetdm.macos.cis.secure-terminal-keyboard</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>5B22FBC1-E0F4-4CC0-9AF6-18A53B6DEFEF</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Secure Keyboard Entry in Terminal</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.Terminal</string>
+			<key>PayloadType</key>
+			<string>com.apple.Terminal</string>
+			<key>PayloadUUID</key>
+			<string>C3A49572-8213-4A41-862B-305C76A6F45A</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>SecureKeyboardEntry</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

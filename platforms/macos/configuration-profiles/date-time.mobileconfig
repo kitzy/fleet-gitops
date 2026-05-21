@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>CIS Benchmark — enforces automatic date and time.</string>
+	<key>PayloadDisplayName</key>
+	<string>Automatic date and time</string>
+	<key>PayloadIdentifier</key>
+	<string>com.fleetdm.macos.cis.date-time</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>97C5B239-11B6-46D4-980F-EB72DF6DD1A3</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Force automatic date and time</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.applicationaccess</string>
+			<key>PayloadType</key>
+			<string>com.apple.applicationaccess</string>
+			<key>PayloadUUID</key>
+			<string>8CF070CD-9013-44B0-96C3-85D6BD1ED429</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>forceAutomaticDateAndTime</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

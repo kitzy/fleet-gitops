@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>CIS Benchmark — limits ad tracking and disables Apple personalized advertising.</string>
+	<key>PayloadDisplayName</key>
+	<string>Limit ad tracking and personalized ads</string>
+	<key>PayloadIdentifier</key>
+	<string>com.fleetdm.macos.cis.limit-ad-tracking</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>25E88373-F414-43A8-A197-43F1A28E6CF9</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Limit Ad Tracking and Personalized Ads</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.AdLib</string>
+			<key>PayloadType</key>
+			<string>com.apple.AdLib</string>
+			<key>PayloadUUID</key>
+			<string>0150DDB2-ABF8-43F3-BB99-9B179FFE9342</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>allowApplePersonalizedAdvertising</key>
+			<false/>
+			<key>forceLimitAdTracking</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

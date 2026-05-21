@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>Enables App Store automatic updates.</string>
+	<key>PayloadDisplayName</key>
+	<string>Automatic App Store updates</string>
+	<key>PayloadIdentifier</key>
+	<string>com.fleetdm.macos.appstore-auto-updates</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>79C22B1E-4E32-4A72-B1AF-B8A3E93DAADB</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>AutomaticallyInstallAppUpdates</key>
+			<true/>
+			<key>PayloadDescription</key>
+			<string>Automatically install App Store updates</string>
+			<key>PayloadDisplayName</key>
+			<string>Automatically install App Store updates</string>
+			<key>PayloadIdentifier</key>
+			<string>com.fleetdm.macos.appstore-auto-updates.payload</string>
+			<key>PayloadOrganization</key>
+			<string>Kitzy.net</string>
+			<key>PayloadType</key>
+			<string>com.apple.SoftwareUpdate</string>
+			<key>PayloadUUID</key>
+			<string>CC66B236-BFF0-4374-8A80-C36C02D19F0E</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

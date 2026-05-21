@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>CIS Benchmark — prevents automatic login at boot.</string>
+	<key>PayloadDisplayName</key>
+	<string>Prevent automatic login</string>
+	<key>PayloadIdentifier</key>
+	<string>com.fleetdm.macos.cis.prevent-autologon</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>1490D8EC-F79F-4CDC-99F6-B3FC28EDDF37</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Ensure Automatic Login Is Disabled</string>
+			<key>PayloadIdentifier</key>
+			<string>com.fleetdm.macos.cis.prevent-autologon.payload</string>
+			<key>PayloadType</key>
+			<string>com.apple.loginwindow</string>
+			<key>PayloadUUID</key>
+			<string>DB06169B-288D-4BF1-9648-7303B0E571B0</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>com.apple.login.mcx.DisableAutoLoginClient</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>
