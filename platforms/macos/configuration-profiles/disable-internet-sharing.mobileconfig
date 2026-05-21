@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>CIS Benchmark — forces Internet Sharing off.</string>
+	<key>PayloadDisplayName</key>
+	<string>Disable internet sharing</string>
+	<key>PayloadIdentifier</key>
+	<string>com.fleetdm.macos.cis.internet-sharing</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>8C31A271-7EE4-40D5-BC66-C695E725ECFB</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Ensure Internet Sharing Is Disabled</string>
+			<key>PayloadIdentifier</key>
+			<string>com.fleetdm.macos.cis.internet-sharing.payload</string>
+			<key>PayloadType</key>
+			<string>com.apple.MCX</string>
+			<key>PayloadUUID</key>
+			<string>3309736D-3345-479A-B1F2-0266FCD53FF4</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>forceInternetSharingOff</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

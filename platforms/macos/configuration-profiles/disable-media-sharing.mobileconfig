@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>CIS Benchmark — disables Media Sharing (Home, Legacy, Media).</string>
+	<key>PayloadDisplayName</key>
+	<string>Disable media sharing</string>
+	<key>PayloadIdentifier</key>
+	<string>com.fleetdm.macos.cis.media-sharing</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>1FDCABCC-3BD2-4504-B4C2-8FAE2DE08E5C</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Ensure Media Sharing Is Disabled</string>
+			<key>PayloadIdentifier</key>
+			<string>com.fleetdm.macos.cis.media-sharing.payload</string>
+			<key>PayloadType</key>
+			<string>com.apple.preferences.sharing.SharingPrefsExtension</string>
+			<key>PayloadUUID</key>
+			<string>F64ACC56-74C2-47E4-AA14-599826F066B0</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>homeSharingUIStatus</key>
+			<integer>0</integer>
+			<key>legacySharingUIStatus</key>
+			<integer>0</integer>
+			<key>mediaSharingUIStatus</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
