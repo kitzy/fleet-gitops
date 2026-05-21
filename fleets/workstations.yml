@@ -3,6 +3,7 @@ policies:
 - path: ../platforms/macos/policies/macos-device-health.policies.yml
 - path: ../platforms/windows/policies/windows-device-health.policies.yml
 - path: ../platforms/macos/policies/macos-fma-patch.policies.yml
+- path: ../platforms/all/policies/npm-user-npmrc-min-release-age.policies.yml
 reports:
 - path: ../platforms/all/reports/collect-usb-devices.reports.yml
 - path: ../platforms/all/reports/collect-fleetd-update-channels.reports.yml
@@ -89,7 +90,9 @@ controls:
     - path: ../platforms/macos/configuration-profiles/automatic-app-store-updates.mobileconfig
       labels_include_any:
       - macOS hosts
-  scripts: null
+  scripts:
+  - path: ../platforms/all/scripts/configure-npmrc-min-release-age.sh
+  - path: ../platforms/all/scripts/configure-npmrc-min-release-age.ps1
 settings:
   secrets:
   - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET
