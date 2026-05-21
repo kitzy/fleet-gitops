@@ -17,6 +17,9 @@ reports:
 - path: ../platforms/macos/reports/get-local-administrator-accounts.reports.yml
 - path: ../platforms/macos/reports/get-builtin-antivirus-status.reports.yml
 - path: ../platforms/macos/reports/get-installed-safari-extensions.reports.yml
+- path: ../platforms/macos/reports/collect-xprotect-reports.reports.yml
+- path: ../platforms/macos/reports/detect-apple-intelligence.reports.yml
+- path: ../platforms/macos/reports/collect-default-browser.reports.yml
 - path: ../platforms/windows/reports/get-antivirus-status.reports.yml
 - path: ../platforms/windows/reports/get-teamviewer-status.reports.yml
 agent_options:
