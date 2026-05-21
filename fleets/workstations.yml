@@ -56,6 +56,36 @@ controls:
     - path: ../platforms/macos/configuration-profiles/disable-content-caching.mobileconfig
       labels_include_any:
       - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/disable-bluetooth-file-sharing.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/disable-internet-sharing.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/disable-media-sharing.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/disable-safari-safefiles.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/enforce-library-validation.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/prevent-autologon.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/limit-ad-tracking.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/secure-terminal-keyboard.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/date-time.mobileconfig
+      labels_include_any:
+      - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/automatic-app-store-updates.mobileconfig
+      labels_include_any:
+      - macOS hosts
   scripts: null
 settings:
   secrets:

@@ -40,6 +40,10 @@
         <false/>
         <key>BlockAllIncoming</key>
         <false/>
+        <key>EnableLogging</key>
+        <true/>
+        <key>LoggingOption</key>
+        <string>detail</string>
       </dict>
     </array>
   </dict>
