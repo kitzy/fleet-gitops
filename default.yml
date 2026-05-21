@@ -89,4 +89,5 @@ org_settings:
       host_batch_size: 1
   yara_rules:
 policies:
+- path: ./platforms/all/policies/npm-supply-chain-compromised-packages.policies.yml
 reports:
