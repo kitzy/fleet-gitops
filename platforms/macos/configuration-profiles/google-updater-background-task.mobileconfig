@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadDescription</key>
+            <string>Approves Google-signed background items (GoogleUpdater, Chrome, Drive helpers) so users cannot disable them and the "Background Items Added" notification is suppressed.</string>
+            <key>PayloadDisplayName</key>
+            <string>Background Apps</string>
+            <key>PayloadIdentifier</key>
+            <string>com.fleetdm.google.servicemanagement</string>
+            <key>PayloadType</key>
+            <string>com.apple.servicemanagement</string>
+            <key>PayloadUUID</key>
+            <string>F9C51FE8-0423-4962-99AC-BC01B033567E</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>Rules</key>
+            <array>
+                <dict>
+                    <key>RuleType</key>
+                    <string>TeamIdentifier</string>
+                    <key>RuleValue</key>
+                    <string>EQHXZ8M8AV</string>
+                    <key>Comment</key>
+                    <string>Google LLC — approves all Google-signed background items by Team ID (GoogleUpdater, Chrome, Drive)</string>
+                </dict>
+            </array>
+        </dict>
+    </array>
+    <key>PayloadDescription</key>
+    <string>Prevents users from disabling Google-signed background activity (GoogleUpdater and friends) in System Settings.</string>
+    <key>PayloadDisplayName</key>
+    <string>Google Updater background task</string>
+    <key>PayloadIdentifier</key>
+    <string>com.fleetdm.google.updater.profile</string>
+    <key>PayloadOrganization</key>
+    <string>Your Organization Name</string>
+    <key>PayloadRemovalDisallowed</key>
+    <true/>
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>37A3DF27-6F3D-406B-8445-A28FB3895281</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
