@@ -47,6 +47,9 @@ controls:
     - path: ../platforms/macos/configuration-profiles/fleet-background-activity.mobileconfig
       labels_include_any:
       - macOS hosts
+    - path: ../platforms/macos/configuration-profiles/google-updater-background-task.mobileconfig
+      labels_include_any:
+      - macOS hosts
     - path: ../platforms/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
       labels_include_any:
       - macOS hosts
