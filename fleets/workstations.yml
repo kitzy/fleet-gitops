@@ -33,63 +33,8 @@ controls:
     minimum_version: '26.5'
   apple_settings:
     configuration_profiles:
-    - path: ../platforms/macos/declaration-profiles/passcode-settings-ddm.json
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/declaration-profiles/softwareupdate-settings-ddm.json
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/macos-firewall.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/disable-guest.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/chrome-disable-password-manager.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/fleet-background-activity.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/google-updater-background-task.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/fleetd-full-disk-access.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/disable-content-caching.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/disable-bluetooth-file-sharing.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/disable-internet-sharing.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/disable-media-sharing.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/disable-safari-safefiles.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/enforce-library-validation.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/prevent-autologon.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/limit-ad-tracking.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/secure-terminal-keyboard.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/date-time.mobileconfig
-      labels_include_any:
-      - macOS hosts
-    - path: ../platforms/macos/configuration-profiles/automatic-app-store-updates.mobileconfig
-      labels_include_any:
-      - macOS hosts
+    - paths: ../platforms/macos/declaration-profiles/all-macos/*.json
+    - paths: ../platforms/macos/configuration-profiles/all-macos/*.mobileconfig
   scripts:
   - path: ../platforms/all/scripts/configure-npmrc-min-release-age.sh
   - path: ../platforms/all/scripts/configure-npmrc-min-release-age.ps1
