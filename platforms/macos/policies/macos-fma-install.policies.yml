@@ -1,0 +1,7 @@
+- name: macOS - Fleet Desktop installed
+  platform: darwin
+  description: This policy checks that the standalone Fleet Desktop application is installed. Distinct from the Fleet Desktop menu bar helper bundled with fleetd.
+  resolution: Fleet will install the Fleet Desktop Fleet-maintained app on hosts where this policy fails.
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.fleetdm.fleet-desktop';
+  install_software:
+    fleet_maintained_app_slug: fleet-desktop/darwin

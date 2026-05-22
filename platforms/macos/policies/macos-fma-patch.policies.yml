@@ -34,6 +34,10 @@
   type: patch
   fleet_maintained_app_slug: elgato-stream-deck/darwin
   install_software: true
+- name: Fleet Desktop up to date
+  type: patch
+  fleet_maintained_app_slug: fleet-desktop/darwin
+  install_software: true
 - name: Ghostty up to date
   type: patch
   fleet_maintained_app_slug: ghostty/darwin
