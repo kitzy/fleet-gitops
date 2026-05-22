@@ -3,6 +3,7 @@ policies:
 - path: ../platforms/macos/policies/macos-device-health.policies.yml
 - path: ../platforms/windows/policies/windows-device-health.policies.yml
 - path: ../platforms/macos/policies/macos-fma-patch.policies.yml
+- path: ../platforms/macos/policies/macos-fma-install.policies.yml
 - path: ../platforms/all/policies/npm-user-npmrc-min-release-age.policies.yml
 reports:
 - path: ../platforms/all/reports/collect-usb-devices.reports.yml
@@ -80,6 +81,9 @@ software:
     self_service: true
   - slug: elgato-stream-deck/darwin
     setup_experience: false
+    self_service: true
+  - slug: fleet-desktop/darwin
+    setup_experience: true
     self_service: true
   - slug: ghostty/darwin
     setup_experience: false
