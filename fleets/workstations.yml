@@ -17,6 +17,7 @@ reports:
 - path: ../platforms/all/reports/get-mcp-client-configurations.reports.yml
 - path: ../platforms/macos/reports/get-laptops-with-failing-batteries.reports.yml
 - path: ../platforms/macos/reports/get-local-administrator-accounts.reports.yml
+- path: ../platforms/macos/reports/get-securetoken-status.reports.yml
 - path: ../platforms/macos/reports/get-builtin-antivirus-status.reports.yml
 - path: ../platforms/macos/reports/get-installed-safari-extensions.reports.yml
 - path: ../platforms/macos/reports/collect-xprotect-reports.reports.yml

@@ -1,0 +1,22 @@
+- name: Get SecureToken status for local accounts on macOS
+  description: Reports whether each local macOS account with uid 501 or higher holds a SecureToken, derived from the AuthenticationAuthority attribute in the account's dslocal record. Useful for auditing which users can unlock FileVault and authorize volume-ownership operations.
+  query: |
+    SELECT
+      u.uid,
+      u.username,
+      MAX(
+        CASE
+          WHEN p.value LIKE '%;SecureToken%' AND p.value NOT LIKE '%DisabledTags%' THEN 1
+          ELSE 0
+        END
+      ) AS has_secure_token
+    FROM users u
+    JOIN plist p
+      ON p.path = '/var/db/dslocal/nodes/Default/users/' || u.username || '.plist'
+    WHERE u.uid >= 501
+      AND p.key = 'AuthenticationAuthority'
+    GROUP BY u.uid, u.username;
+  interval: 21600 # 6 hours
+  observer_can_run: true
+  automations_enabled: true
+  platform: darwin
