@@ -2,6 +2,6 @@
   description: Identifies authorized SSH keys across user accounts. Presence of authorized SSH keys may be unusual on laptops but expected on servers; review unusual or changed keys.
   query: SELECT username, authorized_keys.* FROM users CROSS JOIN authorized_keys USING (uid);
   interval: 21600 # 6 hours
-  observer_can_run: false
+  observer_can_run: true
   automations_enabled: true
   platform: darwin,linux,windows

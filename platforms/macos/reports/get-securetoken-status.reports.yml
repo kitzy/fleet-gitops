@@ -1,0 +1,14 @@
+- name: Get SecureToken status for local accounts on macOS
+  description: Reports whether each local macOS account with uid 501 or higher holds a SecureToken, derived from membership in the filevault_users (volume-owner / cryptouser) table. Useful for auditing which users can unlock FileVault and authorize volume-ownership operations.
+  query: |
+    SELECT
+      u.uid,
+      u.username,
+      CASE WHEN fu.uuid IS NOT NULL THEN 1 ELSE 0 END AS has_secure_token
+    FROM users u
+    LEFT JOIN filevault_users fu ON fu.uuid = u.uuid
+    WHERE u.uid >= 501;
+  interval: 21600 # 6 hours
+  observer_can_run: true
+  automations_enabled: true
+  platform: darwin

@@ -2,6 +2,6 @@
   description: Enumerates local user accounts and their primary group membership on macOS so admin-level accounts can be audited for sprawl.
   query: SELECT uid, username, type FROM users u JOIN groups g ON g.gid = u.gid;
   interval: 21600 # 6 hours
-  observer_can_run: false
+  observer_can_run: true
   automations_enabled: true
   platform: darwin

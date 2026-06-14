@@ -2,6 +2,6 @@
   description: Identifies all ports listening on all interfaces (0.0.0.0) and associates them with their respective processes.
   query: SELECT lp.address, lp.pid, lp.port, lp.protocol, p.name, p.path, p.cmdline FROM listening_ports lp JOIN processes p ON lp.pid = p.pid WHERE lp.address = '0.0.0.0';
   interval: 3600 # 1 hour
-  observer_can_run: false
+  observer_can_run: true
   automations_enabled: true
   platform: darwin,linux,windows
