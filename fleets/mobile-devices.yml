@@ -15,10 +15,10 @@ agent_options:
 controls:
   enable_disk_encryption: true
   ios_updates:
-    deadline: "2026-05-20"
+    deadline: "2026-06-19"
     minimum_version: "26.5"
   ipados_updates:
-    deadline: "2026-05-20"
+    deadline: "2026-06-19"
     minimum_version: "26.5"
   apple_settings:
     configuration_profiles:
