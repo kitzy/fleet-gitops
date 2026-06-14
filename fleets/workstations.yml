@@ -31,8 +31,8 @@ controls:
   enable_disk_encryption: true
   enable_recovery_lock_password: true
   macos_updates:
-    deadline: '2026-05-20'
-    minimum_version: '26.5'
+    deadline: '2026-06-19'
+    minimum_version: '26.5.1'
   apple_settings:
     configuration_profiles:
     - paths: ../platforms/macos/declaration-profiles/all-macos/*.json

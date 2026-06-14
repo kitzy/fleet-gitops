@@ -33,6 +33,10 @@ org_settings:
     zendesk:
   mdm:
     apple_business_manager:
+    - organization_name: Fleet Device Management Inc.
+      macos_fleet: Workstations
+      ios_fleet: Mobile Devices
+      ipados_fleet: Mobile Devices
     apple_server_url:
     end_user_authentication:
       entity_id:
