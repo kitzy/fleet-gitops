@@ -1,0 +1,43 @@
+- name: node release-age cooldown >= 7 days (pnpm + npm)
+  query: |
+    SELECT 1
+    WHERE
+      EXISTS (
+        SELECT 1 FROM file_lines
+        WHERE path = '/etc/turnkey/node-defaults.npmrc'
+          AND line LIKE 'minimum-release-age=%'
+          AND line NOT LIKE '#%'
+      )
+      AND NOT EXISTS (
+        SELECT 1 FROM file_lines
+        WHERE path = '/etc/turnkey/node-defaults.npmrc'
+          AND line LIKE 'minimum-release-age=%'
+          AND line NOT LIKE '#%'
+          AND CAST(TRIM(SUBSTR(line, INSTR(line, '=') + 1)) AS INTEGER) < 10080
+      )
+      AND EXISTS (
+        SELECT 1 FROM file_lines
+        WHERE path = '/etc/turnkey/node-defaults.npmrc'
+          AND line LIKE 'min-release-age=%'
+          AND line NOT LIKE '#%'
+      )
+      AND NOT EXISTS (
+        SELECT 1 FROM file_lines
+        WHERE path = '/etc/turnkey/node-defaults.npmrc'
+          AND line LIKE 'min-release-age=%'
+          AND line NOT LIKE '#%'
+          AND CAST(TRIM(SUBSTR(line, INSTR(line, '=') + 1)) AS INTEGER) < 7
+      );
+  critical: false
+  description: |
+    Verifies /etc/turnkey/node-defaults.npmrc enforces the org-wide supply-chain
+    cooldown for both pnpm (minimum-release-age >= 10080 minutes / 7 days) and
+    npm (min-release-age >= 7 days). Defends against duplicate-key bypass: every
+    occurrence of each key must meet its threshold.
+  resolution: |
+    Ensure Fleet is managing /etc/turnkey/node-defaults.npmrc and that every
+    occurrence of each key meets or exceeds its threshold:
+      minimum-release-age >= 10080   (pnpm, minutes; 10080 = 7 days)
+      min-release-age    >= 7        (npm, days)
+  platform: darwin
+  calendar_events_enabled: false
