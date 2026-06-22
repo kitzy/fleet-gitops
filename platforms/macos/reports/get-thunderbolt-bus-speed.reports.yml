@@ -1,0 +1,13 @@
+- name: Get Thunderbolt bus speed on macOS
+  description: Reports each Thunderbolt bus on the host along with the current link speed of its first receptacle, parsed from system_profiler's SPThunderboltDataType. Useful for auditing Thunderbolt/USB-C port negotiation and spotting busses negotiating below their rated speed.
+  query: |
+    SELECT
+      json_extract(je.value, '$._name') AS bus_name,
+      json_extract(je.value, '$.receptacle_1_tag.current_speed_key') AS current_speed
+    FROM system_profiler AS sp,
+      json_each(sp.value) AS je
+    WHERE sp.data_type = 'SPThunderboltDataType';
+  interval: 604800 # 7 days
+  observer_can_run: true
+  automations_enabled: false
+  platform: darwin
