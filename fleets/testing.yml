@@ -5,9 +5,6 @@ reports:
 agent_options:
   path: ../platforms/agent-options.yml
 controls:
-  apple_settings:
-    configuration_profiles:
-    - path: ../platforms/macos/configuration-profiles/disable-erase-contents-settings.mobileconfig
 settings:
   secrets:
   - secret: $FLEET_TESTING_ENROLL_SECRET
