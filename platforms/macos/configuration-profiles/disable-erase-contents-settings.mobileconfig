@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>PayloadDescription</key>
+    <string>Disables the "Erase All Content and Settings" option in System Settings > General > Transfer or Reset. Requires macOS 12.0 or later.</string>
+    <key>PayloadDisplayName</key>
+    <string>Restrictions: Disable Erase All Content and Settings</string>
+    <key>PayloadIdentifier</key>
+    <string>net.kitzy.mdm.disable-erase-contents-settings.657EDB2D-4EDC-44B1-9E19-448467B23768</string>
+    <key>PayloadOrganization</key>
+    <string>Kitzy.net</string>
+    <key>PayloadRemovalDisallowed</key>
+    <true/>
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>657EDB2D-4EDC-44B1-9E19-448467B23768</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+
+    <key>PayloadContent</key>
+    <array>
+      <dict>
+        <key>PayloadType</key>
+        <string>com.apple.applicationaccess</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>PayloadIdentifier</key>
+        <string>net.kitzy.mdm.disable-erase-contents-settings.payload</string>
+        <key>PayloadUUID</key>
+        <string>B42778A5-7F48-42F9-B1F9-62ECDA2CE42B</string>
+        <key>PayloadDisplayName</key>
+        <string>Disable Erase All Content and Settings</string>
+        <key>allowEraseContentAndSettings</key>
+        <false/>
+      </dict>
+    </array>
+  </dict>
+</plist>
