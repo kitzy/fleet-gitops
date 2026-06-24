@@ -61,37 +61,12 @@ following constraints for all work in this session.
 
 ## References
 
-- **Fleet GitOps YAML keys** (org settings, team settings, controls, policies, queries, software, etc.):
-  https://fleetdm.com/docs/configuration/yaml-files
-
-  Consult these when adding, renaming, or validating any key before guessing at structure.
-
-- **Fleet REST API** (endpoints, parameters, automation):
-  https://fleetdm.com/docs/rest-api/rest-api
-
-- **Fleet Maintained Apps (FMA) catalog** (canonical `slug:` values for `software.fleet_maintained_apps` entries):
-  https://fmalibrary.com/ — and the source catalog at https://github.com/fleetdm/fleet/tree/main/ee/maintained-apps
-
-  Consult this whenever introducing or renaming an FMA entry — verify the exact slug against the catalog before writing it into YAML. Guessing or inferring a slug from the app name will cause `fleetctl gitops` to fail.
-
-- **Apple configuration profile payload keys** (`.mobileconfig` payloads under `platforms/macos/configuration-profiles/`):
-  https://developer.apple.com/documentation/devicemanagement/profile-specific-payload-keys
-  Machine-readable: https://github.com/apple/device-management/tree/release/mdm/profiles
-
-- **Third-party Apple `.mobileconfig` payloads** (custom app domains not covered by Apple's reference):
-  https://github.com/ProfileManifests/ProfileManifests
-
-- **Apple Declarative Device Management (DDM)** declarations (`.json` payloads under `platforms/macos/declaration-profiles/`):
-  https://developer.apple.com/documentation/devicemanagement/declarations
-  Machine-readable: https://github.com/apple/device-management/tree/release/declarative/declarations
-
-- **Windows configuration profiles / CSPs** (`.xml` under `controls.windows_settings`):
-  https://learn.microsoft.com/en-us/windows/client-management/mdm/
-
-- **Android configuration profiles** (`.json` under `controls.android_settings`):
-  https://developers.google.com/android/management/reference/rest/v1/enterprises.policies
-
-- **Fleet osquery table schema** (tables and columns available to queries in policies, reports, labels, and inline `query:` fields):
-  https://fleetdm.com/tables — source at https://github.com/fleetdm/fleet/tree/main/schema
-
-  Consult this whenever authoring or editing an osquery SQL query — verify each table referenced in `FROM` / `JOIN` clauses, the platforms it supports, and the columns/types you're selecting on. Fleet's schema differs from upstream osquery (platform availability, deprecated columns, Fleet-specific extensions like `mdm`, `network_interfaces`, etc.).
+- **Fleet GitOps YAML keys**: https://fleetdm.com/docs/configuration/yaml-files
+- **Fleet REST API**: https://fleetdm.com/docs/rest-api/rest-api
+- **Fleet Maintained Apps (FMA) catalog**: https://fmalibrary.com/ · source: https://github.com/fleetdm/fleet/tree/main/ee/maintained-apps
+- **Apple `.mobileconfig` payload keys**: https://developer.apple.com/documentation/devicemanagement/profile-specific-payload-keys · machine-readable: https://github.com/apple/device-management/tree/release/mdm/profiles
+- **Third-party Apple `.mobileconfig` payloads**: https://github.com/ProfileManifests/ProfileManifests
+- **Apple DDM declarations**: https://developer.apple.com/documentation/devicemanagement/declarations · machine-readable: https://github.com/apple/device-management/tree/release/declarative/declarations
+- **Windows CSPs**: https://learn.microsoft.com/en-us/windows/client-management/mdm/
+- **Android configuration profiles**: https://developers.google.com/android/management/reference/rest/v1/enterprises.policies
+- **Fleet osquery table schema**: https://fleetdm.com/tables · source: https://github.com/fleetdm/fleet/tree/main/schema
