@@ -8,6 +8,8 @@ controls:
   apple_settings:
     configuration_profiles:
     - path: ../platforms/macos/declaration-profiles/allow-beta-updates-ddm.json
+  setup_experience:
+    apple_setup_assistant: ../platforms/macos/enrollment-profiles/automatic-enrollment.dep.json
 settings:
   secrets:
   - secret: $FLEET_TESTING_ENROLL_SECRET
