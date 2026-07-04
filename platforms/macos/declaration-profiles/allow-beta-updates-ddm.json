@@ -1,0 +1,9 @@
+{
+    "Type": "com.apple.configuration.softwareupdate.settings",
+    "Identifier": "267392e0-2713-45ca-95a0-c08e69015388",
+    "Payload": {
+        "Beta": {
+            "ProgramEnrollment": "Allowed"
+        }
+    }
+}
