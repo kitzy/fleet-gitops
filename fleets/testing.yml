@@ -1,6 +1,5 @@
 name: Testing
 policies:
-- path: ../platforms/macos/policies/node-release-age-cooldown.policies.yml
 reports:
 agent_options:
   path: ../platforms/agent-options.yml
