@@ -1,7 +1,8 @@
 {
 	"profile_name": "Fleet's example automatic enrollment profile",
 	"allow_pairing": true,
-	"is_mdm_removable": true,
+	"is_mdm_removable": false,
+	"is_supervised": true,
 	"org_magic": "1",
 	"language": "en",
 	"region": "US",
