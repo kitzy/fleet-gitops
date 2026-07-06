@@ -52,6 +52,13 @@
         AND name = 'GuestEnabled' AND CAST(value AS INT) = 0
     );
 
+- name: macOS - All available Apple software updates installed
+  platform: darwin
+  description: |
+    Checks that no Apple Software Update items are pending on the host. Covers minor/security updates and non-OS updates (e.g. Safari) that macos_updates enforcement of minimum_version does not address, since that setting only targets the OS version itself.
+  resolution: As an end user, open System Settings > General > Software Update and install any available updates, or run `softwareupdate --install --all` from Terminal.
+  query: SELECT 1 FROM software_update WHERE software_update_required = 0;
+
 - name: macOS - Software Update settings DDM declaration active
   platform: darwin
   description: |
