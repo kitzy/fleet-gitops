@@ -1,5 +1,6 @@
 name: Testing
 policies:
+- path: ../platforms/macos/policies/macos-gatekeeper.policies.yml
 reports:
 agent_options:
   path: ../platforms/agent-options.yml
@@ -7,6 +8,7 @@ controls:
   apple_settings:
     configuration_profiles:
     - path: ../platforms/macos/declaration-profiles/allow-beta-updates-ddm.json
+    - path: ../platforms/macos/configuration-profiles/enforce-gatekeeper.mobileconfig
   setup_experience:
     apple_setup_assistant: ../platforms/macos/enrollment-profiles/automatic-enrollment.dep.json
 settings:
