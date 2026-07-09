@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>Enforces Gatekeeper (blocks unsigned/unnotarized apps; allows App Store and identified-developer apps).</string>
+	<key>PayloadDisplayName</key>
+	<string>Enforce Gatekeeper</string>
+	<key>PayloadEnabled</key>
+	<true/>
+	<key>PayloadIdentifier</key>
+	<string>com.fleetdm.macos.testing.enforce-gatekeeper</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>91E94369-E08F-491F-AE38-BBFA3838F023</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>AllowIdentifiedDevelopers</key>
+			<true/>
+			<key>EnableAssessment</key>
+			<true/>
+			<key>PayloadDescription</key>
+			<string>Enable Gatekeeper assessment (App Store and identified developers)</string>
+			<key>PayloadDisplayName</key>
+			<string>Gatekeeper</string>
+			<key>PayloadIdentifier</key>
+			<string>com.fleetdm.macos.testing.enforce-gatekeeper.payload</string>
+			<key>PayloadType</key>
+			<string>com.apple.systempolicy.control</string>
+			<key>PayloadUUID</key>
+			<string>1D2EF4E3-4004-4BAB-A305-2DAEB51B520D</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

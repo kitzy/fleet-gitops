@@ -1,0 +1,5 @@
+- name: macOS - Gatekeeper enabled
+  platform: darwin
+  description: Checks that Gatekeeper is enabled, blocking unsigned/unnotarized apps from running.
+  resolution: As an IT admin, deploy the Enforce Gatekeeper profile (platforms/macos/configuration-profiles/enforce-gatekeeper.mobileconfig) and confirm it shows as verified in the host's MDM panel.
+  query: SELECT 1 FROM managed_policies WHERE domain = 'com.apple.systempolicy.control' AND username = '' AND name = 'EnableAssessment' AND CAST(value AS INT) = 1;
