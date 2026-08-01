@@ -60,10 +60,16 @@ software:
   - slug: 1password/darwin
     setup_experience: false
     self_service: true
+  - slug: adobe-acrobat-reader/darwin
+    setup_experience: false
+    self_service: true
   - slug: balenaetcher/darwin
     setup_experience: false
     self_service: true
   - slug: canva/darwin
+    setup_experience: false
+    self_service: true
+  - slug: chatgpt/darwin
     setup_experience: false
     self_service: true
   - slug: claude/darwin
@@ -72,10 +78,19 @@ software:
   - slug: cleanshot/darwin
     setup_experience: false
     self_service: true
+  - slug: cursor/darwin
+    setup_experience: false
+    self_service: true
   - slug: discord/darwin
     setup_experience: false
     self_service: true
+  - slug: displaylink/darwin
+    setup_experience: false
+    self_service: true
   - slug: docker-desktop/darwin
+    setup_experience: false
+    self_service: true
+  - slug: dymo-connect/darwin
     setup_experience: false
     self_service: true
   - slug: elgato-control-center/darwin
@@ -102,6 +117,12 @@ software:
   - slug: gpg-suite/darwin
     setup_experience: false
     self_service: true
+  - slug: handbrake-app/darwin
+    setup_experience: false
+    self_service: true
+  - slug: imazing-converter/darwin
+    setup_experience: false
+    self_service: true
   - slug: imazing-profile-editor/darwin
     setup_experience: false
     self_service: true
@@ -109,6 +130,12 @@ software:
     setup_experience: false
     self_service: true
   - slug: logi-options+/darwin
+    setup_experience: false
+    self_service: true
+  - slug: meetingbar/darwin
+    setup_experience: false
+    self_service: true
+  - slug: microsoft-teams/darwin
     setup_experience: false
     self_service: true
   - slug: visual-studio-code/darwin
@@ -132,6 +159,12 @@ software:
   - slug: slack/darwin
     setup_experience: false
     self_service: true
+  - slug: spotify/darwin
+    setup_experience: false
+    self_service: true
+  - slug: steam/darwin
+    setup_experience: false
+    self_service: true
   - slug: sublime-text/darwin
     setup_experience: false
     self_service: true
@@ -142,6 +175,9 @@ software:
     setup_experience: false
     self_service: true
   - slug: textexpander/darwin
+    setup_experience: false
+    self_service: true
+  - slug: the-unarchiver/darwin
     setup_experience: false
     self_service: true
   - slug: transmit/darwin

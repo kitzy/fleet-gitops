@@ -2,6 +2,10 @@
   type: patch
   fleet_maintained_app_slug: 1password/darwin
   install_software: true
+- name: Adobe Acrobat Reader up to date
+  type: patch
+  fleet_maintained_app_slug: adobe-acrobat-reader/darwin
+  install_software: true
 - name: balenaEtcher up to date
   type: patch
   fleet_maintained_app_slug: balenaetcher/darwin
@@ -9,6 +13,10 @@
 - name: Canva up to date
   type: patch
   fleet_maintained_app_slug: canva/darwin
+  install_software: true
+- name: ChatGPT up to date
+  type: patch
+  fleet_maintained_app_slug: chatgpt/darwin
   install_software: true
 - name: Claude up to date
   type: patch
@@ -18,13 +26,25 @@
   type: patch
   fleet_maintained_app_slug: cleanshot/darwin
   install_software: true
+- name: Cursor up to date
+  type: patch
+  fleet_maintained_app_slug: cursor/darwin
+  install_software: true
 - name: Discord up to date
   type: patch
   fleet_maintained_app_slug: discord/darwin
   install_software: true
+- name: DisplayLink up to date
+  type: patch
+  fleet_maintained_app_slug: displaylink/darwin
+  install_software: true
 - name: Docker Desktop up to date
   type: patch
   fleet_maintained_app_slug: docker-desktop/darwin
+  install_software: true
+- name: DYMO Connect up to date
+  type: patch
+  fleet_maintained_app_slug: dymo-connect/darwin
   install_software: true
 - name: Elgato Control Center up to date
   type: patch
@@ -58,6 +78,14 @@
   type: patch
   fleet_maintained_app_slug: gpg-suite/darwin
   install_software: true
+- name: HandBrake up to date
+  type: patch
+  fleet_maintained_app_slug: handbrake-app/darwin
+  install_software: true
+- name: iMazing Converter up to date
+  type: patch
+  fleet_maintained_app_slug: imazing-converter/darwin
+  install_software: true
 - name: iMazing Profile Editor up to date
   type: patch
   fleet_maintained_app_slug: imazing-profile-editor/darwin
@@ -69,6 +97,14 @@
 - name: Logi Options+ up to date
   type: patch
   fleet_maintained_app_slug: logi-options+/darwin
+  install_software: true
+- name: MeetingBar up to date
+  type: patch
+  fleet_maintained_app_slug: meetingbar/darwin
+  install_software: true
+- name: Microsoft Teams up to date
+  type: patch
+  fleet_maintained_app_slug: microsoft-teams/darwin
   install_software: true
 - name: Visual Studio Code up to date
   type: patch
@@ -98,6 +134,14 @@
   type: patch
   fleet_maintained_app_slug: slack/darwin
   install_software: true
+- name: Spotify up to date
+  type: patch
+  fleet_maintained_app_slug: spotify/darwin
+  install_software: true
+- name: Steam up to date
+  type: patch
+  fleet_maintained_app_slug: steam/darwin
+  install_software: true
 - name: Sublime Text up to date
   type: patch
   fleet_maintained_app_slug: sublime-text/darwin
@@ -113,6 +157,10 @@
 - name: TextExpander up to date
   type: patch
   fleet_maintained_app_slug: textexpander/darwin
+  install_software: true
+- name: The Unarchiver up to date
+  type: patch
+  fleet_maintained_app_slug: the-unarchiver/darwin
   install_software: true
 - name: Transmit up to date
   type: patch
