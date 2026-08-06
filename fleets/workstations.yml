@@ -161,6 +161,9 @@ software:
   - slug: spotify/darwin
     setup_experience: false
     self_service: true
+  - slug: steam/darwin
+    setup_experience: false
+    self_service: true
   - slug: sublime-text/darwin
     setup_experience: false
     self_service: true
