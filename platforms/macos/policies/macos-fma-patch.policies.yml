@@ -138,10 +138,6 @@
   type: patch
   fleet_maintained_app_slug: spotify/darwin
   install_software: true
-- name: Steam up to date
-  type: patch
-  fleet_maintained_app_slug: steam/darwin
-  install_software: true
 - name: Sublime Text up to date
   type: patch
   fleet_maintained_app_slug: sublime-text/darwin
