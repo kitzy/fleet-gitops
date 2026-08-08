@@ -23,7 +23,31 @@ permissions:
   contents: read
 
 jobs:
+  validate-apple-profiles:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitOps repository
+        uses: actions/checkout@v6
+
+      - name: Validate Apple profiles and declarations (contour)
+        run: |
+          curl -fsSL -o contour.tar.gz \
+            https://github.com/macadmins/contour/releases/download/v0.4.0-beta.4/contour-0.4.0-beta.4-x86_64-unknown-linux-gnu.tar.gz
+          tar -xzf contour.tar.gz
+
+          ./contour profile validate ./platforms/macos/configuration-profiles -r --strict
+
+          ./contour profile ddm validate ./platforms/macos/declaration-profiles -r
+          ./contour profile ddm validate ./platforms/all/declaration-profiles -r
+          ./contour profile ddm verify ./platforms/macos/declaration-profiles -r
+          ./contour profile ddm verify ./platforms/all/declaration-profiles -r
+
+          dupes=$(find platforms/macos/declaration-profiles platforms/all/declaration-profiles \
+            -name '*.json' -exec jq -r '.Identifier' {} + | sort | uniq -d)
+          [ -z "$dupes" ] || { printf 'duplicate declaration identifiers:\n%s\n' "$dupes"; exit 1; }
+
   fleet-gitops:
+    needs: validate-apple-profiles
     runs-on: ubuntu-latest
     steps:
       - name: Load secrets from 1Password
