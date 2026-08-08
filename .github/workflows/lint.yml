@@ -19,6 +19,10 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Install Flint
+        # Non-blocking for the same reason as the Run Flint step below: an
+        # upstream release hiccup (e.g. a missing linux-x64 asset) shouldn't
+        # fail PRs on its own when Flint is advisory-only here.
+        continue-on-error: true
         run: curl -fsSL https://raw.githubusercontent.com/headmin/fleet-editor-extensions/main/scripts/install.sh | sh
 
       - name: Run Flint
