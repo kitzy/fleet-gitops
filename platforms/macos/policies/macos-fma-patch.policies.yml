@@ -2,187 +2,281 @@
   type: patch
   fleet_maintained_app_slug: 1password/darwin
   install_software: true
+  labels_include_any:
+  - 1Password installed
 - name: Adobe Acrobat Reader up to date
   type: patch
   fleet_maintained_app_slug: adobe-acrobat-reader/darwin
   install_software: true
+  labels_include_any:
+  - Adobe Acrobat Reader installed
 - name: balenaEtcher up to date
   type: patch
   fleet_maintained_app_slug: balenaetcher/darwin
   install_software: true
+  labels_include_any:
+  - balenaEtcher installed
 - name: Canva up to date
   type: patch
   fleet_maintained_app_slug: canva/darwin
   install_software: true
+  labels_include_any:
+  - Canva installed
 - name: ChatGPT up to date
   type: patch
   fleet_maintained_app_slug: chatgpt/darwin
   install_software: true
+  labels_include_any:
+  - ChatGPT installed
 - name: Claude up to date
   type: patch
   fleet_maintained_app_slug: claude/darwin
   install_software: true
+  labels_include_any:
+  - Claude installed
 - name: CleanShot X up to date
   type: patch
   fleet_maintained_app_slug: cleanshot/darwin
   install_software: true
+  labels_include_any:
+  - CleanShot X installed
 - name: Cursor up to date
   type: patch
   fleet_maintained_app_slug: cursor/darwin
   install_software: true
+  labels_include_any:
+  - Cursor installed
 - name: Discord up to date
   type: patch
   fleet_maintained_app_slug: discord/darwin
   install_software: true
+  labels_include_any:
+  - Discord installed
 - name: DisplayLink up to date
   type: patch
   fleet_maintained_app_slug: displaylink/darwin
   install_software: true
+  labels_include_any:
+  - DisplayLink installed
 - name: Docker Desktop up to date
   type: patch
   fleet_maintained_app_slug: docker-desktop/darwin
   install_software: true
+  labels_include_any:
+  - Docker Desktop installed
 - name: DYMO Connect up to date
   type: patch
   fleet_maintained_app_slug: dymo-connect/darwin
   install_software: true
+  labels_include_any:
+  - DYMO Connect installed
 - name: Elgato Control Center up to date
   type: patch
   fleet_maintained_app_slug: elgato-control-center/darwin
   install_software: true
+  labels_include_any:
+  - Elgato Control Center installed
 - name: Elgato Stream Deck up to date
   type: patch
   fleet_maintained_app_slug: elgato-stream-deck/darwin
   install_software: true
+  labels_include_any:
+  - Elgato Stream Deck installed
 - name: Fleet Desktop up to date
   type: patch
   fleet_maintained_app_slug: fleet-desktop/darwin
   install_software: true
+  labels_include_any:
+  - Fleet Desktop installed
 - name: Ghostty up to date
   type: patch
   fleet_maintained_app_slug: ghostty/darwin
   install_software: true
+  labels_include_any:
+  - Ghostty installed
 - name: GitHub Desktop up to date
   type: patch
   fleet_maintained_app_slug: github/darwin
   install_software: true
+  labels_include_any:
+  - GitHub Desktop installed
 - name: Google Chrome up to date
   type: patch
   fleet_maintained_app_slug: google-chrome/darwin
   install_software: true
+  labels_include_any:
+  - Google Chrome installed
 - name: Google Drive up to date
   type: patch
   fleet_maintained_app_slug: google-drive/darwin
   install_software: true
+  labels_include_any:
+  - Google Drive installed
 - name: GPG Suite up to date
   type: patch
   fleet_maintained_app_slug: gpg-suite/darwin
   install_software: true
+  labels_include_any:
+  - GPG Suite installed
 - name: HandBrake up to date
   type: patch
   fleet_maintained_app_slug: handbrake-app/darwin
   install_software: true
+  labels_include_any:
+  - HandBrake installed
 - name: iMazing Converter up to date
   type: patch
   fleet_maintained_app_slug: imazing-converter/darwin
   install_software: true
+  labels_include_any:
+  - iMazing Converter installed
 - name: iMazing Profile Editor up to date
   type: patch
   fleet_maintained_app_slug: imazing-profile-editor/darwin
   install_software: true
+  labels_include_any:
+  - iMazing Profile Editor installed
 - name: iTerm2 up to date
   type: patch
   fleet_maintained_app_slug: iterm2/darwin
   install_software: true
+  labels_include_any:
+  - iTerm2 installed
 - name: Logi Options+ up to date
   type: patch
   fleet_maintained_app_slug: logi-options+/darwin
   install_software: true
+  labels_include_any:
+  - Logi Options+ installed
 - name: MeetingBar up to date
   type: patch
   fleet_maintained_app_slug: meetingbar/darwin
   install_software: true
+  labels_include_any:
+  - MeetingBar installed
 - name: Microsoft Teams up to date
   type: patch
   fleet_maintained_app_slug: microsoft-teams/darwin
   install_software: true
+  labels_include_any:
+  - Microsoft Teams installed
 - name: Visual Studio Code up to date
   type: patch
   fleet_maintained_app_slug: visual-studio-code/darwin
   install_software: true
+  labels_include_any:
+  - Visual Studio Code installed
 - name: Notion up to date
   type: patch
   fleet_maintained_app_slug: notion/darwin
   install_software: true
+  labels_include_any:
+  - Notion installed
 - name: Ollama up to date
   type: patch
   fleet_maintained_app_slug: ollama/darwin
   install_software: true
+  labels_include_any:
+  - Ollama installed
 - name: Postman up to date
   type: patch
   fleet_maintained_app_slug: postman/darwin
   install_software: true
+  labels_include_any:
+  - Postman installed
 - name: Raycast up to date
   type: patch
   fleet_maintained_app_slug: raycast/darwin
   install_software: true
+  labels_include_any:
+  - Raycast installed
 - name: Signal up to date
   type: patch
   fleet_maintained_app_slug: signal/darwin
   install_software: true
+  labels_include_any:
+  - Signal installed
 - name: Slack up to date
   type: patch
   fleet_maintained_app_slug: slack/darwin
   install_software: true
+  labels_include_any:
+  - Slack installed
 - name: Spotify up to date
   type: patch
   fleet_maintained_app_slug: spotify/darwin
   install_software: true
+  labels_include_any:
+  - Spotify installed
 - name: Steam up to date
   type: patch
   fleet_maintained_app_slug: steam/darwin
   install_software: true
+  labels_include_any:
+  - Steam installed
 - name: Sublime Text up to date
   type: patch
   fleet_maintained_app_slug: sublime-text/darwin
   install_software: true
+  labels_include_any:
+  - Sublime Text installed
 - name: Suspicious Package up to date
   type: patch
   fleet_maintained_app_slug: suspicious-package/darwin
   install_software: true
+  labels_include_any:
+  - Suspicious Package installed
 - name: Tailscale up to date
   type: patch
   fleet_maintained_app_slug: tailscale-app/darwin
   install_software: true
+  labels_include_any:
+  - Tailscale installed
 - name: TextExpander up to date
   type: patch
   fleet_maintained_app_slug: textexpander/darwin
   install_software: true
+  labels_include_any:
+  - TextExpander installed
 - name: The Unarchiver up to date
   type: patch
   fleet_maintained_app_slug: the-unarchiver/darwin
   install_software: true
+  labels_include_any:
+  - The Unarchiver installed
 - name: Transmit up to date
   type: patch
   fleet_maintained_app_slug: transmit/darwin
   install_software: true
+  labels_include_any:
+  - Transmit installed
 - name: UTM up to date
   type: patch
   fleet_maintained_app_slug: utm/darwin
   install_software: true
+  labels_include_any:
+  - UTM installed
 - name: VLC up to date
   type: patch
   fleet_maintained_app_slug: vlc/darwin
   install_software: true
+  labels_include_any:
+  - VLC installed
 - name: WhatsApp up to date
   type: patch
   fleet_maintained_app_slug: whatsapp/darwin
   install_software: true
+  labels_include_any:
+  - WhatsApp installed
 - name: Yubico Authenticator up to date
   type: patch
   fleet_maintained_app_slug: yubico-authenticator/darwin
   install_software: true
+  labels_include_any:
+  - Yubico Authenticator installed
 - name: Zoom up to date
   type: patch
   fleet_maintained_app_slug: zoom/darwin
   install_software: true
+  labels_include_any:
+  - Zoom installed
