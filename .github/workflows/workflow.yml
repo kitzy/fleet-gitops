@@ -35,7 +35,17 @@ jobs:
             https://github.com/macadmins/contour/releases/download/v0.4.0-beta.4/contour-0.4.0-beta.4-x86_64-unknown-linux-gnu.tar.gz
           tar -xzf contour.tar.gz
 
-          ./contour profile validate ./platforms/macos/configuration-profiles -r --strict
+          # disable-internet-sharing.mobileconfig sets forceInternetSharingOff
+          # under com.apple.MCX — the exact key contour's own bundled mscp data
+          # prescribes for system_settings_internet_sharing_disable (CIS L1/L2,
+          # DISA STIG, "recommended" baseline), but contour's schema validator
+          # doesn't recognize it yet, so --strict false-positives on it. Carved
+          # out of --strict below; still validated non-strict. Filed upstream:
+          # https://github.com/macadmins/contour/issues/14
+          KNOWN_SCHEMA_GAPS="./platforms/macos/configuration-profiles/all-macos/disable-internet-sharing.mobileconfig"
+          find ./platforms/macos/configuration-profiles -name '*.mobileconfig' \
+            ! -path "$KNOWN_SCHEMA_GAPS" -print0 | xargs -0 ./contour profile validate --strict
+          ./contour profile validate $KNOWN_SCHEMA_GAPS
 
           ./contour profile ddm validate ./platforms/macos/declaration-profiles -r
           ./contour profile ddm validate ./platforms/all/declaration-profiles -r
