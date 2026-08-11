@@ -66,6 +66,9 @@ software:
   - slug: balenaetcher/darwin
     setup_experience: false
     self_service: true
+  - slug: bambu-studio/darwin
+    setup_experience: false
+    self_service: true
   - slug: canva/darwin
     setup_experience: false
     self_service: true
