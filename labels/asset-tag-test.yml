@@ -1,0 +1,7 @@
+- name: "Asset tag test"
+  description: Hosts whose Asset Tag custom host vital is set to "Test"
+  label_membership_type: host_vitals
+  criteria:
+    vital: custom_host_vital
+    custom_host_vital_id: 1
+    value: Test
