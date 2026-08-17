@@ -1,0 +1,74 @@
+- name: DEX - Hardware inventory - System information
+  description: Comprehensive system hardware identification including model, serial, manufacturer, and form factor.
+  query: |
+    SELECT
+      si.hostname,
+      si.computer_name,
+      si.hardware_vendor,
+      si.hardware_model,
+      si.hardware_serial,
+      si.cpu_type,
+      si.cpu_brand,
+      si.cpu_physical_cores,
+      si.cpu_logical_cores,
+      si.physical_memory,
+      ROUND(CAST(si.physical_memory AS REAL) / 1073741824, 2) AS memory_gb,
+      si.hardware_version,
+      si.board_vendor,
+      si.board_model
+    FROM system_info si;
+  interval: 604800  # 1 week
+  observer_can_run: true
+  automations_enabled: true
+  logging: snapshot
+  platform: darwin,linux,windows
+- name: DEX - Application experience - Process health
+  description: Top 25 processes by resident memory with classification into user_app, mgmt_agent, or system. Flags memory hogs and identifies whether pressure comes from productivity apps, security agents, or OS internals. Management agent stability matters — a crashing osqueryd or falcon-sensor means the fleet is flying blind.
+  query: |
+    SELECT
+      p.name                                            AS process_name,
+      p.path,
+      p.pid,
+      p.state,
+      p.threads,
+
+      ROUND(CAST(p.resident_size AS REAL) / 1048576, 1) AS rss_mb,
+      ROUND(CAST(p.total_size AS REAL) / 1073741824, 2) AS vmem_gb,
+      p.user_time                                       AS cpu_user_ms,
+      p.system_time                                     AS cpu_sys_ms,
+      p.disk_bytes_read,
+      p.disk_bytes_written,
+
+      CASE
+        WHEN p.name IN (
+          'Slack', 'zoom.us', 'Microsoft Teams', 'Google Chrome',
+          'Safari', 'Firefox', 'Outlook', 'figma_agent', 'Code',
+          'Notion', 'Linear', 'Loom', 'WebEx', 'Arc'
+        )                                               THEN 'user_app'
+        WHEN p.name IN (
+          'osqueryd', 'orbit', 'santa', 'SentinelAgent',
+          'falcon-sensor', 'CrowdStrike', 'fleetd'
+        )                                               THEN 'mgmt_agent'
+        WHEN p.name LIKE 'com.apple%'
+          OR p.path LIKE '/System/%'
+          OR p.path LIKE '/usr/%'                       THEN 'system'
+        ELSE 'other'
+      END                                               AS process_class,
+
+      CASE
+        WHEN p.resident_size > 2147483648              THEN 'critical_2gb'
+        WHEN p.resident_size > 1073741824              THEN 'high_1gb'
+        WHEN p.resident_size > 524288000               THEN 'elevated_500mb'
+        ELSE 'normal'
+      END                                               AS mem_pressure
+
+    FROM processes p
+    WHERE p.resident_size > 52428800
+      AND p.state != 'Z'
+    ORDER BY p.resident_size DESC
+    LIMIT 25;
+  interval: 1800  # 30 minutes
+  observer_can_run: true
+  automations_enabled: true
+  logging: snapshot
+  platform: darwin,linux

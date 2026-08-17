@@ -38,3 +38,12 @@ The **repo-specific conventions** below are always in effect.
   2. The `Apply latest configuration to Fleet` step's `env:` block, mapping it from `${{ steps.op-secrets.outputs.SECRET_NAME }}`.
 
   Missing either wiring causes the variable to expand to empty at runtime — Fleet usually accepts the empty value silently, which is a quiet way to ship a broken config.
+
+## Contour (Apple MDM profile authoring)
+
+Generating or validating `.mobileconfig` / DDM JSON by hand invites invented
+keys. Use the **`contour` skill**
+([.claude/skills/contour/SKILL.md](.claude/skills/contour/SKILL.md)) instead —
+it drives the `contour` CLI, which generates and validates Apple profiles
+against an embedded schema. Org config lives in `.contour/config.toml`
+(domain `net.kitzy.mdm`). Run `contour help-ai` for the full command index.

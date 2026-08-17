@@ -1,0 +1,188 @@
+- name: 1Password installed
+  description: macOS hosts with 1Password installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.1password.1password';
+  label_membership_type: dynamic
+- name: Adobe Acrobat Reader installed
+  description: macOS hosts with Adobe Acrobat Reader installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.adobe.Reader';
+  label_membership_type: dynamic
+- name: balenaEtcher installed
+  description: macOS hosts with balenaEtcher installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'io.balena.etcher';
+  label_membership_type: dynamic
+- name: Canva installed
+  description: macOS hosts with Canva installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.canva.CanvaDesktop';
+  label_membership_type: dynamic
+- name: ChatGPT installed
+  description: macOS hosts with ChatGPT installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.openai.chat';
+  label_membership_type: dynamic
+- name: Claude installed
+  description: macOS hosts with Claude installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.anthropic.claudefordesktop';
+  label_membership_type: dynamic
+- name: CleanShot X installed
+  description: macOS hosts with CleanShot X installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.getcleanshot.app';
+  label_membership_type: dynamic
+- name: Cursor installed
+  description: macOS hosts with Cursor installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.todesktop.230313mzl4w4u92';
+  label_membership_type: dynamic
+- name: Discord installed
+  description: macOS hosts with Discord installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.hnc.Discord';
+  label_membership_type: dynamic
+- name: DisplayLink installed
+  description: macOS hosts with DisplayLink installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.displaylink.DisplayLinkUserAgent';
+  label_membership_type: dynamic
+- name: Docker Desktop installed
+  description: macOS hosts with Docker Desktop installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.electron.dockerdesktop';
+  label_membership_type: dynamic
+- name: DYMO Connect installed
+  description: macOS hosts with DYMO Connect installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.dymo.DYMO-WebApi-Mac-Host';
+  label_membership_type: dynamic
+- name: Elgato Control Center installed
+  description: macOS hosts with Elgato Control Center installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.corsair.ControlCenter';
+  label_membership_type: dynamic
+- name: Elgato Stream Deck installed
+  description: macOS hosts with Elgato Stream Deck installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.elgato.StreamDeck';
+  label_membership_type: dynamic
+- name: Fleet Desktop installed
+  description: macOS hosts with the standalone Fleet Desktop app installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.fleetdm.fleet-desktop';
+  label_membership_type: dynamic
+- name: Ghostty installed
+  description: macOS hosts with Ghostty installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.mitchellh.ghostty';
+  label_membership_type: dynamic
+- name: GitHub Desktop installed
+  description: macOS hosts with GitHub Desktop installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.github.GitHubClient';
+  label_membership_type: dynamic
+- name: Google Chrome installed
+  description: macOS hosts with Google Chrome installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.google.Chrome';
+  label_membership_type: dynamic
+- name: Google Drive installed
+  description: macOS hosts with Google Drive installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.google.drivefs';
+  label_membership_type: dynamic
+- name: GPG Suite installed
+  description: macOS hosts with GPG Suite installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'org.gpgtools.updater';
+  label_membership_type: dynamic
+- name: HandBrake installed
+  description: macOS hosts with HandBrake installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'fr.handbrake.HandBrake';
+  label_membership_type: dynamic
+- name: iMazing Converter installed
+  description: macOS hosts with iMazing Converter installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.DigiDNA.iMazingHEICConverterMac';
+  label_membership_type: dynamic
+- name: iMazing Profile Editor installed
+  description: macOS hosts with iMazing Profile Editor installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.DigiDNA.iMazingProfileEditorMac';
+  label_membership_type: dynamic
+- name: iTerm2 installed
+  description: macOS hosts with iTerm2 installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.googlecode.iterm2';
+  label_membership_type: dynamic
+- name: Logi Options+ installed
+  description: macOS hosts with Logi Options+ installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.logi.optionsplus';
+  label_membership_type: dynamic
+- name: MeetingBar installed
+  description: macOS hosts with MeetingBar installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'leits.MeetingBar';
+  label_membership_type: dynamic
+- name: Microsoft Teams installed
+  description: macOS hosts with Microsoft Teams installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.microsoft.teams2';
+  label_membership_type: dynamic
+- name: Visual Studio Code installed
+  description: macOS hosts with Visual Studio Code installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.microsoft.VSCode';
+  label_membership_type: dynamic
+- name: Notion installed
+  description: macOS hosts with Notion installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'notion.id';
+  label_membership_type: dynamic
+- name: Ollama installed
+  description: macOS hosts with Ollama installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.electron.ollama';
+  label_membership_type: dynamic
+- name: Postman installed
+  description: macOS hosts with Postman installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.postmanlabs.mac';
+  label_membership_type: dynamic
+- name: Raycast installed
+  description: macOS hosts with Raycast installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.raycast.macos';
+  label_membership_type: dynamic
+- name: Signal installed
+  description: macOS hosts with Signal installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'org.whispersystems.signal-desktop';
+  label_membership_type: dynamic
+- name: Slack installed
+  description: macOS hosts with Slack installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.tinyspeck.slackmacgap';
+  label_membership_type: dynamic
+- name: Spotify installed
+  description: macOS hosts with Spotify installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.spotify.client';
+  label_membership_type: dynamic
+- name: Steam installed
+  description: macOS hosts with Steam installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.valvesoftware.steam';
+  label_membership_type: dynamic
+- name: Sublime Text installed
+  description: macOS hosts with Sublime Text installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.sublimetext.4';
+  label_membership_type: dynamic
+- name: Suspicious Package installed
+  description: macOS hosts with Suspicious Package installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.mothersruin.SuspiciousPackageApp';
+  label_membership_type: dynamic
+- name: Tailscale installed
+  description: macOS hosts with Tailscale installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'io.tailscale.ipn.macsys';
+  label_membership_type: dynamic
+- name: TextExpander installed
+  description: macOS hosts with TextExpander installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.smileonmymac.textexpander';
+  label_membership_type: dynamic
+- name: The Unarchiver installed
+  description: macOS hosts with The Unarchiver installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'cx.c3.theunarchiver';
+  label_membership_type: dynamic
+- name: Transmit installed
+  description: macOS hosts with Transmit installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.panic.Transmit';
+  label_membership_type: dynamic
+- name: UTM installed
+  description: macOS hosts with UTM installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.utmapp.UTM';
+  label_membership_type: dynamic
+- name: VLC installed
+  description: macOS hosts with VLC installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'org.videolan.vlc';
+  label_membership_type: dynamic
+- name: WhatsApp installed
+  description: macOS hosts with WhatsApp installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'net.whatsapp.WhatsApp';
+  label_membership_type: dynamic
+- name: Yubico Authenticator installed
+  description: macOS hosts with Yubico Authenticator installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.yubico.yubioath';
+  label_membership_type: dynamic
+- name: Zoom installed
+  description: macOS hosts with Zoom installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'us.zoom.xos';
+  label_membership_type: dynamic

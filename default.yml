@@ -13,6 +13,8 @@ agent_options:
       logger_tls_period: 10
       pack_delimiter: /
   overrides:
+custom_host_vitals:
+  - name: Asset Tag
 labels:
   - paths: ./labels/*.yml
 org_settings:
