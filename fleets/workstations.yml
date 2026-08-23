@@ -1,8 +1,7 @@
 name: Workstations
 policies:
 - path: ../platforms/macos/policies/macos-device-health.policies.yml
-# TEMPORARILY DISABLED: patch policies (re-enable by uncommenting)
-#- path: ../platforms/macos/policies/macos-fma-patch.policies.yml
+- path: ../platforms/macos/policies/macos-fma-patch.policies.yml
 - path: ../platforms/macos/policies/macos-fma-install.policies.yml
 - path: ../platforms/all/policies/npm-user-npmrc-min-release-age.policies.yml
 reports:
