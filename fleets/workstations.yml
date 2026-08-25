@@ -197,6 +197,6 @@ software:
   - slug: yubico-authenticator/darwin
     setup_experience: false
     self_service: true
-  - slug: zoom/darwin
-    setup_experience: false
-    self_service: true
+  # - slug: zoom/darwin
+  #   setup_experience: false
+  #   self_service: true
