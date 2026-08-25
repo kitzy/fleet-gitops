@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>DDM conversion demo — provisions an Exchange ActiveSync account with placeholder demo values. Maps cleanly to the com.apple.configuration.account.exchange DDM declaration (HostName, Port, the Enable*Service booleans, and the OAuth block all carry over almost verbatim).</string>
+	<key>PayloadDisplayName</key>
+	<string>DDM Demo: Exchange Account</string>
+	<key>PayloadIdentifier</key>
+	<string>net.kitzy.mdm.ddm-demo.exchange-account</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>7C816982-9DDE-4BFA-89B3-6153F809B982</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Exchange ActiveSync</string>
+			<key>PayloadIdentifier</key>
+			<string>net.kitzy.mdm.ddm-demo.exchange-account.payload</string>
+			<key>PayloadOrganization</key>
+			<string>Kitzy.net</string>
+			<key>PayloadType</key>
+			<string>com.apple.eas.account</string>
+			<key>PayloadUUID</key>
+			<string>041B0481-FC3B-4F23-B623-3E3414C67379</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>Host</key>
+			<string>exchange.demo.kitzy.net</string>
+			<key>EmailAddress</key>
+			<string>demo-user@exchange.demo.kitzy.net</string>
+			<key>SSL</key>
+			<true/>
+			<key>OAuth</key>
+			<true/>
+			<key>OAuthSignInURL</key>
+			<string>https://exchange.demo.kitzy.net/oauth/authorize</string>
+			<key>OAuthTokenRequestURL</key>
+			<string>https://exchange.demo.kitzy.net/oauth/token</string>
+			<key>EnableMail</key>
+			<true/>
+			<key>EnableContacts</key>
+			<true/>
+			<key>EnableCalendars</key>
+			<true/>
+			<key>EnableReminders</key>
+			<true/>
+			<key>EnableNotes</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

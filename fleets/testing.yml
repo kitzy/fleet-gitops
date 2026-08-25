@@ -9,6 +9,10 @@ controls:
     configuration_profiles:
     - path: ../platforms/macos/declaration-profiles/allow-beta-updates-ddm.json
     - path: ../platforms/macos/configuration-profiles/enforce-gatekeeper.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/ddm-demo-safari-settings.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/ddm-demo-caldav-account.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/ddm-demo-exchange-account.mobileconfig
+    - path: ../platforms/macos/configuration-profiles/ddm-demo-root-certificate.mobileconfig
   setup_experience:
     apple_setup_assistant: ../platforms/macos/enrollment-profiles/automatic-enrollment.dep.json
 settings:
