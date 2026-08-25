@@ -274,9 +274,9 @@
   install_software: true
   labels_include_any:
   - Yubico Authenticator installed
-# - name: Zoom up to date
-#   type: patch
-#   fleet_maintained_app_slug: zoom/darwin
-#   install_software: true
-#   labels_include_any:
-#   - Zoom installed
+- name: Zoom up to date
+  type: patch
+  fleet_maintained_app_slug: zoom/darwin
+  install_software: true
+  labels_include_any:
+  - Zoom installed
