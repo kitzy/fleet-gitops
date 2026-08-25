@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>DDM conversion demo — provisions a CalDAV calendar account with placeholder demo values. Maps cleanly to the com.apple.configuration.account.caldav DDM declaration (HostName, Port, VisibleName, Path, and credentials moved from inline fields to an AuthenticationCredentialsAssetReference).</string>
+	<key>PayloadDisplayName</key>
+	<string>DDM Demo: CalDAV Account</string>
+	<key>PayloadIdentifier</key>
+	<string>net.kitzy.mdm.ddm-demo.caldav-account</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>61AD8E5D-1D4E-4FC0-8573-21840FEEDFA5</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>CalDAV</string>
+			<key>PayloadIdentifier</key>
+			<string>net.kitzy.mdm.ddm-demo.caldav-account.payload</string>
+			<key>PayloadOrganization</key>
+			<string>Kitzy.net</string>
+			<key>PayloadType</key>
+			<string>com.apple.caldav.account</string>
+			<key>PayloadUUID</key>
+			<string>09E8F001-070D-4785-9396-D1B815EC07D0</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>CalDAVAccountDescription</key>
+			<string>Demo CalDAV Account</string>
+			<key>CalDAVHostName</key>
+			<string>caldav.demo.kitzy.net</string>
+			<key>CalDAVPort</key>
+			<integer>443</integer>
+			<key>CalDAVUseSSL</key>
+			<true/>
+			<key>CalDAVPrincipalURL</key>
+			<string>https://caldav.demo.kitzy.net/principals/users/demo/</string>
+		</dict>
+	</array>
+</dict>
+</plist>

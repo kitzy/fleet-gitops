@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>DDM conversion demo — installs a throwaway self-signed root CA (Kitzy DDM Demo Root CA, not used for anything real). Maps cleanly to Apple's own canonical DDM certificate pattern: the com.apple.asset.credential.certificate asset declaration carries the certificate data by reference (URL + hash) instead of embedding it, and the com.apple.configuration.security.certificate declaration just points at that asset via CredentialAssetReference.</string>
+	<key>PayloadDisplayName</key>
+	<string>DDM Demo: Root Certificate</string>
+	<key>PayloadIdentifier</key>
+	<string>net.kitzy.mdm.ddm-demo.root-certificate</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>C8224DF0-165E-4B5B-90A5-41A524E0C783</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadCertificateFileName</key>
+			<string>kitzy-ddm-demo-root-ca.cer</string>
+			<key>PayloadDisplayName</key>
+			<string>Kitzy DDM Demo Root CA</string>
+			<key>PayloadIdentifier</key>
+			<string>net.kitzy.mdm.ddm-demo.root-certificate.payload</string>
+			<key>PayloadOrganization</key>
+			<string>Kitzy.net</string>
+			<key>PayloadType</key>
+			<string>com.apple.security.root</string>
+			<key>PayloadUUID</key>
+			<string>70D8CEBD-6395-41C2-BC21-B0E7501F9298</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadContent</key>
+			<data>
+			MIIDTTCCAjWgAwIBAgIUbKR43VxpEflQSEP098Zbn9m4+icwDQYJKoZIhvcNAQELBQAwNjETMBEG
+			A1UECgwKS2l0enkgRGVtbzEfMB0GA1UEAwwWS2l0enkgRERNIERlbW8gUm9vdCBDQTAeFw0yNjA4
+			MjUwNDIxNDhaFw0zNjA4MjIwNDIxNDhaMDYxEzARBgNVBAoMCktpdHp5IERlbW8xHzAdBgNVBAMM
+			FktpdHp5IERETSBEZW1vIFJvb3QgQ0EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCw
+			xjWVOBlhj6oYPJZJQQYKsZuHwtskxd/AV1y7iDgAmiOKfPEXIVni4OD+7TqpPioyOjwzZrxRZ9cn
+			nJCnG5YU0BYHNOsxUjBc/REa3l3/FkFFwXtgSQjrSFSxMjEw7eVWc8dJ+SlADbRt5zrTLWpTZrD3
+			3oFVPsa47FbMFgFLMFclN34ir2z9lwaDY7uFC2fCYkMNLQUMy7bpLtUi//wXxjQRfwu5L3gtM//4
+			3hm8Urnf7qBkGvbbIQkl0daKXNNarVjjzy8tLXBrwBs2GCjnMhja6VAHnrDuoJoQPT09992rtMQ3
+			p9fTRnptNdu0cmv2ZzKQMjfV8Sw+05kPJenFAgMBAAGjUzBRMB0GA1UdDgQWBBRS8+Jncv6LP7Kz
+			Lccyn+/6kEIgaTAfBgNVHSMEGDAWgBRS8+Jncv6LP7KzLccyn+/6kEIgaTAPBgNVHRMBAf8EBTAD
+			AQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAkEK5O43d5aKtBppA5SJQFL6ah7Y2e7VEJDoQNe4+SMrQw
+			udD8GC1b8Lf+SfX+DlFPP1juc8a/bzo5Le1Ur5kfofRY9l2Y9GNhSVbuBcuHwWFgxdIvnOn1Q1vH
+			y6FP8e40zVZPojAzBrOmag7AShay4xQMh34y4XctUxLwQv9V7PsnT0djV7jVbm7KPELk9t8smVAa
+			1T0EUrkqtZzCeXXb+zOskonW4mfnvk0nVC7ayEHLlpXzz4FXUNL0OyCpWrXpFlvfshg3C/bz60db
+			67zOcGPn/x/J5R9q87G3eSr2IBerotqNWbkwmK3g4TRgcLDY8Zae0ixFxWGpHu7T4LNI
+			</data>
+		</dict>
+	</array>
+</dict>
+</plist>

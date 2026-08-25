@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadDescription</key>
+	<string>DDM conversion demo — locks down Safari (fraud warning, JS popups, private browsing). Maps cleanly to the com.apple.configuration.safari.settings DDM declaration (AllowDisablingFraudWarning, AllowPopups, AllowPrivateBrowsing, AllowJavaScript).</string>
+	<key>PayloadDisplayName</key>
+	<string>DDM Demo: Safari Settings</string>
+	<key>PayloadIdentifier</key>
+	<string>net.kitzy.mdm.ddm-demo.safari-settings</string>
+	<key>PayloadOrganization</key>
+	<string>Kitzy.net</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>061BA517-CD61-41ED-9B1C-B51C041C8436</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>Safari</string>
+			<key>PayloadIdentifier</key>
+			<string>net.kitzy.mdm.ddm-demo.safari-settings.payload</string>
+			<key>PayloadOrganization</key>
+			<string>Kitzy.net</string>
+			<key>PayloadType</key>
+			<string>com.apple.Safari</string>
+			<key>PayloadUUID</key>
+			<string>95A39047-DCC2-490A-BAAA-F88957094A76</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>WarnAboutFraudulentWebsites</key>
+			<true/>
+			<key>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptEnabled</key>
+			<true/>
+			<key>com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically</key>
+			<false/>
+			<key>com.apple.Safari.ContentPageGroupIdentifier.WebKit2PrivateBrowsingEnabled</key>
+			<false/>
+		</dict>
+	</array>
+</dict>
+</plist>
