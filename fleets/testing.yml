@@ -10,9 +10,24 @@ controls:
     - path: ../platforms/macos/declaration-profiles/allow-beta-updates-ddm.json
     - path: ../platforms/macos/configuration-profiles/enforce-gatekeeper.mobileconfig
     - path: ../platforms/macos/configuration-profiles/ddm-demo-safari-settings.mobileconfig
-    - path: ../platforms/macos/configuration-profiles/ddm-demo-caldav-account.mobileconfig
-    - path: ../platforms/macos/configuration-profiles/ddm-demo-exchange-account.mobileconfig
     - path: ../platforms/macos/configuration-profiles/ddm-demo-root-certificate.mobileconfig
+    # CalDAV: legacy profile for hosts below the DDM floor, DDM declaration for hosts at/above it.
+    - path: ../platforms/macos/configuration-profiles/ddm-demo-caldav-account.mobileconfig
+      labels_exclude_any:
+      - macOS 13+ (DDM account declarations)
+    - path: ../platforms/macos/declaration-profiles/ddm-caldav-account.json
+      labels_include_any:
+      - macOS 13+ (DDM account declarations)
+    # Exchange: legacy profile for hosts below the DDM floor, DDM declaration (+ its user-identity asset) for hosts at/above it.
+    - path: ../platforms/macos/configuration-profiles/ddm-demo-exchange-account.mobileconfig
+      labels_exclude_any:
+      - macOS 13+ (DDM account declarations)
+    - path: ../platforms/macos/declaration-profiles/ddm-exchange-account-useridentity-asset.json
+      labels_include_any:
+      - macOS 13+ (DDM account declarations)
+    - path: ../platforms/macos/declaration-profiles/ddm-exchange-account.json
+      labels_include_any:
+      - macOS 13+ (DDM account declarations)
   setup_experience:
     apple_setup_assistant: ../platforms/macos/enrollment-profiles/automatic-enrollment.dep.json
 settings:

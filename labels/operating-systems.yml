@@ -22,6 +22,10 @@
   description: All macOS hosts running macOS 12 (Monterey)
   query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 12;
   label_membership_type: dynamic
+- name: macOS 13+ (DDM account declarations)
+  description: macOS hosts on 13.0 (Ventura) or later — the minimum OS version for the com.apple.configuration.account.caldav and com.apple.configuration.account.exchange DDM declaration types. Used to gate DDM account declarations so older hosts keep falling back to the legacy .mobileconfig account payloads.
+  query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major >= 13;
+  label_membership_type: dynamic
 - name: Ubuntu
   description: All Ubuntu Linux hosts
   query: SELECT 1 FROM os_version WHERE platform = 'ubuntu';

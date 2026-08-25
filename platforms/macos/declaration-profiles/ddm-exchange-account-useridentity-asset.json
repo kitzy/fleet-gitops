@@ -1,0 +1,7 @@
+{
+  "Type": "com.apple.asset.useridentity",
+  "Identifier": "net.kitzy.mdm.asset.exchange-account",
+  "Payload": {
+    "EmailAddress": "demo-user@exchange.demo.kitzy.net"
+  }
+}

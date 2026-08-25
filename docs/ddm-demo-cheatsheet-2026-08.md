@@ -46,6 +46,38 @@ Checked while assembling this and worth saying out loud if asked:
   policy wasn't configurable via `.mobileconfig` before DDM, so there's no
   "before" state to show.
 
+## Post-demo audit corrections (2026-08-25)
+
+Ahead of converting these for real, each of the four was re-checked against
+Apple's own `device-management` schema (not just `contour profile validate`,
+which only checks payload shape — it doesn't check per-OS-platform field
+availability). Two corrections to the table above:
+
+- **Safari settings is *not* clean on macOS.** Of the four fields this
+  profile sets, three (`AllowDisablingFraudWarning`, `AllowJavaScript`,
+  `AllowPopups`) are marked `macOS: introduced: n/a` in Apple's
+  `declarative/declarations/configurations/safari.settings.yaml` — they
+  exist on iOS/visionOS only. Only `AllowPrivateBrowsing` has a macOS
+  equivalent today. Converting as originally planned would silently drop
+  fraud-warning/JS/popup enforcement, so this one is **not** converted —
+  see the PR for the actual disposition.
+- **Root certificate is a clean field mapping but not a clean conversion
+  here.** `com.apple.asset.credential.certificate` requires the cert bytes
+  at a real `https://` URL with a SHA-256 hash — Fleet does not host asset
+  payloads for you (per Fleet's own DDM guide: "host the manifest and
+  package on your own infrastructure"), and this repo has no such hosting
+  today. Needs a decision on where to host it before this converts.
+- **The "stops working on macOS 26+" deprecation claim (CalDAV/EAS) could
+  not be confirmed against Apple's own documentation.** Checked Apple's
+  `device-management` GitHub schema (no `deprecated` marker on either
+  payload type), the WWDC26 device management updates support page, and
+  Apple's developer docs — none corroborate a hard cutoff for these two.
+  The claim appears to be `contour`'s own lint heuristic, not an
+  Apple-sourced fact. CalDAV/Exchange still convert to DDM because it's the
+  right architecture regardless — Exchange in particular gains macOS support
+  DDM never had via the legacy payload (`com.apple.eas.account` was iOS/visionOS
+  only; `com.apple.configuration.account.exchange` supports macOS 13+).
+
 ## Cleanup after the demo
 
 These are demo-only and have no real backing services — safe to delete from

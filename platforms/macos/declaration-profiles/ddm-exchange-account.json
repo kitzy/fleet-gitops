@@ -1,0 +1,20 @@
+{
+  "Type": "com.apple.configuration.account.exchange",
+  "Identifier": "net.kitzy.mdm.config.exchange-account",
+  "Payload": {
+    "ContactsServiceActive": true,
+    "HostName": "exchange.demo.kitzy.net",
+    "NotesServiceActive": true,
+    "OAuth": {
+      "Enabled": true,
+      "SignInURL": "https://exchange.demo.kitzy.net/oauth/authorize"
+    },
+    "EnabledProtocolTypes": [
+      "EAS"
+    ],
+    "UserIdentityAssetReference": "net.kitzy.mdm.asset.exchange-account",
+    "RemindersServiceActive": true,
+    "MailServiceActive": true,
+    "CalendarServiceActive": true
+  }
+}
