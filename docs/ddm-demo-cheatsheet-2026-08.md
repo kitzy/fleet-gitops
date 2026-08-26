@@ -46,10 +46,28 @@ Checked while assembling this and worth saying out loud if asked:
   policy wasn't configurable via `.mobileconfig` before DDM, so there's no
   "before" state to show.
 
-## Cleanup after the demo
+## Update — converted ahead of macOS 27 (2026-08-26)
 
-These are demo-only and have no real backing services — safe to delete from
-`fleets/testing.yml` and `platforms/macos/configuration-profiles/` (all four
-`ddm-demo-*.mobileconfig` files) whenever you're done with them. Removing
-the file and its `path:` entry together removes the profile from any
-enrolled testing hosts on the next `fleetctl gitops` apply.
+The demo is over, but instead of deleting these four profiles they became
+the seed for the real macOS 27 readiness work: each now has a DDM
+declaration counterpart (`ddm-demo-*-ddm.json` in
+[../platforms/macos/declaration-profiles/](../platforms/macos/declaration-profiles/)),
+and the Testing fleet targets the legacy `.mobileconfig` to hosts on
+`macOS < 27` and the DDM declaration to hosts on `macOS 27` via the new
+labels in [../labels/operating-systems.yml](../labels/operating-systems.yml).
+The two field-mapping tables above still describe the conversions
+accurately — they were generated and schema-validated with `contour`. **Do
+not delete the `ddm-demo-*.mobileconfig` files** — they're the live
+pre-macOS-27 fallback, not demo cruft.
+
+Outstanding finding from this pass, unresolved: `contour`'s deprecation
+lint (section above) says the CalDAV and Exchange legacy payloads stop
+working on macOS 26+, not just 27+ — so any macOS 26 Testing host is
+already silently receiving a dead profile for those two. The macOS 27
+split requested for this change was implemented as asked; whether to move
+the CalDAV/Exchange cutover back to macOS 26 is a follow-up decision, not
+made here.
+
+Gatekeeper enforcement (`enforce-gatekeeper.mobileconfig`) has no DDM
+declaration type as of this writing (checked against `contour profile ddm
+list`) and was left untouched, targeting all macOS versions.

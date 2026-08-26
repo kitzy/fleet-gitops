@@ -8,11 +8,39 @@ controls:
   apple_settings:
     configuration_profiles:
     - path: ../platforms/macos/declaration-profiles/allow-beta-updates-ddm.json
+    # No DDM declaration type exists for Gatekeeper enforcement yet, so this
+    # stays a legacy .mobileconfig and targets all macOS versions.
     - path: ../platforms/macos/configuration-profiles/enforce-gatekeeper.mobileconfig
+    # Legacy .mobileconfig profiles converted to DDM below — kept here for
+    # hosts still on a pre-27 macOS release.
     - path: ../platforms/macos/configuration-profiles/ddm-demo-safari-settings.mobileconfig
+      labels_include_any:
+      - macOS < 27
     - path: ../platforms/macos/configuration-profiles/ddm-demo-caldav-account.mobileconfig
+      labels_include_any:
+      - macOS < 27
     - path: ../platforms/macos/configuration-profiles/ddm-demo-exchange-account.mobileconfig
+      labels_include_any:
+      - macOS < 27
     - path: ../platforms/macos/configuration-profiles/ddm-demo-root-certificate.mobileconfig
+      labels_include_any:
+      - macOS < 27
+    # DDM conversions of the profiles above — delivered to macOS 27+ hosts.
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-safari-settings-ddm.json
+      labels_include_any:
+      - macOS 27
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-caldav-account-ddm.json
+      labels_include_any:
+      - macOS 27
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-exchange-account-ddm.json
+      labels_include_any:
+      - macOS 27
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-root-certificate-asset-ddm.json
+      labels_include_any:
+      - macOS 27
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-root-certificate-ddm.json
+      labels_include_any:
+      - macOS 27
   setup_experience:
     apple_setup_assistant: ../platforms/macos/enrollment-profiles/automatic-enrollment.dep.json
 settings:

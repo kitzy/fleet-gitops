@@ -1,0 +1,12 @@
+{
+  "Type": "com.apple.asset.credential.certificate",
+  "Identifier": "net.kitzy.mdm.ddm-demo.root-certificate.asset",
+  "Payload": {
+    "Reference": {
+      "ContentType": "application/pem",
+      "DataURL": "https://assets.demo.kitzy.net/certs/kitzy-ddm-demo-root-ca.pem",
+      "Hash-SHA-256": "680354c231914bff885d5ef0b6c57cbfe87d9a830fcaf2e67357ba5900d5f036",
+      "Size": 1201
+    }
+  }
+}
