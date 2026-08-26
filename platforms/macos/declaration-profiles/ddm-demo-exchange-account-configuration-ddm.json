@@ -3,7 +3,6 @@
   "Identifier": "net.kitzy.mdm.config.exchange-account",
   "Payload": {
     "HostName": "exchange.demo.kitzy.net",
-    "UserIdentityAssetReference": "net.kitzy.mdm.asset.exchange-account",
     "CalendarServiceActive": true,
     "MailServiceActive": true,
     "NotesServiceActive": true,

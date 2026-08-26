@@ -43,9 +43,12 @@ controls:
         - macOS 27 Golden Gate
     # Assets are inert data referenced by a configuration declaration above;
     # host targeting is governed by the referencing configuration's labels,
-    # so these are left unscoped.
+    # so these are left unscoped. Fleet's asset upload requires a
+    # Payload.Reference.DataURL, so only Reference/DataURL-shaped asset
+    # types (e.g. com.apple.asset.credential.certificate) can go here today
+    # — com.apple.asset.useridentity (no Reference wrapper) isn't accepted,
+    # which is why the Exchange account declaration doesn't set an identity.
     assets:
-    - path: ../platforms/macos/declaration-profiles/ddm-demo-exchange-account-asset-ddm.json
     - path: ../platforms/macos/declaration-profiles/ddm-demo-root-certificate-asset-ddm.json
   setup_experience:
     apple_setup_assistant: ../platforms/macos/enrollment-profiles/automatic-enrollment.dep.json
