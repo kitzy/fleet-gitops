@@ -1,6 +1,6 @@
 {
   "Type": "com.apple.configuration.account.caldav",
-  "Identifier": "net.kitzy.mdm.ddm-demo.caldav-account",
+  "Identifier": "net.kitzy.mdm.ddm-demo.caldav-account.ddm",
   "Payload": {
     "Path": "/principals/users/demo/",
     "VisibleName": "Demo CalDAV Account",

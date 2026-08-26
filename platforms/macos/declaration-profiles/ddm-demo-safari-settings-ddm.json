@@ -1,6 +1,6 @@
 {
   "Type": "com.apple.configuration.safari.settings",
-  "Identifier": "net.kitzy.mdm.ddm-demo.safari-settings",
+  "Identifier": "net.kitzy.mdm.ddm-demo.safari-settings.ddm",
   "Payload": {
     "AllowDisablingFraudWarning": false,
     "AllowJavaScript": true,
