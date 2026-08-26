@@ -9,10 +9,44 @@ controls:
     configuration_profiles:
     - path: ../platforms/macos/declaration-profiles/allow-beta-updates-ddm.json
     - path: ../platforms/macos/configuration-profiles/enforce-gatekeeper.mobileconfig
+    # Legacy .mobileconfig profiles — no DDM declaration type exists yet for
+    # Gatekeeper, so this stays unscoped and continues to apply fleet-wide.
+    # The four below are superseded by DDM declarations on macOS 27+ (see
+    # below) and are scoped to older macOS so they don't double-apply.
     - path: ../platforms/macos/configuration-profiles/ddm-demo-safari-settings.mobileconfig
+      labels_include_any:
+        - macOS < 27
     - path: ../platforms/macos/configuration-profiles/ddm-demo-caldav-account.mobileconfig
+      labels_include_any:
+        - macOS < 27
     - path: ../platforms/macos/configuration-profiles/ddm-demo-exchange-account.mobileconfig
+      labels_include_any:
+        - macOS < 27
     - path: ../platforms/macos/configuration-profiles/ddm-demo-root-certificate.mobileconfig
+      labels_include_any:
+        - macOS < 27
+    # DDM declarations — macOS 27+ only. Fleet manages the DDM activation
+    # declaration itself; only configuration and asset declarations are
+    # uploaded here (Fleet does not support submitting
+    # com.apple.activation.* declarations directly).
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-safari-settings-configuration-ddm.json
+      labels_include_any:
+        - macOS 27 Golden Gate
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-caldav-account-configuration-ddm.json
+      labels_include_any:
+        - macOS 27 Golden Gate
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-exchange-account-configuration-ddm.json
+      labels_include_any:
+        - macOS 27 Golden Gate
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-root-certificate-configuration-ddm.json
+      labels_include_any:
+        - macOS 27 Golden Gate
+    # Assets are inert data referenced by a configuration declaration above;
+    # host targeting is governed by the referencing configuration's labels,
+    # so these are left unscoped.
+    assets:
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-exchange-account-asset-ddm.json
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-root-certificate-asset-ddm.json
   setup_experience:
     apple_setup_assistant: ../platforms/macos/enrollment-profiles/automatic-enrollment.dep.json
 settings:

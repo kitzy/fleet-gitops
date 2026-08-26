@@ -1,0 +1,10 @@
+{
+  "Type": "com.apple.configuration.account.caldav",
+  "Identifier": "net.kitzy.mdm.config.caldav-account",
+  "Payload": {
+    "VisibleName": "Demo CalDAV Account",
+    "HostName": "caldav.demo.kitzy.net",
+    "Port": 443,
+    "Path": "/principals/users/demo/"
+  }
+}
