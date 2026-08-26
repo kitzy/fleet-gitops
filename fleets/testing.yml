@@ -35,10 +35,14 @@ controls:
     - path: ../platforms/macos/declaration-profiles/ddm-demo-exchange-account-ddm.json
       labels_include_any:
       - macOS 27
-    - path: ../platforms/macos/declaration-profiles/ddm-demo-root-certificate-asset-ddm.json
+    - path: ../platforms/macos/declaration-profiles/ddm-demo-root-certificate-ddm.json
       labels_include_any:
       - macOS 27
-    - path: ../platforms/macos/declaration-profiles/ddm-demo-root-certificate-ddm.json
+    # DDM asset backing the root-certificate configuration above — Fleet
+    # requires asset declarations (com.apple.asset.*) under a separate
+    # `assets:` key rather than `configuration_profiles:`.
+    assets:
+    - path: ../platforms/macos/declaration-profiles/assets/ddm-demo-root-certificate-asset-ddm.json
       labels_include_any:
       - macOS 27
   setup_experience:
