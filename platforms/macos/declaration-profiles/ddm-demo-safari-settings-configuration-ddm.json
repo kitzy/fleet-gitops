@@ -1,0 +1,10 @@
+{
+  "Type": "com.apple.configuration.safari.settings",
+  "Identifier": "net.kitzy.mdm.config.safari-settings",
+  "Payload": {
+    "AllowPrivateBrowsing": false,
+    "AllowDisablingFraudWarning": false,
+    "AllowJavaScript": true,
+    "AllowPopups": false
+  }
+}

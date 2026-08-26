@@ -1,0 +1,7 @@
+{
+  "Type": "com.apple.configuration.security.certificate",
+  "Identifier": "net.kitzy.mdm.config.root-certificate",
+  "Payload": {
+    "CredentialAssetReference": "net.kitzy.mdm.asset.root-certificate"
+  }
+}
