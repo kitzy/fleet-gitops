@@ -1,0 +1,13 @@
+- name: Tailscale exit node
+  description: >-
+    Linux hosts running tailscaled with IPv4 and IPv6 forwarding enabled — the
+    configuration Tailscale's docs require for a host to act as an exit node.
+    osquery has no table exposing tailscaled's live daemon preferences, so this
+    is a heuristic based on the OS-level prerequisite rather than a direct read
+    of exit-node advertisement state. It will also match Linux subnet routers,
+    since they require the same forwarding sysctls.
+  query: >-
+    SELECT 1 FROM processes WHERE name = 'tailscaled'
+    AND (SELECT current_value FROM system_controls WHERE name = 'net.ipv4.ip_forward' LIMIT 1) = '1'
+    AND (SELECT current_value FROM system_controls WHERE name = 'net.ipv6.conf.all.forwarding' LIMIT 1) = '1';
+  label_membership_type: dynamic
