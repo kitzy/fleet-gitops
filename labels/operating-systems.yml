@@ -2,6 +2,14 @@
   description: All macOS hosts
   query: SELECT 1 FROM os_version WHERE platform = 'darwin';
   label_membership_type: dynamic
+- name: macOS 27 Golden Gate
+  description: All macOS hosts running macOS 27 (Golden Gate)
+  query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 27;
+  label_membership_type: dynamic
+- name: macOS < 27
+  description: All macOS hosts running a version older than macOS 27 (Golden Gate)
+  query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major < 27;
+  label_membership_type: dynamic
 - name: macOS 26 Tahoe
   description: All macOS hosts running macOS 26 (Tahoe)
   query: SELECT 1 FROM os_version WHERE platform = 'darwin' AND major = 26;
