@@ -12,6 +12,9 @@ policies:
   - path: ../platforms/linux/policies/baseline-user-ssh.policies.yml
     labels_include_any:
       - Ubuntu
+  - path: ../platforms/linux/policies/os-patching.policies.yml
+    labels_include_any:
+      - Ubuntu
 reports:
   - path: ../platforms/all/reports/collect-usb-devices.reports.yml
   - path: ../platforms/all/reports/collect-fleetd-update-channels.reports.yml
@@ -30,6 +33,7 @@ agent_options:
 controls:
   scripts:
   - path: ../platforms/linux/scripts/baseline-user-ssh.sh
+  - path: ../platforms/linux/scripts/enable-unattended-upgrades.sh
   apple_settings:
     configuration_profiles:
     - path: ../platforms/macos/configuration-profiles/all-macos/fleetd-full-disk-access.mobileconfig

@@ -1,0 +1,6 @@
+- name: k3s node
+  description: >-
+    Linux hosts running k3s, either as a server (control plane) or agent
+    (worker).
+  query: SELECT 1 FROM processes WHERE name LIKE 'k3s-%';
+  label_membership_type: dynamic
