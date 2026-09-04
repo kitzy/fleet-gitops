@@ -1,0 +1,32 @@
+- name: unattended-upgrades installed
+  platform: linux
+  description: Check if the unattended-upgrades package is installed
+  resolution: Fleet installs and configures this automatically via enable-unattended-upgrades.sh
+  query: SELECT 1 FROM deb_packages WHERE name = 'unattended-upgrades';
+  run_script:
+      path: ../scripts/enable-unattended-upgrades.sh
+- name: Automatic OS updates enabled
+  platform: linux
+  description: Check if the daily apt update/upgrade timers are enabled and running
+  resolution: Fleet installs and configures this automatically via enable-unattended-upgrades.sh
+  query: >-
+    SELECT 1 FROM systemd_units WHERE id = 'apt-daily-upgrade.timer'
+    AND unit_file_state = 'enabled' AND active_state = 'active';
+  run_script:
+      path: ../scripts/enable-unattended-upgrades.sh
+- name: General apt updates enabled
+  platform: linux
+  description: Check if unattended-upgrades is also applying the non-security update pocket
+  resolution: Fleet installs and configures this automatically via enable-unattended-upgrades.sh
+  query: SELECT 1 FROM file WHERE path = '/etc/apt/apt.conf.d/52unattended-upgrades-general-updates';
+  labels_exclude_any:
+      - "k3s node"
+  run_script:
+      path: ../scripts/enable-unattended-upgrades.sh
+- name: Automatic reboot staggering configured
+  platform: linux
+  description: Check if the post-upgrade reboot window is widened so hosts don't all restart at once
+  resolution: Fleet installs and configures this automatically via enable-unattended-upgrades.sh
+  query: SELECT 1 FROM file WHERE path = '/etc/systemd/system/apt-daily-upgrade.timer.d/override.conf';
+  run_script:
+      path: ../scripts/enable-unattended-upgrades.sh
