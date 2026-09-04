@@ -152,6 +152,9 @@ software:
   - slug: postman/darwin
     setup_experience: false
     self_service: true
+  - slug: raspberry-pi-imager/darwin
+    setup_experience: false
+    self_service: true
   - slug: raycast/darwin
     setup_experience: false
     self_service: true

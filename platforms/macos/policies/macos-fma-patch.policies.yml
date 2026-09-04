@@ -215,6 +215,12 @@
   patch_when_closed: true
   labels_include_any:
   - Postman installed
+- name: Raspberry Pi Imager up to date
+  type: patch
+  fleet_maintained_app_slug: raspberry-pi-imager/darwin
+  install_software: true
+  labels_include_any:
+  - Raspberry Pi Imager installed
 - name: Raycast up to date
   type: patch
   fleet_maintained_app_slug: raycast/darwin
