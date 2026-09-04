@@ -122,6 +122,10 @@
   description: macOS hosts with Postman installed
   query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.postmanlabs.mac';
   label_membership_type: dynamic
+- name: Raspberry Pi Imager installed
+  description: macOS hosts with Raspberry Pi Imager installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.raspberrypi.rpi-imager';
+  label_membership_type: dynamic
 - name: Raycast installed
   description: macOS hosts with Raycast installed
   query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.raycast.macos';
