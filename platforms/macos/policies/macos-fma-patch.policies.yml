@@ -219,6 +219,8 @@
   type: patch
   fleet_maintained_app_slug: raspberry-pi-imager/darwin
   install_software: true
+  continuous_automations_enabled: true
+  patch_when_closed: true
   labels_include_any:
   - Raspberry Pi Imager installed
 - name: Raycast up to date
