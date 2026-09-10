@@ -2,7 +2,7 @@ name: Workstations
 controls:
   enable_disk_encryption: true
   enable_recovery_lock_password: true
-macos_updates:
+  macos_updates:
     minimum_version: 'latest'
     deadline_days: 7
   apple_settings:
