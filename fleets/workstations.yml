@@ -83,9 +83,6 @@ software:
   - slug: cursor/darwin
     setup_experience: false
     self_service: true
-  - slug: dante-controller/darwin
-    setup_experience: false
-    self_service: true
   - slug: discord/darwin
     setup_experience: false
     self_service: true
