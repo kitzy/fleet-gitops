@@ -66,8 +66,8 @@
   fleet_maintained_app_slug: dante-controller/darwin
   continuous_automations_enabled: true
   patch_when_closed: true
-#  labels_include_any:
-#  - Dante Controller installed
+  labels_include_any:
+  - Dante Controller installed
 - name: DisplayLink up to date
   type: patch
   fleet_maintained_app_slug: displaylink/darwin
