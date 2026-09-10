@@ -1,4 +1,17 @@
 name: Workstations
+controls:
+  enable_disk_encryption: true
+  enable_recovery_lock_password: true
+macos_updates:
+    minimum_version: 'latest'
+    deadline_days: 7
+  apple_settings:
+    configuration_profiles:
+    - paths: ../platforms/macos/declaration-profiles/all-macos/*.json
+    - paths: ../platforms/macos/configuration-profiles/all-macos/*.mobileconfig
+  scripts:
+  - path: ../platforms/all/scripts/configure-npmrc-min-release-age.sh
+  - path: ../platforms/all/scripts/configure-npmrc-min-release-age.ps1
 policies:
 - path: ../platforms/macos/policies/macos-device-health.policies.yml
 - path: ../platforms/macos/policies/macos-fma-patch.policies.yml
@@ -27,19 +40,6 @@ reports:
 - path: ../platforms/macos/reports/dex-queries.reports.yml
 agent_options:
   path: ../platforms/agent-options.yml
-controls:
-  enable_disk_encryption: true
-  enable_recovery_lock_password: true
-  macos_updates:
-    minimum_version: 'latest'
-    deadline_days: 7
-  apple_settings:
-    configuration_profiles:
-    - paths: ../platforms/macos/declaration-profiles/all-macos/*.json
-    - paths: ../platforms/macos/configuration-profiles/all-macos/*.mobileconfig
-  scripts:
-  - path: ../platforms/all/scripts/configure-npmrc-min-release-age.sh
-  - path: ../platforms/all/scripts/configure-npmrc-min-release-age.ps1
 settings:
   secrets:
   - secret: $FLEET_WORKSTATIONS_ENROLL_SECRET
