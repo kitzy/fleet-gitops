@@ -126,6 +126,10 @@
   description: macOS hosts with Postman installed
   query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.postmanlabs.mac';
   label_membership_type: dynamic
+- name: QLab installed
+  description: macOS hosts with QLab installed
+  query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.figure53.QLab.5';
+  label_membership_type: dynamic
 - name: Raspberry Pi Imager installed
   description: macOS hosts with Raspberry Pi Imager installed
   query: SELECT 1 FROM apps WHERE bundle_identifier = 'com.raspberrypi.rpi-imager';
