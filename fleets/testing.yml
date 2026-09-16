@@ -61,7 +61,3 @@ settings:
     historical_data:
       vulnerabilities: true
 software:
-  fleet_maintained_apps:
-  - slug: 1password/darwin
-    setup_experience: false
-    self_service: true
