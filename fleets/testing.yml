@@ -1,4 +1,3 @@
-name: Testing
 policies:
 - path: ../platforms/macos/policies/macos-gatekeeper.policies.yml
 reports:
@@ -61,3 +60,4 @@ settings:
     historical_data:
       vulnerabilities: true
 software:
+name: Testing
