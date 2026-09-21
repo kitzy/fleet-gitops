@@ -254,6 +254,13 @@
   patch_when_closed: true
   labels_include_any:
   - Postman installed
+- name: QLab up to date
+  type: patch
+  fleet_maintained_app_slug: qlab/darwin
+  continuous_automations_enabled: true
+  patch_when_closed: true
+  labels_include_any:
+  - QLab installed
 - name: Raspberry Pi Imager up to date
   type: patch
   fleet_maintained_app_slug: raspberry-pi-imager/darwin
