@@ -3,7 +3,6 @@
   fleet_maintained_app_slug: 1password/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
   labels_include_any:
   - 1Password installed
 - name: Adobe Acrobat Reader up to date
