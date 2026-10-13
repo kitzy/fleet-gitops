@@ -89,75 +89,60 @@ software:
   - app_store_id: com.Slack
     platform: android
     self_service: true
-    setup_experience: true
   # Zoom
   - app_store_id: us.zoom.videomeetings
     platform: android
     self_service: true
-    setup_experience: true
   # 1Password
   - app_store_id: com.onepassword.android
     platform: android
     self_service: true
-    setup_experience: true
   # Gmail
   - app_store_id: com.google.android.gm
     platform: android
     self_service: true
-    setup_experience: true
   # Google Calendar
   - app_store_id: com.google.android.calendar
     platform: android
     self_service: true
-    setup_experience: true
   # Google Drive
   - app_store_id: com.google.android.apps.docs
     platform: android
     self_service: true
-    setup_experience: true
   # Google Docs
   - app_store_id: com.google.android.apps.docs.editors.docs
     platform: android
     self_service: true
-    setup_experience: true
   # Google Sheets
   - app_store_id: com.google.android.apps.docs.editors.sheets
     platform: android
     self_service: true
-    setup_experience: true
   # Google Slides
   - app_store_id: com.google.android.apps.docs.editors.slides
     platform: android
     self_service: true
-    setup_experience: true
   # Google Meet
   - app_store_id: com.google.android.apps.tachyon
     platform: android
     self_service: true
-    setup_experience: true
   # Google Chat
   - app_store_id: com.google.android.apps.dynamite
     platform: android
     self_service: true
-    setup_experience: true
   # Google Keep
   - app_store_id: com.google.android.keep
     platform: android
     self_service: true
-    setup_experience: true
   # Google Tasks
   - app_store_id: com.google.android.apps.tasks
     platform: android
     self_service: true
-    setup_experience: true
   # Google Voice
   - app_store_id: com.google.android.apps.googlevoice
     platform: android
     self_service: true
-    setup_experience: true
   # Google Contacts
   - app_store_id: com.google.android.contacts
     platform: android
     self_service: true
-    setup_experience: true
 name: Testing
