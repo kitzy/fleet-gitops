@@ -5,7 +5,7 @@ agent_options:
   path: ../platforms/agent-options.yml
 controls:
   scripts:
-  # No-op: makes GitOps upload $FLEET_SECRET_CF_CLIENT_SECRET (see the script).
+  # No-op: makes GitOps upload the Cloudflare service token secret (see the script).
   - path: ../platforms/all/scripts/gitops-secret-anchor-cloudflare.sh
   android_settings:
     configuration_profiles:
