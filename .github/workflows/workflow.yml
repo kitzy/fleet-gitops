@@ -79,7 +79,6 @@ jobs:
           FLEET_SECRET_SSH_USER: op://GitHub/FleetSecrets/FLEET_SECRET_SSH_USER
           FLEET_SECRET_SSH_PUBLIC_KEY: op://GitHub/FleetSecrets/FLEET_SECRET_SSH_PUBLIC_KEY
           FLEET_VULNERABILITY_WEBHOOK_URL: op://GitHub/FleetSecrets/FLEET_VULNERABILITY_WEBHOOK_URL
-          FLEET_SECRET_CF_CLIENT_SECRET: op://GitHub/FleetSecrets/FLEET_SECRET_CF_CLIENT_SECRET
           
       - name: Checkout GitOps repository
         uses: actions/checkout@v6
@@ -104,4 +103,3 @@ jobs:
           FLEET_SECRET_SSH_USER: ${{ steps.op-secrets.outputs.FLEET_SECRET_SSH_USER }}
           FLEET_SECRET_SSH_PUBLIC_KEY: ${{ steps.op-secrets.outputs.FLEET_SECRET_SSH_PUBLIC_KEY }}
           FLEET_VULNERABILITY_WEBHOOK_URL: ${{ steps.op-secrets.outputs.FLEET_VULNERABILITY_WEBHOOK_URL }}
-          FLEET_SECRET_CF_CLIENT_SECRET: ${{ steps.op-secrets.outputs.FLEET_SECRET_CF_CLIENT_SECRET }}

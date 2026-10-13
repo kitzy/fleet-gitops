@@ -4,9 +4,6 @@ reports:
 agent_options:
   path: ../platforms/agent-options.yml
 controls:
-  scripts:
-  # No-op: makes GitOps upload the Cloudflare service token secret (see the script).
-  - path: ../platforms/all/scripts/gitops-secret-anchor-cloudflare.sh
   android_settings:
     configuration_profiles:
     # Cloudflare One Agent always-on VPN test with lockdown: no traffic is
