@@ -60,4 +60,13 @@ settings:
     historical_data:
       vulnerabilities: true
 software:
+  app_store_apps:
+  # Android per-app VPN test. Managed config
+  # follows the Android Management API struct form of Cloudflare's Intune
+  # per-app VPN example; Testing fleet only.
+  - app_store_id: com.cloudflare.cloudflareoneagent
+    platform: android
+    self_service: true
+    configuration:
+      path: ../platforms/android/managed-app-configurations/cloudflare-one-agent-testing.json
 name: Testing
