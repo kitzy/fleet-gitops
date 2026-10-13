@@ -3,6 +3,8 @@
     "app_config_bundle_list": [
       {
         "organization": "kitzy",
+        "auth_client_id": "4a377c8f61bb54bec15600a928a7300f.access",
+        "auth_client_secret": "$FLEET_SECRET_CF_CLIENT_SECRET",
         "display_name": "Fleet testing",
         "service_mode": "warp",
         "switch_locked": true,
