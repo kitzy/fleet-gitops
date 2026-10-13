@@ -1,0 +1,19 @@
+{
+  "managedConfiguration": {
+    "app_config_bundle_list": [
+      {
+        "organization": "kitzy",
+        "display_name": "Fleet testing",
+        "service_mode": "warp",
+        "switch_locked": false,
+        "auto_connect": 0,
+        "tunneled_apps": [
+          {
+            "app_identifier": "com.android.chrome",
+            "is_browser": true
+          }
+        ]
+      }
+    ]
+  }
+}
