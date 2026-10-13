@@ -61,6 +61,11 @@ settings:
       vulnerabilities: true
 software:
   app_store_apps:
+  # Control browser for the per-app VPN test: not listed in the agent's
+  # tunneled_apps, so its traffic should stay off WARP.
+  - app_store_id: org.mozilla.firefox
+    platform: android
+    self_service: true
   # Android per-app VPN test. Managed config
   # follows the Android Management API struct form of Cloudflare's Intune
   # per-app VPN example; Testing fleet only.
