@@ -11,6 +11,10 @@
           {
             "app_identifier": "com.android.chrome",
             "is_browser": true
+          },
+          {
+            "app_identifier": "org.mozilla.firefox",
+            "is_browser": true
           }
         ],
         "support_url": "https://example.com/fleet-testing-support"
