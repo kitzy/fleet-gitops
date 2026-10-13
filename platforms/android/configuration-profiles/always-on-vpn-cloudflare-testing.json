@@ -1,0 +1,6 @@
+{
+  "alwaysOnVpnPackage": {
+    "packageName": "com.cloudflare.cloudflareoneagent",
+    "lockdownEnabled": false
+  }
+}
