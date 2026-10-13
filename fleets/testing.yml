@@ -4,6 +4,11 @@ reports:
 agent_options:
   path: ../platforms/agent-options.yml
 controls:
+  android_settings:
+    configuration_profiles:
+    # Cloudflare One Agent always-on VPN test. lockdownEnabled starts false so
+    # a registration problem can't cut the test device off from the network.
+    - path: ../platforms/android/configuration-profiles/always-on-vpn-cloudflare-testing.json
   apple_settings:
     configuration_profiles:
     - path: ../platforms/macos/declaration-profiles/allow-beta-updates-ddm.json

@@ -17,7 +17,8 @@
             "is_browser": true
           }
         ],
-        "support_url": "https://example.com/fleet-testing-support"
+        "support_url": "https://example.com/fleet-testing-support",
+        "use_in_app_webview": true
       }
     ]
   }
