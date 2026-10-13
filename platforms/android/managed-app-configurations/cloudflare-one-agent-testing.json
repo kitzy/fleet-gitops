@@ -5,14 +5,15 @@
         "organization": "kitzy",
         "display_name": "Fleet testing",
         "service_mode": "warp",
-        "switch_locked": false,
+        "switch_locked": true,
         "auto_connect": 0,
         "tunneled_apps": [
           {
             "app_identifier": "com.android.chrome",
             "is_browser": true
           }
-        ]
+        ],
+        "support_url": "https://example.com/fleet-testing-support"
       }
     ]
   }
