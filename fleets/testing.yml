@@ -67,10 +67,12 @@ software:
   - app_store_id: com.cloudflare.cloudflareoneagent
     platform: android
     self_service: true
+    setup_experience: true
     configuration:
       path: ../platforms/android/managed-app-configurations/cloudflare-one-agent-testing.json
   # Browser for the agent's sign-in flow and the per-app VPN test target.
   - app_store_id: com.android.chrome
     platform: android
     self_service: true
+    setup_experience: true
 name: Testing
