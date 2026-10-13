@@ -6,8 +6,8 @@ agent_options:
 controls:
   android_settings:
     configuration_profiles:
-    # Cloudflare One Agent always-on VPN test. lockdownEnabled starts false so
-    # a registration problem can't cut the test device off from the network.
+    # Cloudflare One Agent always-on VPN test with lockdown: no traffic is
+    # allowed unless the VPN is connected.
     - path: ../platforms/android/configuration-profiles/always-on-vpn-cloudflare-testing.json
   apple_settings:
     configuration_profiles:
