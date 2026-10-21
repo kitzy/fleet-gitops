@@ -12,10 +12,13 @@ controls:
   scripts:
   - path: ../platforms/all/scripts/configure-npmrc-min-release-age.sh
   - path: ../platforms/all/scripts/configure-npmrc-min-release-age.ps1
+  - path: ../platforms/all/scripts/remove-emudhra-roots-fleetd.sh
+  - path: ../platforms/macos/scripts/remove-emudhra-roots-macos-system.sh
 policies:
 - path: ../platforms/macos/policies/macos-device-health.policies.yml
 - path: ../platforms/macos/policies/macos-fma-patch.policies.yml
 - path: ../platforms/macos/policies/macos-fma-install.policies.yml
+- path: ../platforms/macos/policies/macos-emudhra-ca.policies.yml
 - path: ../platforms/all/policies/npm-user-npmrc-min-release-age.policies.yml
 reports:
 - path: ../platforms/all/reports/collect-usb-devices.reports.yml

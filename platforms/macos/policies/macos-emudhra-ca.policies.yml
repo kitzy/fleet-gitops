@@ -1,0 +1,47 @@
+- name: macOS - fleetd CA bundle excludes compromised eMudhra roots
+  query: |
+    SELECT 1 WHERE NOT EXISTS (
+      SELECT 1 FROM file f
+      JOIN certificates c ON c.path = f.path
+      WHERE f.path = '/opt/orbit/certs.pem'
+        AND lower(c.sha1) IN (
+          '3043fa4ff257dca0c380ee2e58ea78b23fe6bbc1',
+          'd1eb23a46d17d68fd92564c2f1f1601764d8e349'
+        )
+    );
+  critical: false
+  description: >-
+    osquery uses /opt/orbit/certs.pem to verify the Fleet server's TLS certificate. fleetd packages built before
+    the fix ship a bundle that trusts emSign ECC Root CA - G3, and osquery doesn't check revocation. Anyone holding one of the
+    eight compromised eMudhra intermediate keys could impersonate your Fleet server to osquery on this host.
+  resolution: >-
+    Fleet can run the remediation script when this policy fails (remove-emudhra-roots-fleetd.sh). If it still fails
+    after a refetch, reinstall fleetd with a package built by a fleetctl release that excludes the emSign roots.
+  platform: darwin
+  calendar_events_enabled: false
+  run_script:
+    path: ../../all/scripts/remove-emudhra-roots-fleetd.sh
+
+- name: macOS - Command-line TLS trust store excludes compromised eMudhra roots
+  query: |
+    SELECT 1 WHERE NOT EXISTS (
+      SELECT 1 FROM file f
+      JOIN certificates c ON c.path = f.path
+      WHERE f.path = '/etc/ssl/cert.pem'
+        AND lower(c.sha1) IN (
+          '3043fa4ff257dca0c380ee2e58ea78b23fe6bbc1',
+          'd1eb23a46d17d68fd92564c2f1f1601764d8e349'
+        )
+    );
+  critical: false
+  description: >-
+    macOS blocks the compromised eMudhra intermediates for Safari and apps that use Apple's TLS stack. The built-in
+    curl, git, python3, perl, ruby, and openssl use /etc/ssl/cert.pem instead and don't check revocation, so they
+    still trust certificates issued by the compromised intermediates.
+  resolution: >-
+    Fleet can run the remediation script when this policy fails (remove-emudhra-roots-macos-system.sh). A macOS
+    update can restore /etc/ssl/cert.pem, so keep this policy in place until Apple ships an updated file.
+  platform: darwin
+  calendar_events_enabled: false
+  run_script:
+    path: ../scripts/remove-emudhra-roots-macos-system.sh
