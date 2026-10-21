@@ -1,0 +1,53 @@
+- name: Linux - fleetd CA bundle excludes compromised eMudhra roots
+  query: |
+    SELECT 1 WHERE NOT EXISTS (
+      SELECT 1 FROM file f
+      JOIN certificates c ON c.path = f.path
+      WHERE f.path = '/opt/orbit/certs.pem'
+        AND lower(c.sha1) IN (
+          '3043fa4ff257dca0c380ee2e58ea78b23fe6bbc1',
+          'd1eb23a46d17d68fd92564c2f1f1601764d8e349'
+        )
+    );
+  critical: false
+  description: >-
+    osquery uses /opt/orbit/certs.pem to verify the Fleet server's TLS certificate. fleetd packages built before
+    the fix ship a bundle that trusts emSign ECC Root CA - G3, and osquery doesn't check revocation. Anyone holding one of the
+    eight compromised eMudhra intermediate keys could impersonate your Fleet server to osquery on this host.
+  resolution: >-
+    Fleet can run the remediation script when this policy fails (remove-emudhra-roots-fleetd.sh). If it still fails
+    after a refetch, reinstall fleetd with a package built by a fleetctl release that excludes the emSign roots.
+  platform: linux
+  calendar_events_enabled: false
+  run_script:
+    path: ../../all/scripts/remove-emudhra-roots-fleetd.sh
+
+- name: Linux - System CA bundle excludes compromised eMudhra roots
+  query: |
+    SELECT 1 WHERE NOT EXISTS (
+      SELECT 1 FROM file f
+      JOIN certificates c ON c.path = f.path
+      WHERE f.path IN (
+          '/etc/ssl/certs/ca-certificates.crt',
+          '/etc/pki/tls/certs/ca-bundle.crt',
+          '/etc/ssl/ca-bundle.pem'
+        )
+        AND lower(c.sha1) IN (
+          '3043fa4ff257dca0c380ee2e58ea78b23fe6bbc1',
+          'd1eb23a46d17d68fd92564c2f1f1601764d8e349'
+        )
+    );
+  critical: false
+  description: >-
+    Most Linux TLS clients (curl, wget, package managers, Python, Go binaries older than 1.27.3) verify against the
+    system CA bundle and don't check revocation. While the bundle includes emSign ECC Root CA - G3 or AAA
+    Certificate Services, they trust certificates issued by the compromised eMudhra intermediates.
+  resolution: >-
+    Fleet can run update-ca-certificates-package.sh when this policy fails (apt-based hosts). It upgrades
+    ca-certificates (fixed in Ubuntu 20260816ubuntu0.*, Debian 20250419~deb12u2 / 20250419+deb13u1,
+    Fedora 2026.2.92_v9.0.319, Alpine 20261020-r0 or later). If your distribution hasn't shipped an update yet,
+    see the distrust steps at https://emudhra.we-have-a-problem.com/#linux.
+  platform: linux
+  calendar_events_enabled: false
+  run_script:
+    path: ../scripts/update-ca-certificates-package.sh
