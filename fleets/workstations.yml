@@ -177,9 +177,10 @@ software:
   - slug: spotify/darwin
     setup_experience: false
     self_service: true
-  - slug: steam/darwin
-    setup_experience: false
-    self_service: true
+  # Disabled until https://github.com/fleetdm/fleet/issues/57457 is fixed (installer extension too long). Re-enable after.
+  # - slug: steam/darwin
+  #   setup_experience: false
+  #   self_service: true
   - slug: sublime-text/darwin
     setup_experience: false
     self_service: true
