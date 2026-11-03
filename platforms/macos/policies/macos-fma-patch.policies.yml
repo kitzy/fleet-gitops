@@ -300,14 +300,6 @@
   patch_when_closed: true
   labels_include_any:
   - Spotify installed
-- name: Steam up to date
-  type: patch
-  fleet_maintained_app_slug: steam/darwin
-  install_software: true
-  continuous_automations_enabled: true
-  patch_when_closed: true
-  labels_include_any:
-  - Steam installed
 - name: Sublime Text up to date
   type: patch
   fleet_maintained_app_slug: sublime-text/darwin
