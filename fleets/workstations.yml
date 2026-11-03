@@ -41,6 +41,7 @@ reports:
 - path: ../platforms/macos/reports/collect-default-browser.reports.yml
 - path: ../platforms/macos/reports/get-thunderbolt-bus-speed.reports.yml
 - path: ../platforms/macos/reports/dex-queries.reports.yml
+- path: ../platforms/macos/reports/get-macos-patch-history.reports.yml
 agent_options:
   path: ../platforms/agent-options.yml
 settings:

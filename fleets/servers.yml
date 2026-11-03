@@ -28,6 +28,7 @@ reports:
   - path: ../platforms/macos/reports/get-securetoken-status.reports.yml
   - path: ../platforms/macos/reports/get-builtin-antivirus-status.reports.yml
   - path: ../platforms/macos/reports/dex-queries.reports.yml
+  - path: ../platforms/macos/reports/get-macos-patch-history.reports.yml
   - path: ../platforms/linux/reports/get-openssl-versions.reports.yml
 agent_options:
   path: ../platforms/agent-options.yml
