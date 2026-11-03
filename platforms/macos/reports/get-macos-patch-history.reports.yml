@@ -1,0 +1,20 @@
+- name: Get macOS patch history
+  automations_enabled: false
+  description: >-
+    One row per Mac: current macOS version, the oldest entry in the local install log
+    (history_start, unix time), and every macOS update installed as version@unixtime
+    (os_installs). Used to measure time-to-patch against Apple release dates.
+  discard_data: false
+  interval: 86400 # 1 day; timestamps come from the Mac's install log, not the run time
+  logging: snapshot
+  observer_can_run: true
+  platform: "darwin"
+  query: |
+    SELECT
+      (SELECT version FROM os_version) AS current_version,
+      (SELECT MIN(time) FROM package_install_history) AS history_start,
+      (SELECT group_concat(version || '@' || time, ',')
+         FROM package_install_history
+         WHERE source = 'softwareupdated'
+           AND name LIKE 'macOS %'
+           AND package_id = '') AS os_installs;
