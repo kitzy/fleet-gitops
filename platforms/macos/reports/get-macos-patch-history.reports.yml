@@ -1,5 +1,5 @@
 - name: Get macOS patch history
-  automations_enabled: false
+  automations_enabled: true
   description: >-
     One row per Mac: current macOS version, the oldest entry in the local install log
     (history_start, unix time), and every macOS update installed as version@unixtime
