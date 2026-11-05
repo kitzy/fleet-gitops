@@ -5,7 +5,7 @@
     (history_start, unix time), and every macOS update installed as version@unixtime
     (os_installs). Used to measure time-to-patch against Apple release dates.
   discard_data: false
-  interval: 86400 # 1 day; timestamps come from the Mac's install log, not the run time
+  interval: 21600 # 6 hours of fleetd running time, which pauses while the Mac sleeps
   logging: snapshot
   observer_can_run: true
   platform: "darwin"
