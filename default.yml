@@ -34,7 +34,7 @@ org_settings:
     jira:
     zendesk:
   mdm:
-    apple_business_manager:
+    apple_business:
     - organization_name: Fleet Device Management Inc.
       macos_fleet: Testing
       ios_fleet: Testing
@@ -50,8 +50,8 @@ org_settings:
     volume_purchasing_program:
   org_info:
     contact_url:
-    org_logo_url:
-    org_logo_url_light_background:
+    org_logo_url_dark_mode:
+    org_logo_url_light_mode:
     org_name: Kitzy.net
   secrets:
   - secret: ${GLOBAL_ENROLL_SECRET}
@@ -62,7 +62,6 @@ org_settings:
     live_reporting_disabled: false
     report_cap: 0
     discard_reports_data: false
-    scripts_disabled: false
     server_url: ${FLEET_URL}
   sso_settings:
     enable_jit_provisioning: false
@@ -82,7 +81,6 @@ org_settings:
       destination_url:
       enable_failing_policies_webhook: false
       host_batch_size: 0
-      policy_ids:
     host_status_webhook:
       days_count: 0
       destination_url:
