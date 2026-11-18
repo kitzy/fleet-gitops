@@ -3,6 +3,8 @@
   description: PermitRootLogin is disabled
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PermitRootLogin' AND value='no';
+  labels_include_any:
+      - Ubuntu
   labels_exclude_any:
       - "Proxmox hosts"
       - homelab-vps
@@ -13,6 +15,8 @@
   description: Check if PasswordAuthentication is disabled
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PasswordAuthentication' AND value='no';
+  labels_include_any:
+      - Ubuntu
   labels_exclude_any:
       - homelab-vps
   run_script:
@@ -22,6 +26,8 @@
   description: Check if ChallengeResponseAuthentication is disabled
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='ChallengeResponseAuthentication' AND value='no';
+  labels_include_any:
+      - Ubuntu
   labels_exclude_any:
       - homelab-vps
   run_script:
@@ -31,6 +37,8 @@
   description: Check if PubkeyAuthentication is enabled
   resolution: TODO
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PubkeyAuthentication' AND value='yes';
+  labels_include_any:
+      - Ubuntu
   labels_exclude_any:
       - homelab-vps
   run_script:
@@ -40,6 +48,8 @@
   description: Check if the specified SSH user exists
   resolution: TODO
   query: SELECT * FROM users WHERE username = 'kitzy';
+  labels_include_any:
+      - Ubuntu
   labels_exclude_any:
       - homelab-vps
   run_script:
