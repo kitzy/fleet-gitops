@@ -41,6 +41,7 @@ controls:
   - path: ../platforms/linux/scripts/harden-network-sysctls.sh
   - path: ../platforms/linux/scripts/enable-docker-unattended-upgrades.sh
   - path: ../platforms/linux/scripts/enable-docker-live-restore.sh
+  - path: ../platforms/linux/scripts/remove-snapd.sh
   apple_settings:
     configuration_profiles:
     - path: ../platforms/macos/configuration-profiles/all-macos/fleetd-full-disk-access.mobileconfig

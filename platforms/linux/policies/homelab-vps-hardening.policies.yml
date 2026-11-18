@@ -108,3 +108,23 @@
     - homelab-vps
   run_script:
     path: ../scripts/enable-docker-live-restore.sh
+- name: homelab-vps - snapd is removed
+  platform: linux
+  description: >-
+    homelab-vps runs no snaps, but snapd was still installed and running from
+    the Ubuntu image. It carries critical CVEs Ubuntu has not fixed. snapd must
+    be uninstalled and pinned so apt never pulls it back in.
+  resolution: >-
+    Fleet runs remove-snapd.sh, which purges snapd and writes an apt pin
+    (/etc/apt/preferences.d/no-snapd). It stops without changing anything if a
+    snap is installed or the purge would remove other packages, so this policy
+    keeps failing until a person looks at it.
+  query: >-
+    SELECT 1 FROM file WHERE path = '/etc/apt/preferences.d/no-snapd'
+    AND NOT EXISTS (
+      SELECT 1 FROM deb_packages WHERE name = 'snapd' AND status LIKE '% installed'
+    );
+  labels_include_any:
+    - homelab-vps
+  run_script:
+    path: ../scripts/remove-snapd.sh
