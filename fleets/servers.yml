@@ -10,11 +10,7 @@
 name: Servers
 policies:
   - path: ../platforms/linux/policies/baseline-user-ssh.policies.yml
-    labels_include_any:
-      - Ubuntu
   - path: ../platforms/linux/policies/os-patching.policies.yml
-    labels_include_any:
-      - Ubuntu
   - path: ../platforms/linux/policies/linux-emudhra-ca.policies.yml
   - path: ../platforms/linux/policies/homelab-vps-hardening.policies.yml
 reports:
