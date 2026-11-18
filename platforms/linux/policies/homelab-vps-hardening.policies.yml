@@ -1,0 +1,110 @@
+- name: homelab-vps - sshd is disabled
+  platform: linux
+  description: >-
+    homelab-vps is administered over Tailscale SSH only, which does not use
+    sshd. sshd must be neither running nor enabled, so nothing listens on the
+    public interface even if the Vultr firewall changes.
+  resolution: Fleet runs disable-sshd.sh, which stops and disables ssh.service and ssh.socket.
+  query: >-
+    SELECT 1 WHERE NOT EXISTS (
+      SELECT 1 FROM systemd_units
+      WHERE id IN ('ssh.service', 'ssh.socket')
+        AND (active_state = 'active' OR unit_file_state = 'enabled')
+    );
+  labels_include_any:
+    - homelab-vps
+  run_script:
+    path: ../scripts/disable-sshd.sh
+- name: homelab-vps - root password is locked
+  platform: linux
+  description: >-
+    Vultr sets a root password at creation, and Terraform keeps it in state.
+    Nothing on homelab-vps logs in with a password, so it is locked.
+  resolution: >-
+    Fleet runs lock-root-password.sh (passwd -l root). Emergency console access
+    then goes through Vultr's rescue mode.
+  query: SELECT 1 FROM shadow WHERE username = 'root' AND password_status = 'locked';
+  labels_include_any:
+    - homelab-vps
+  run_script:
+    path: ../scripts/lock-root-password.sh
+- name: homelab-vps - no login accounts besides root
+  platform: linux
+  description: >-
+    Only root logs in (over Tailscale SSH). Vultr's image ships linuxuser
+    (sudo group), and the SSH user baseline used to create kitzy with
+    passwordless sudo.
+  resolution: >-
+    Fleet runs remove-extra-login-accounts.sh, which removes linuxuser and
+    kitzy. Any other account it finds keeps this policy failing so a person
+    can look at it.
+  query: >-
+    SELECT 1 WHERE NOT EXISTS (
+      SELECT 1 FROM users
+      WHERE uid >= 1000 AND uid < 65534
+        AND shell NOT LIKE '%nologin' AND shell NOT LIKE '%/false'
+    );
+  labels_include_any:
+    - homelab-vps
+  run_script:
+    path: ../scripts/remove-extra-login-accounts.sh
+- name: homelab-vps - network sysctls hardened
+  platform: linux
+  description: >-
+    homelab-vps is not a router: it must not send ICMP redirects, and it logs
+    martian packets. IP forwarding (Docker) and loose rp_filter (Tailscale)
+    are left alone.
+  resolution: Fleet runs harden-network-sysctls.sh, which writes /etc/sysctl.d/60-fleet-network-hardening.conf.
+  query: >-
+    SELECT 1 WHERE NOT EXISTS (
+      SELECT 1 FROM system_controls
+      WHERE (name IN ('net.ipv4.conf.all.send_redirects', 'net.ipv4.conf.default.send_redirects') AND current_value != '0')
+         OR (name IN ('net.ipv4.conf.all.log_martians', 'net.ipv4.conf.default.log_martians') AND current_value != '1')
+    );
+  labels_include_any:
+    - homelab-vps
+  run_script:
+    path: ../scripts/harden-network-sysctls.sh
+- name: homelab-vps - no public TCP listeners
+  platform: linux
+  description: >-
+    Alerts if anything in the host network namespace listens on TCP outside
+    loopback and Tailscale (100.x / fd7a:115c:a1e0::/48). Containers have their
+    own namespaces and are not counted; nothing on this VM publishes ports.
+  resolution: >-
+    No automatic fix. Find the process with Fleet's listening-ports report and
+    stop it, or change this policy if the listener is intended.
+  query: >-
+    SELECT 1 WHERE NOT EXISTS (
+      SELECT 1 FROM listening_ports lp
+      WHERE lp.protocol = 6
+        AND lp.net_namespace = (SELECT net_namespace FROM process_namespaces WHERE pid = 1)
+        AND lp.address NOT IN ('127.0.0.1', '::1', '127.0.0.53', '127.0.0.54')
+        AND lp.address NOT LIKE '100.%'
+        AND lp.address NOT LIKE 'fd7a:115c:a1e0:%'
+    );
+  labels_include_any:
+    - homelab-vps
+- name: homelab-vps - Docker Engine updates applied automatically
+  platform: linux
+  description: >-
+    unattended-upgrades only installs packages from allowed origins, and
+    Docker's apt repository (o=Docker) is not one by default, so Docker never
+    got security updates.
+  resolution: Fleet runs enable-docker-unattended-upgrades.sh, which adds Docker's origin.
+  query: SELECT 1 FROM file WHERE path = '/etc/apt/apt.conf.d/53unattended-upgrades-docker';
+  labels_include_any:
+    - homelab-vps
+  run_script:
+    path: ../scripts/enable-docker-unattended-upgrades.sh
+- name: homelab-vps - Docker live-restore enabled
+  platform: linux
+  description: >-
+    With live-restore, containers keep running while dockerd restarts, so an
+    automatic Docker upgrade does not take Authentik and Fleet down.
+  resolution: Fleet runs enable-docker-live-restore.sh, which sets "live-restore" in /etc/docker/daemon.json and reloads dockerd (no container restarts).
+  query: SELECT 1 FROM parse_json WHERE path = '/etc/docker/daemon.json' AND fullkey = 'live-restore' AND value = 'true';
+  labels_include_any:
+    - homelab-vps
+  run_script:
+    path: ../scripts/enable-docker-live-restore.sh
