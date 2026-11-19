@@ -1,0 +1,5 @@
+- name: macOS - Cloudflare posture test marker absent
+  platform: darwin
+  description: Test policy for the Cloudflare One posture integration (fleetdm/fleet#57454). Passes unless /Users/Shared/fleet-posture-fail exists, so a host can be made to fail on demand. Remove after testing.
+  resolution: Delete /Users/Shared/fleet-posture-fail.
+  query: SELECT 1 WHERE NOT EXISTS (SELECT 1 FROM file WHERE path = '/Users/Shared/fleet-posture-fail');
