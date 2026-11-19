@@ -73,15 +73,21 @@ org_settings:
     discard_reports_data: false
     scripts_disabled: false
     server_url: ${FLEET_URL}
+  # Fleet admin SSO through Google Workspace: the custom SAML app "Fleet" in
+  # the Google Admin console (values in kitzy/homelab-gitops google/README.md).
+  # Its entity ID must match entity_id here. Google offers no metadata URL,
+  # so the IdP metadata XML is stored, on one line, in 1Password
+  # (FleetSecrets/SSO_METADATA); fleetctl inserts it into this YAML as is,
+  # hence the single quotes.
   sso_settings:
     enable_jit_provisioning: false
     enable_sso: true
     enable_sso_idp_login: true
-    entity_id: authentik
+    entity_id: fleet
     idp_image_url:
-    idp_name: Authentik SSO
-    metadata:
-    metadata_url: ${SSO_METADATA_URL}
+    idp_name: Google
+    metadata: '${SSO_METADATA}'
+    metadata_url:
     sso_server_url: ${FLEET_URL}
   webhook_settings:
     activities_webhook:
