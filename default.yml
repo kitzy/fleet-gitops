@@ -31,6 +31,15 @@ org_settings:
   integrations:
     conditional_access_enabled: false
     google_calendar:
+    # IdP host vitals (full name, groups, department) straight from Google
+    # Workspace's directory, replacing SCIM from Authentik: Fleet ignores
+    # SCIM while this is set. The key belongs to fleet-directory-sync in the
+    # kitzy-homelab project (kitzy/homelab-gitops google/terraform); its
+    # domain-wide delegation grants three read-only Directory API scopes.
+    google_workspace:
+      - api_key_json: $GOOGLE_WORKSPACE_API_KEY_JSON
+        domain: kitzy.com
+        impersonated_user_email: admin-kitzy@kitzy.com
     jira:
     zendesk:
   mdm:
