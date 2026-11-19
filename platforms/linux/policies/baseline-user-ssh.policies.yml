@@ -7,7 +7,6 @@
       - Ubuntu
   labels_exclude_any:
       - "Proxmox hosts"
-      - homelab-vps
   run_script:
       path: ../scripts/baseline-user-ssh.sh
 - name: PasswordAuthentication is disabled
@@ -17,8 +16,6 @@
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PasswordAuthentication' AND value='no';
   labels_include_any:
       - Ubuntu
-  labels_exclude_any:
-      - homelab-vps
   run_script:
       path: ../scripts/baseline-user-ssh.sh
 - name: ChallengeResponseAuthentication is disabled
@@ -28,8 +25,6 @@
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='ChallengeResponseAuthentication' AND value='no';
   labels_include_any:
       - Ubuntu
-  labels_exclude_any:
-      - homelab-vps
   run_script:
       path: ../scripts/baseline-user-ssh.sh
 - name: PubkeyAuthentication is enabled
@@ -39,8 +34,6 @@
   query: SELECT * FROM augeas WHERE path='/etc/ssh/sshd_config' AND label='PubkeyAuthentication' AND value='yes';
   labels_include_any:
       - Ubuntu
-  labels_exclude_any:
-      - homelab-vps
   run_script:
       path: ../scripts/baseline-user-ssh.sh
 - name: SSH user exists
@@ -50,7 +43,5 @@
   query: SELECT * FROM users WHERE username = 'kitzy';
   labels_include_any:
       - Ubuntu
-  labels_exclude_any:
-      - homelab-vps
   run_script:
       path: ../scripts/baseline-user-ssh.sh

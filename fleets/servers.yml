@@ -12,7 +12,6 @@ policies:
   - path: ../platforms/linux/policies/baseline-user-ssh.policies.yml
   - path: ../platforms/linux/policies/os-patching.policies.yml
   - path: ../platforms/linux/policies/linux-emudhra-ca.policies.yml
-  - path: ../platforms/linux/policies/homelab-vps-hardening.policies.yml
 reports:
   - path: ../platforms/all/reports/collect-usb-devices.reports.yml
   - path: ../platforms/all/reports/collect-fleetd-update-channels.reports.yml
@@ -35,13 +34,6 @@ controls:
   - path: ../platforms/linux/scripts/enable-unattended-upgrades.sh
   - path: ../platforms/all/scripts/remove-emudhra-roots-fleetd.sh
   - path: ../platforms/linux/scripts/update-ca-certificates-package.sh
-  - path: ../platforms/linux/scripts/disable-sshd.sh
-  - path: ../platforms/linux/scripts/lock-root-password.sh
-  - path: ../platforms/linux/scripts/remove-extra-login-accounts.sh
-  - path: ../platforms/linux/scripts/harden-network-sysctls.sh
-  - path: ../platforms/linux/scripts/enable-docker-unattended-upgrades.sh
-  - path: ../platforms/linux/scripts/enable-docker-live-restore.sh
-  - path: ../platforms/linux/scripts/remove-snapd.sh
   apple_settings:
     configuration_profiles:
     - path: ../platforms/macos/configuration-profiles/all-macos/fleetd-full-disk-access.mobileconfig

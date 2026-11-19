@@ -1,7 +1,0 @@
-- name: homelab-vps
-  description: >-
-    The Vultr VM that runs Authentik and Fleet as Docker Compose stacks
-    (kitzy/homelab-gitops, vps/). Admin access is Tailscale SSH only, so it
-    gets its own hardening policies and is excluded from the SSH user baseline.
-  query: SELECT 1 FROM system_info WHERE hostname = 'homelab-vps';
-  label_membership_type: dynamic
