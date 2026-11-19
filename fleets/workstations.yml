@@ -18,6 +18,7 @@ policies:
 - path: ../platforms/macos/policies/macos-device-health.policies.yml
 - path: ../platforms/macos/policies/macos-fma-patch.policies.yml
 - path: ../platforms/macos/policies/macos-fma-install.policies.yml
+- path: ../platforms/macos/policies/macos-fleetctl.policies.yml
 - path: ../platforms/macos/policies/macos-emudhra-ca.policies.yml
 - path: ../platforms/all/policies/npm-user-npmrc-min-release-age.policies.yml
 reports:
@@ -53,12 +54,23 @@ settings:
     historical_data:
       vulnerabilities: true
 software:
+  # When Fleet force-patches an app that is open (policies with patch_deadline: true), it waits
+  # for this deadline and warns the user 1 hour before. Time is the host's local time.
+  patch_deadline_settings:
+    days:
+    - monday
+    - tuesday
+    - wednesday
+    - thursday
+    - friday
+    time: "17:00"
   packages:
   - path: ../platforms/macos/scripts/enable-touch-id-sudo.sh
     display_name: Enable Touch ID for sudo
     self_service: true
     categories:
     - Developer tools
+  - path: ../platforms/macos/software/fleetctl.package.yml
   fleet_maintained_apps:
   - slug: 1password/darwin
     setup_experience: false

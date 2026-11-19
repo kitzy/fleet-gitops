@@ -1,0 +1,4 @@
+- name: fleetctl installed
+  description: macOS hosts with fleetctl installed from the official package
+  query: SELECT 1 FROM package_receipts WHERE package_id = 'com.fleetdm.fleetctl';
+  label_membership_type: dynamic
