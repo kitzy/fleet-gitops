@@ -1,0 +1,6 @@
+- name: Fleet Admins
+  description: Hosts whose end user is in the Fleet Admins group in the identity provider
+  label_membership_type: host_vitals
+  criteria:
+    vital: end_user_idp_group
+    value: Fleet Admins

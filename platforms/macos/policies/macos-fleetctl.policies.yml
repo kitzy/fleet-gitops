@@ -1,0 +1,14 @@
+# fleetctl is installed by users from Fleet Desktop > Self-service. This policy only keeps
+# existing installs on the Fleet server's version; the label keeps it from installing fleetctl on
+# Macs that never opted in. The version below is bumped with fleetctl.package.yml by the
+# "Bump fleetctl" workflow.
+- name: fleetctl up to date
+  platform: darwin
+  description: This policy checks that fleetctl matches the Fleet server version.
+  resolution: Fleet will install the matching fleetctl package on hosts where this policy fails.
+  query: SELECT 1 FROM package_receipts WHERE package_id = 'com.fleetdm.fleetctl' AND version = '4.95.0';
+  continuous_automations_enabled: true
+  install_software:
+    package_path: ../software/fleetctl.package.yml
+  labels_include_any:
+  - fleetctl installed
