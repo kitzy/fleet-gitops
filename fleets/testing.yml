@@ -1,6 +1,5 @@
 policies:
 - path: ../platforms/macos/policies/macos-gatekeeper.policies.yml
-- path: ../platforms/macos/policies/cloudflare-posture-test.policies.yml
 reports:
 - path: ../platforms/macos/reports/get-macos-patch-history.reports.yml
 agent_options:
@@ -14,9 +13,6 @@ controls:
   apple_settings:
     configuration_profiles:
     - path: ../platforms/macos/declaration-profiles/allow-beta-updates-ddm.json
-    # Enrolls the Cloudflare One Client in the kitzy Zero Trust org for the
-    # Cloudflare posture integration test (fleetdm/fleet#57454).
-    - path: ../platforms/macos/configuration-profiles/cloudflare-one-client-testing.mobileconfig
     - path: ../platforms/macos/configuration-profiles/enforce-gatekeeper.mobileconfig
     # Legacy .mobileconfig profiles — no DDM declaration type exists yet for
     # Gatekeeper, so this stays unscoped and continues to apply fleet-wide.
@@ -70,10 +66,6 @@ settings:
     historical_data:
       vulnerabilities: true
 software:
-  fleet_maintained_apps:
-  # Cloudflare One Client for the Cloudflare posture integration test.
-  - slug: cloudflare-warp/darwin
-    self_service: true
   app_store_apps:
   # Control browser for the per-app VPN test: not listed in the agent's
   # tunneled_apps, so its traffic should stay off WARP.
