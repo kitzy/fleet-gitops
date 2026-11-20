@@ -80,6 +80,8 @@ jobs:
           FLEET_SECRET_SSH_PUBLIC_KEY: op://GitHub/FleetSecrets/FLEET_SECRET_SSH_PUBLIC_KEY
           FLEET_VULNERABILITY_WEBHOOK_URL: op://GitHub/FleetSecrets/FLEET_VULNERABILITY_WEBHOOK_URL
           GOOGLE_WORKSPACE_API_KEY_JSON: op://GitHub/Fleet Google Workspace/service_account_json
+          GOOGLE_WORKSPACE_DOMAIN: op://GitHub/Fleet Google Workspace/domain
+          GOOGLE_WORKSPACE_IMPERSONATED_USER_EMAIL: op://GitHub/Fleet Google Workspace/impersonated_user_email
           
       - name: Checkout GitOps repository
         uses: actions/checkout@v6
@@ -105,3 +107,5 @@ jobs:
           FLEET_SECRET_SSH_PUBLIC_KEY: ${{ steps.op-secrets.outputs.FLEET_SECRET_SSH_PUBLIC_KEY }}
           FLEET_VULNERABILITY_WEBHOOK_URL: ${{ steps.op-secrets.outputs.FLEET_VULNERABILITY_WEBHOOK_URL }}
           GOOGLE_WORKSPACE_API_KEY_JSON: ${{ steps.op-secrets.outputs.GOOGLE_WORKSPACE_API_KEY_JSON }}
+          GOOGLE_WORKSPACE_DOMAIN: ${{ steps.op-secrets.outputs.GOOGLE_WORKSPACE_DOMAIN }}
+          GOOGLE_WORKSPACE_IMPERSONATED_USER_EMAIL: ${{ steps.op-secrets.outputs.GOOGLE_WORKSPACE_IMPERSONATED_USER_EMAIL }}

@@ -38,8 +38,8 @@ org_settings:
     # domain-wide delegation grants three read-only Directory API scopes.
     google_workspace:
       - api_key_json: $GOOGLE_WORKSPACE_API_KEY_JSON
-        domain: kitzy.com
-        impersonated_user_email: admin-kitzy@kitzy.com
+        domain: $GOOGLE_WORKSPACE_DOMAIN
+        impersonated_user_email: $GOOGLE_WORKSPACE_IMPERSONATED_USER_EMAIL
     jira:
     zendesk:
   mdm:
