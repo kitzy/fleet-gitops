@@ -12,10 +12,14 @@ controls:
   scripts:
   - path: ../platforms/all/scripts/configure-npmrc-min-release-age.sh
   - path: ../platforms/all/scripts/configure-npmrc-min-release-age.ps1
+  - path: ../platforms/all/scripts/remove-emudhra-roots-fleetd.sh
+  - path: ../platforms/macos/scripts/remove-emudhra-roots-macos-system.sh
 policies:
 - path: ../platforms/macos/policies/macos-device-health.policies.yml
 - path: ../platforms/macos/policies/macos-fma-patch.policies.yml
 - path: ../platforms/macos/policies/macos-fma-install.policies.yml
+- path: ../platforms/macos/policies/macos-fleetctl.policies.yml
+- path: ../platforms/macos/policies/macos-emudhra-ca.policies.yml
 - path: ../platforms/all/policies/npm-user-npmrc-min-release-age.policies.yml
 reports:
 - path: ../platforms/all/reports/collect-usb-devices.reports.yml
@@ -38,6 +42,7 @@ reports:
 - path: ../platforms/macos/reports/collect-default-browser.reports.yml
 - path: ../platforms/macos/reports/get-thunderbolt-bus-speed.reports.yml
 - path: ../platforms/macos/reports/dex-queries.reports.yml
+- path: ../platforms/macos/reports/get-macos-patch-history.reports.yml
 agent_options:
   path: ../platforms/agent-options.yml
 settings:
@@ -49,12 +54,23 @@ settings:
     historical_data:
       vulnerabilities: true
 software:
+  # When Fleet force-patches an app that is open (policies with patch_deadline: true), it waits
+  # for this deadline and warns the user 1 hour before. Time is the host's local time.
+  patch_deadline_settings:
+    days:
+    - monday
+    - tuesday
+    - wednesday
+    - thursday
+    - friday
+    time: "17:00"
   packages:
   - path: ../platforms/macos/scripts/enable-touch-id-sudo.sh
     display_name: Enable Touch ID for sudo
     self_service: true
     categories:
     - Developer tools
+  - path: ../platforms/macos/software/fleetctl.package.yml
   fleet_maintained_apps:
   - slug: 1password/darwin
     setup_experience: false
@@ -173,9 +189,10 @@ software:
   - slug: spotify/darwin
     setup_experience: false
     self_service: true
-  - slug: steam/darwin
-    setup_experience: false
-    self_service: true
+  # Disabled until https://github.com/fleetdm/fleet/issues/57457 is fixed (installer extension too long). Re-enable after.
+  # - slug: steam/darwin
+  #   setup_experience: false
+  #   self_service: true
   - slug: sublime-text/darwin
     setup_experience: false
     self_service: true

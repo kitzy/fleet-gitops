@@ -70,7 +70,7 @@ jobs:
           FLEET_URL: op://GitHub/FleetSecrets/FLEET_URL
           FLEET_API_TOKEN: op://GitHub/FleetSecrets/FLEET_API_TOKEN
           GLOBAL_ENROLL_SECRET: op://GitHub/FleetSecrets/GLOBAL_ENROLL_SECRET
-          SSO_METADATA_URL: op://GitHub/FleetSecrets/SSO_METADATA_URL
+          SSO_METADATA: op://GitHub/FleetSecrets/SSO_METADATA
           FLEET_SERVERS_ENROLL_SECRET: op://GitHub/FleetSecrets/FLEET_SERVERS_ENROLL_SECRET
           FLEET_WORKSTATIONS_ENROLL_SECRET: op://GitHub/FleetSecrets/FLEET_WORKSTATIONS_ENROLL_SECRET
           FLEET_MOBILE_DEVICES_ENROLL_SECRET: op://GitHub/FleetSecrets/FLEET_MOBILE_DEVICES_ENROLL_SECRET
@@ -79,7 +79,9 @@ jobs:
           FLEET_SECRET_SSH_USER: op://GitHub/FleetSecrets/FLEET_SECRET_SSH_USER
           FLEET_SECRET_SSH_PUBLIC_KEY: op://GitHub/FleetSecrets/FLEET_SECRET_SSH_PUBLIC_KEY
           FLEET_VULNERABILITY_WEBHOOK_URL: op://GitHub/FleetSecrets/FLEET_VULNERABILITY_WEBHOOK_URL
-          FLEET_SECRET_CF_CLIENT_SECRET: op://GitHub/FleetSecrets/FLEET_SECRET_CF_CLIENT_SECRET
+          GOOGLE_WORKSPACE_API_KEY_JSON: op://GitHub/Fleet Google Workspace/service_account_json
+          GOOGLE_WORKSPACE_DOMAIN: op://GitHub/Fleet Google Workspace/domain
+          GOOGLE_WORKSPACE_IMPERSONATED_USER_EMAIL: op://GitHub/Fleet Google Workspace/impersonated_user_email
           
       - name: Checkout GitOps repository
         uses: actions/checkout@v6
@@ -95,7 +97,7 @@ jobs:
           FLEET_URL: ${{ steps.op-secrets.outputs.FLEET_URL }}
           FLEET_API_TOKEN: ${{ steps.op-secrets.outputs.FLEET_API_TOKEN }}
           GLOBAL_ENROLL_SECRET: ${{ steps.op-secrets.outputs.GLOBAL_ENROLL_SECRET }}
-          SSO_METADATA_URL: ${{ steps.op-secrets.outputs.SSO_METADATA_URL }}
+          SSO_METADATA: ${{ steps.op-secrets.outputs.SSO_METADATA }}
           FLEET_SERVERS_ENROLL_SECRET: ${{ steps.op-secrets.outputs.FLEET_SERVERS_ENROLL_SECRET }}
           FLEET_WORKSTATIONS_ENROLL_SECRET: ${{ steps.op-secrets.outputs.FLEET_WORKSTATIONS_ENROLL_SECRET }}
           FLEET_MOBILE_DEVICES_ENROLL_SECRET: ${{ steps.op-secrets.outputs.FLEET_MOBILE_DEVICES_ENROLL_SECRET }}
@@ -104,4 +106,6 @@ jobs:
           FLEET_SECRET_SSH_USER: ${{ steps.op-secrets.outputs.FLEET_SECRET_SSH_USER }}
           FLEET_SECRET_SSH_PUBLIC_KEY: ${{ steps.op-secrets.outputs.FLEET_SECRET_SSH_PUBLIC_KEY }}
           FLEET_VULNERABILITY_WEBHOOK_URL: ${{ steps.op-secrets.outputs.FLEET_VULNERABILITY_WEBHOOK_URL }}
-          FLEET_SECRET_CF_CLIENT_SECRET: ${{ steps.op-secrets.outputs.FLEET_SECRET_CF_CLIENT_SECRET }}
+          GOOGLE_WORKSPACE_API_KEY_JSON: ${{ steps.op-secrets.outputs.GOOGLE_WORKSPACE_API_KEY_JSON }}
+          GOOGLE_WORKSPACE_DOMAIN: ${{ steps.op-secrets.outputs.GOOGLE_WORKSPACE_DOMAIN }}
+          GOOGLE_WORKSPACE_IMPERSONATED_USER_EMAIL: ${{ steps.op-secrets.outputs.GOOGLE_WORKSPACE_IMPERSONATED_USER_EMAIL }}

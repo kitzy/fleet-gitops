@@ -57,7 +57,7 @@ The full rules for wiring a new file into a fleet — which directories auto-loa
 1. **Prerequisites**
    - `fleetctl` installed (or allow GitHub Actions to install it automatically).
    - Access to a Fleet server (`FLEET_URL`) with an API token (`FLEET_API_TOKEN`).
-   - Every other secret referenced by `${...}` in `default.yml` / `fleets/*.yml` — see the `Load secrets from 1Password` step in [.github/workflows/workflow.yml](.github/workflows/workflow.yml) for the current full list (enroll secrets per fleet, `SSO_METADATA_URL`, `FLEET_SECRET_SSH_USER`/`FLEET_SECRET_SSH_PUBLIC_KEY`, `FLEET_VULNERABILITY_WEBHOOK_URL`, etc.).
+   - Every other secret referenced by `${...}` in `default.yml` / `fleets/*.yml` — see the `Load secrets from 1Password` step in [.github/workflows/workflow.yml](.github/workflows/workflow.yml) for the current full list (enroll secrets per fleet, `SSO_METADATA`, `GOOGLE_WORKSPACE_API_KEY_JSON`, `FLEET_SECRET_SSH_USER`/`FLEET_SECRET_SSH_PUBLIC_KEY`, `FLEET_VULNERABILITY_WEBHOOK_URL`, etc.).
 
 2. **Apply configuration locally**
    ```bash
@@ -105,7 +105,7 @@ The glob `paths: ./labels/*.yml` in `default.yml` picks up every file automatica
 
 ## SSO Metadata Handling
 
-SSO is configured via a metadata **URL** rather than pasted-in metadata: `org_settings.sso_settings.metadata_url` in [default.yml](default.yml) is set to `${SSO_METADATA_URL}`, a secret holding the IdP's metadata URL. This avoids the YAML-formatting problems that come with multiline secrets. If you ever need to fall back to pasting raw metadata instead of a URL, `.github/fleet-gitops/gitops.sh` has (currently unused, commented-out) logic for re-indenting a multiline metadata secret so it stays valid YAML.
+SSO goes through Google Workspace (the custom SAML app "Fleet"; values in kitzy/homelab-gitops `google/README.md`). Google offers no metadata URL, so `org_settings.sso_settings.metadata` in [default.yml](default.yml) is `'${SSO_METADATA}'`: the IdP metadata XML stored **on one line** in 1Password (`FleetSecrets/SSO_METADATA`). fleetctl inserts environment values into the YAML text unescaped, so the value must stay on one line and contain no `'`. If Google's signing certificate is rotated, download the metadata again and store it collapsed to one line.
 
 ---
 

@@ -1,0 +1,12 @@
+# fleetctl is not in Fleet's maintained-app catalog, so it ships as a custom package of the
+# official signed installer. The version is pinned to the Fleet server version: the "Bump
+# fleetctl" workflow (.github/workflows/bump-fleetctl.yml) rewrites this file and the version in
+# macos-fleetctl.policies.yml together. Don't hand-edit one without the other.
+# Only hosts whose end user is in the Fleet Admins IdP group (the label) see it in Self-service.
+- url: https://github.com/fleetdm/fleet/releases/download/fleet-v4.95.0/fleetctl_v4.95.0_mac.pkg
+  hash_sha256: fa8651121d233461b01da531113961de3bf4ca53e66a6d9e7ce342cf6bbaecb2
+  self_service: true
+  labels_include_any:
+  - Fleet Admins
+  categories:
+  - Developer tools

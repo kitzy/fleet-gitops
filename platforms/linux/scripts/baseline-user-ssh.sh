@@ -149,8 +149,14 @@ harden_sshd_config() {
     fi
 
     if [[ "$needs_restart" == true ]]; then
-        log_info "Restarting SSH daemon"
-        systemctl restart sshd || systemctl restart ssh
+        # Restart only a running sshd. A plain restart would also START an
+        # sshd that was deliberately stopped (e.g. a host using Tailscale SSH).
+        if systemctl is-active --quiet ssh || systemctl is-active --quiet sshd; then
+            log_info "Restarting SSH daemon"
+            systemctl restart ssh 2>/dev/null || systemctl restart sshd
+        else
+            log_warn "sshd is not running; config updated but sshd left stopped"
+        fi
     else
         log_warn "No SSH configuration changes needed, skipping restart"
     fi

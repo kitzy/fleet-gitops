@@ -1,0 +1,69 @@
+name: 'Bump fleetctl'
+
+# Keeps the fleetctl custom package on the Fleet server's version. Custom packages are pinned by
+# URL and hash, so they can't float on "latest" the way Fleet-maintained apps do. This opens a PR
+# whenever the server version moves.
+#
+# One-time repo setup: Settings > Actions > General > "Allow GitHub Actions to create and approve
+# pull requests". PRs opened with GITHUB_TOKEN don't trigger the dry-run workflow; close and
+# reopen the PR (or push to its branch) to run it before merging.
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '30 6 * * *' # Daily, after the nightly GitOps apply
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Load secrets from 1Password
+        id: op-secrets
+        uses: 1password/load-secrets-action@v4
+        with:
+          export-env: false
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          FLEET_URL: op://GitHub/FleetSecrets/FLEET_URL
+          FLEET_API_TOKEN: op://GitHub/FleetSecrets/FLEET_API_TOKEN
+
+      - name: Checkout GitOps repository
+        uses: actions/checkout@v6
+
+      - name: Pin fleetctl to the server version
+        id: bump
+        env:
+          FLEET_URL: ${{ steps.op-secrets.outputs.FLEET_URL }}
+          FLEET_API_TOKEN: ${{ steps.op-secrets.outputs.FLEET_API_TOKEN }}
+        run: |
+          version="$(./.github/scripts/bump-fleetctl.sh)"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Open pull request
+        if: steps.bump.outputs.version != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.bump.outputs.version }}
+        run: |
+          branch="bump-fleetctl-$VERSION"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            echo "Branch $branch already exists; a PR is already open or was closed on purpose."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add platforms/macos/software/fleetctl.package.yml platforms/macos/policies/macos-fleetctl.policies.yml
+          git commit -m "Bump fleetctl to $VERSION"
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" \
+            --title "Bump fleetctl to $VERSION" \
+            --body "The Fleet server is on $VERSION. This pins the fleetctl package and its patch policy to match."

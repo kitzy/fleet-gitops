@@ -19,7 +19,7 @@ The **repo-specific conventions** below are always in effect.
   These globs are *scoped to the file that declares them* — the `all-macos/` globs only fire into `workstations`, not into `servers` or `mobile-devices`. To auto-load a directory into a different fleet, add the `paths:` glob to that fleet's YAML too.
 
   Every other resource type is opted in fleet-by-fleet through an explicit `path:` (or a new `paths:` glob) entry:
-  - **Policies** → under `policies:` (e.g. `- path: ../platforms/macos/policies/macos-device-health.policies.yml`)
+  - **Policies** → under `policies:` (e.g. `- path: ../platforms/macos/policies/macos-device-health.policies.yml`). **Label targeting for policies goes on each policy inside the policy file** (`labels_include_any` / `labels_exclude_any`). Fleet ignores labels on a fleet's `policies: - path:` entry, so they silently target nothing. (Reports, profiles and software *do* honor labels on their path entries.)
   - **Reports** → under `reports:`
   - **Apple configuration profiles & DDM declarations** — macOS, iOS, and iPadOS share a *single* list; Fleet routes by file contents → `controls.apple_settings.configuration_profiles:`. Declarations that apply to multiple Apple platforms are conventionally staged under `platforms/all/declaration-profiles/` so they can be referenced from any fleet (e.g. [platforms/all/declaration-profiles/disable-beta-updates-ddm.json](platforms/all/declaration-profiles/disable-beta-updates-ddm.json)).
   - **Windows configuration profiles** (`.xml`) → `controls.windows_settings.configuration_profiles:`

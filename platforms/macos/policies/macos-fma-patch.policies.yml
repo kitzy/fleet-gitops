@@ -1,3 +1,17 @@
+# Patch behavior is chosen per app by how people use it:
+#   patch_deadline         - apps people leave open all day. Installs right away when the app is
+#                            closed; if it is open, waits for the next deadline in
+#                            software.patch_deadline_settings (fleets/workstations.yml), with a
+#                            notification 1 hour and 5 minutes before. Needs Fleet Desktop (see
+#                            macos-fma-install).
+#   notify_before_patching - always-running helpers and drivers. Installs right away when the app
+#                            is closed; if it is open, shows a notification, waits 1 hour, then
+#                            installs. Needs Fleet Desktop.
+#   patch_when_closed      - apps that must never be interrupted (live shows, disk flashing,
+#                            VMs, terminals, transfers) or are opened only for a task. Silently
+#                            skips the install while the app is open.
+#   (none)                 - menu bar helpers where a relaunch goes unnoticed. Installs as soon
+#                            as the policy fails.
 - name: 1Password up to date
   type: patch
   fleet_maintained_app_slug: 1password/darwin
@@ -34,7 +48,7 @@
   fleet_maintained_app_slug: chatgpt/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - ChatGPT installed
 - name: Claude up to date
@@ -42,7 +56,7 @@
   fleet_maintained_app_slug: claude/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Claude installed
 - name: CleanShot X up to date
@@ -50,7 +64,6 @@
   fleet_maintained_app_slug: cleanshot/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
   labels_include_any:
   - CleanShot X installed
 - name: Cursor up to date
@@ -58,7 +71,7 @@
   fleet_maintained_app_slug: cursor/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Cursor installed
 - name: Discord up to date
@@ -66,7 +79,7 @@
   fleet_maintained_app_slug: discord/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Discord installed
 - name: Dante Controller up to date
@@ -82,7 +95,7 @@
   fleet_maintained_app_slug: displaylink/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  notify_before_patching: true
   labels_include_any:
   - DisplayLink installed
 - name: Docker Desktop up to date
@@ -90,7 +103,7 @@
   fleet_maintained_app_slug: docker-desktop/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Docker Desktop installed
 - name: DYMO Connect up to date
@@ -106,7 +119,7 @@
   fleet_maintained_app_slug: elgato-control-center/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  notify_before_patching: true
   labels_include_any:
   - Elgato Control Center installed
 - name: Elgato Stream Deck up to date
@@ -114,7 +127,7 @@
   fleet_maintained_app_slug: elgato-stream-deck/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  notify_before_patching: true
   labels_include_any:
   - Elgato Stream Deck installed
 - name: Fleet Desktop up to date
@@ -122,7 +135,6 @@
   fleet_maintained_app_slug: fleet-desktop/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
   labels_include_any:
   - Fleet Desktop installed
 - name: Ghostty up to date
@@ -146,7 +158,7 @@
   fleet_maintained_app_slug: google-chrome/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Google Chrome installed
 - name: Google Drive up to date
@@ -154,7 +166,6 @@
   fleet_maintained_app_slug: google-drive/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
   labels_include_any:
   - Google Drive installed
 - name: GPG Suite up to date
@@ -202,7 +213,7 @@
   fleet_maintained_app_slug: logi-options+/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  notify_before_patching: true
   labels_include_any:
   - Logi Options+ installed
 - name: MeetingBar up to date
@@ -210,7 +221,6 @@
   fleet_maintained_app_slug: meetingbar/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
   labels_include_any:
   - MeetingBar installed
 - name: Microsoft Teams up to date
@@ -218,7 +228,7 @@
   fleet_maintained_app_slug: microsoft-teams/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Microsoft Teams installed
 - name: Visual Studio Code up to date
@@ -226,7 +236,7 @@
   fleet_maintained_app_slug: visual-studio-code/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Visual Studio Code installed
 - name: Notion up to date
@@ -234,7 +244,7 @@
   fleet_maintained_app_slug: notion/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Notion installed
 - name: Ollama up to date
@@ -242,7 +252,7 @@
   fleet_maintained_app_slug: ollama/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  notify_before_patching: true
   labels_include_any:
   - Ollama installed
 - name: Postman up to date
@@ -250,12 +260,13 @@
   fleet_maintained_app_slug: postman/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Postman installed
 - name: QLab up to date
   type: patch
   fleet_maintained_app_slug: qlab/darwin
+  install_software: true
   continuous_automations_enabled: true
   patch_when_closed: true
   labels_include_any:
@@ -273,7 +284,6 @@
   fleet_maintained_app_slug: raycast/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
   labels_include_any:
   - Raycast installed
 - name: Signal up to date
@@ -281,7 +291,7 @@
   fleet_maintained_app_slug: signal/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Signal installed
 - name: Slack up to date
@@ -289,7 +299,7 @@
   fleet_maintained_app_slug: slack/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Slack installed
 - name: Spotify up to date
@@ -300,20 +310,21 @@
   patch_when_closed: true
   labels_include_any:
   - Spotify installed
-- name: Steam up to date
-  type: patch
-  fleet_maintained_app_slug: steam/darwin
-  install_software: true
-  continuous_automations_enabled: true
-  patch_when_closed: true
-  labels_include_any:
-  - Steam installed
+# Disabled until https://github.com/fleetdm/fleet/issues/57457 is fixed (installer extension too long). Re-enable after.
+# - name: Steam up to date
+#   type: patch
+#   fleet_maintained_app_slug: steam/darwin
+#   install_software: true
+#   continuous_automations_enabled: true
+#   patch_when_closed: true
+#   labels_include_any:
+#   - Steam installed
 - name: Sublime Text up to date
   type: patch
   fleet_maintained_app_slug: sublime-text/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Sublime Text installed
 - name: Suspicious Package up to date
@@ -329,7 +340,7 @@
   fleet_maintained_app_slug: tailscale-app/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  notify_before_patching: true
   labels_include_any:
   - Tailscale installed
 - name: TextExpander up to date
@@ -337,7 +348,6 @@
   fleet_maintained_app_slug: textexpander/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
   labels_include_any:
   - TextExpander installed
 - name: The Unarchiver up to date
@@ -377,7 +387,7 @@
   fleet_maintained_app_slug: whatsapp/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - WhatsApp installed
 - name: Yubico Authenticator up to date
@@ -393,6 +403,6 @@
   fleet_maintained_app_slug: zoom/darwin
   install_software: true
   continuous_automations_enabled: true
-  patch_when_closed: true
+  patch_deadline: true
   labels_include_any:
   - Zoom installed
