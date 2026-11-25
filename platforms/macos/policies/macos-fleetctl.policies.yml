@@ -6,7 +6,7 @@
   platform: darwin
   description: This policy checks that fleetctl matches the Fleet server version.
   resolution: Fleet will install the matching fleetctl package on hosts where this policy fails.
-  query: SELECT 1 FROM package_receipts WHERE package_id = 'com.fleetdm.fleetctl' AND version = '4.95.0';
+  query: SELECT 1 FROM package_receipts WHERE package_id = 'com.fleetdm.fleetctl' AND version = '4.96.0';
   continuous_automations_enabled: true
   install_software:
     package_path: ../software/fleetctl.package.yml
